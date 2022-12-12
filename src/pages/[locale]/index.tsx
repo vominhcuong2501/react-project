@@ -8,10 +8,11 @@ import {
   CACHE_HOME_METHODOLOGY_JS,
   CACHE_INTELLIGENCE_NETWORK,
 } from '@/constants';
+import { getStaticPathsConfig } from '@/constants/config';
 import { readCache } from '@/lib/readCache';
 import { MainLayout } from '@components/compound';
 import HomePage from '@containers/Home';
-import withCommon from '@hoc/withCommon';
+import withIncrementalStaticRegeneration from '@hoc/withWrapperSSR';
 import { IGetBanner, IGetInsightHome } from '@interfaces/index';
 import { setListConsultingService } from '@redux/app/slice';
 import consultingServices from '@services/consulting';
@@ -19,8 +20,8 @@ import homeService from '@services/home';
 import { coverObj } from '@utils/helpers';
 
 const Index = (props: any) => <HomePage {...props} />;
-
-export const getServerSideProps = withCommon({
+export const getStaticPaths = getStaticPathsConfig;
+export const getStaticProps = withIncrementalStaticRegeneration({
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   callback: async (store, _, region) => {
@@ -72,6 +73,7 @@ export const getServerSideProps = withCommon({
 
     return {
       props: { ...convertData },
+      revalidate: 10,
     };
   },
 });

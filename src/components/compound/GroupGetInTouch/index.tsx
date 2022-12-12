@@ -1,3 +1,4 @@
+import { useDebouncedCallback } from '@hooks/useDebouncedCallback';
 import { submitFormGetInTouchThunk, submitOtpGetInTouchThunk } from '@redux/app/thunks';
 import { useAppDispatch } from '@redux/hooks';
 import style from '@scss/components/group-get-In-touch.scss';
@@ -16,22 +17,24 @@ const defaultProps = {
 export function GroupGetInTouch({ bannerImage }: GroupGetInTouchProps) {
   const dispatch = useAppDispatch();
   const [successOtp, setSuccessOtp] = useState(false);
-  const [isValidFormField, setIsValidFormField] = useState(false);
+  const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
   const [isCodeSubmit, setIsCodeSubmit] = useState(false);
   const [currentValues, setCurrentValues] = useState<any>({});
   const [formValuesResponseSubmitData, setFormValuesResponseSubmitData] = useState<any>({});
   const [phoneOtp, setPhoneOtp] = useState({});
 
-  const handleSubmitForm = async (values) => {
+  const handleSubmitForm = useDebouncedCallback(async (values) => {
+    if (isSubmitSuccessful) return;
     const response: any = await dispatch(submitFormGetInTouchThunk(values));
     const result = response.payload.isSuccessful;
-    setIsValidFormField(!!result);
+    setIsSubmitSuccessful(!!result);
     setFormValuesResponseSubmitData(response?.payload?.leadform || null);
     setPhoneOtp(response?.payload?.leadform.phone);
     setCurrentValues(values);
-  };
+  }, 1000);
 
-  const handleSubmitVerify = async (values) => {
+  const handleSubmitVerify = useDebouncedCallback(async (values) => {
+    if (isCodeSubmit) return;
     const data = {
       ...values.split('').reduce((a, v, index) => ({ ...a, [`code_${index + 1}`]: v }), {}),
       id: formValuesResponseSubmitData?.id,
@@ -42,7 +45,7 @@ export function GroupGetInTouch({ bannerImage }: GroupGetInTouchProps) {
     const result = res.payload.isSuccessful;
     setSuccessOtp(!!(result === 'true'));
     setIsCodeSubmit(true);
-  };
+  }, 1000);
 
   const FormDescription = () => (
     <div className="ibc__img">
@@ -95,7 +98,7 @@ export function GroupGetInTouch({ bannerImage }: GroupGetInTouchProps) {
       <style jsx>{style}</style>
       <section className="ibc_touch ibc-main">
         <FormDescription />
-        {isValidFormField && !successOtp ? (
+        {isSubmitSuccessful && !successOtp ? (
           <FromValidationCode />
         ) : (
           !successOtp && <FormGetInTouch />

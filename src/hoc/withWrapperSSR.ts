@@ -1,7 +1,7 @@
-import { CACHE_FOOTER, CACHE_MENU_TOP } from '@/constants';
+import { CACHE_FOOTER, CACHE_GET_UPDATE_SECTION, CACHE_MENU_TOP } from '@/constants';
 import { readCache } from '@/lib/readCache';
-import { IGetService } from '@interfaces/index';
-import { setFooterMenu, setMenuHeader } from '@redux/app/slice';
+import { IGetInsightHome, IGetService } from '@interfaces/index';
+import { setFooterMenu, setListUpdateSectionInsights, setMenuHeader } from '@redux/app/slice';
 import { AppStore, wrapper } from '@redux/configureStore';
 import commonService from '@services/common';
 import { get } from 'lodash';
@@ -39,6 +39,12 @@ const withIncrementalStaticRegeneration = ({ callback = () => null }: GsspType) 
       locationCode: country,
     };
 
+    const reqUpdateSection: IGetInsightHome = {
+      isHome: 'Y',
+      limit: 4,
+      ...region,
+    };
+
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const result = await callback(store, ctx, region);
@@ -46,15 +52,17 @@ const withIncrementalStaticRegeneration = ({ callback = () => null }: GsspType) 
     const promises = [
       readCache(CACHE_MENU_TOP) ?? commonService.getMenuHeader(reqDataGetService),
       readCache(CACHE_FOOTER) ?? commonService.getMenuFooter(reqDataGetService),
+      readCache(CACHE_GET_UPDATE_SECTION) ?? commonService.getInsightUpdate(reqUpdateSection),
     ];
     const response: any = await Promise.allSettled(promises);
 
-    const [menuList, footerMenu] = await response.map((item) =>
+    const [menuList, footerMenu, updateSection] = await response.map((item) =>
       item.status === 'fulfilled' ? item.value ?? [] : null,
     );
 
     store.dispatch(setMenuHeader(menuList));
     store.dispatch(setFooterMenu(footerMenu));
+    store.dispatch(setListUpdateSectionInsights(updateSection));
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore

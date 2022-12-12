@@ -35,7 +35,7 @@ export default function Lastest({ listInsights }: any) {
         </div>
       </div>
       <div className="ibc-insight__lastest--list">
-        {firstData && <List data={getListInsight} keyword="{keyword} " />}
+        {firstData && <List data={getListInsight} keyword="global-trends" />}
       </div>
     </section>
   );

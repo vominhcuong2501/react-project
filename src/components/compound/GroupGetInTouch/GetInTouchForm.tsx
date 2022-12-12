@@ -3,7 +3,7 @@ import { GroupFromInput } from '@components/compound';
 import GroupPhoneNumber from '@components/compound/GroupFormControls/PhoneNumber';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useGoogleCaptcha } from '@hooks/useGoogleCaptcha';
-import { usePhoneValidation } from '@hooks/usePhoneValidation';
+import { usePhone } from '@hooks/usePhone';
 import { IGetInTouch } from '@interfaces/index';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -15,16 +15,17 @@ interface GetInTouchFormProps {
 export default function GetInTouchForm({ onSubmit }: GetInTouchFormProps) {
   const [isPhone, setIsPhone] = useState(false);
   const [phoneCountryCode, setPhoneCountryCode] = useState(null);
-  const validatePhone = usePhoneValidation();
+  const validatePhone = usePhone();
   const { handleSubmitData, valid: googleCaptchaIsValid } = useGoogleCaptcha();
+  const defaultValues = {
+    email: '',
+    name: '',
+    phone: 0,
+    enquiry: '',
+  };
 
   const form = useForm<IGetInTouch>({
-    defaultValues: {
-      email: '',
-      name: '',
-      phone: 0,
-      enquiry: '',
-    },
+    defaultValues,
     resolver: yupResolver(
       createGetInTouchSchema({
         email: 'Please enter email',
@@ -36,20 +37,22 @@ export default function GetInTouchForm({ onSubmit }: GetInTouchFormProps) {
   });
 
   const handleSubmit = async (values: IGetInTouch) => {
-    await handleSubmitData();
-    if (!googleCaptchaIsValid) return;
     if (!isPhone) {
       form.setError('phone', { type: 'custom', message: 'Phone number is invalid' });
       return;
     }
-    onSubmit({
+
+    await handleSubmitData();
+    if (!googleCaptchaIsValid) return;
+
+    await onSubmit({
       ...values,
       country_code: phoneCountryCode,
     });
   };
 
   const handlePhoneChange = (phoneNumber, country, phoneCode) => {
-    const { isValid } = validatePhone(phoneNumber, country);
+    const isValid = validatePhone(phoneNumber, country);
 
     setIsPhone(!!isValid);
     setPhoneCountryCode(phoneCode);
@@ -88,7 +91,9 @@ export default function GetInTouchForm({ onSubmit }: GetInTouchFormProps) {
           onValueChange={handlePhoneChange}
         />
         <div className=" ibc__form__box__button">
-          <button onClick={form.handleSubmit(handleSubmit)}>Submit</button>
+          <button onClick={form.handleSubmit(handleSubmit)} disabled={form.formState.isSubmitting}>
+            Submit
+          </button>
         </div>
       </form>
     </div>

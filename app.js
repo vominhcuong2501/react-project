@@ -2,17 +2,19 @@
 const express = require('express');
 const next = require('next');
 const httpProxy = require('http-proxy');
+const path = require('path');
 
-const dev = process.env.NODE_ENV !== 'production';
 const port = parseInt(process.env.PORT, 10) || 3000;
 const hostname = 'localhost';
-const app = next({ dev, hostname, port });
+const app = next({ dev: false, hostname, port });
 const handle = app.getRequestHandler();
 const routes = require('./server/routes/index');
 
 app.prepare().then(() => {
   const server = express();
   server.use(express.json());
+  server.use(express.static(path.join(__dirname, './public')));
+  server.use('/_next', express.static(path.join(__dirname, './.next')));
   server.use(express.urlencoded({ extended: false }));
 
   const proxy = httpProxy.createProxyServer();

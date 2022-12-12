@@ -26,7 +26,7 @@ export default function HomePage(props: HomePageProps) {
 
   return (
     <>
-      <HeadSEO title="oneibc homepage" {...infoPage.page}></HeadSEO>
+      {infoPage && <HeadSEO title="oneibc homepage" {...infoPage.page}></HeadSEO>}
       <main>
         <style jsx>{appStyle}</style>
         {banner && <Hero bannerList={banner} />}

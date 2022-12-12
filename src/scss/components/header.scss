@@ -25,17 +25,23 @@
     border-bottom: 1px solid $gray-3;
     backdrop-filter: blur(4px);
 
-    #{$root}__menu > ul > li > a {
-      color: #19151d;
+    #{$root}__menu > ul > li {
+      i,
+      a {
+        color: #19151d;
+      }
 
       &:hover {
-        color: $white;
+        i,
+        > a {
+          color: $white;
+        }
       }
     }
 
-    #{$root}__menu > ul > li {
-      &:hover {
-        color: $white;
+    #{$root}__button {
+      a {
+        color: $white !important;
       }
     }
   }
@@ -123,11 +129,18 @@
     background-color: $white;
     top: 7rem;
     left: 50%;
-    display: none;
     transform: translateX(-50%);
     padding: 4rem;
     border-radius: 8px;
     border: 2px solid transparent;
+
+    &--active {
+      display: block !important;
+    }
+
+    &--in-active {
+      display: none !important;
+    }
   }
 
   &__logo {

@@ -8,9 +8,10 @@ import { useState } from 'react';
 interface MegaMenuProps {
   data: any;
   name: string;
+  onMouseUp: () => void;
 }
 
-export default function MegaMenu({ data, name }: MegaMenuProps) {
+export default function MegaMenu({ data, name, onMouseUp }: MegaMenuProps) {
   const [current, setCurrent] = useState<any>(data[0] || {});
 
   return (
@@ -31,7 +32,12 @@ export default function MegaMenu({ data, name }: MegaMenuProps) {
                   className={classNames({ 'ibc-mega-menu__item--insights': name === 'Insights' })}
                 >
                   <Link href={name === 'Insights' ? '#' : `/${items.url}`}>
-                    <a onMouseEnter={() => setCurrent(items)} target="_self" title={items.name}>
+                    <a
+                      onMouseEnter={() => setCurrent(items)}
+                      target="_self"
+                      title={items.name}
+                      onClick={onMouseUp}
+                    >
                       {items.name || 'Data null'}
                     </a>
                   </Link>
@@ -63,7 +69,7 @@ export default function MegaMenu({ data, name }: MegaMenuProps) {
                           <ul>
                             <li>
                               <Link href={`/${item.url}`}>
-                                <a target="_self" title={item.name}>
+                                <a target="_self" title={item.name} onClick={onMouseUp}>
                                   {item.name}
                                 </a>
                               </Link>

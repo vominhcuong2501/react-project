@@ -14,9 +14,9 @@ export function Trending({ listInsight }: IntelligenceProps) {
       <ol className="ibc-trending__container">
         {insights?.map((item) => (
           <li className="ibc-trending__item" key={`${item.id}`.toString()}>
-            <Link href={`${INSIGHTS}/${item.keyword}`}>
+            <Link href={`/${INSIGHTS}/${item.keyword}`}>
               <a title={item.name} target="_self">
-                {item.name}
+                {item.name}sdf
               </a>
             </Link>
           </li>

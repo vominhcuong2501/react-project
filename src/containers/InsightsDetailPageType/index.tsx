@@ -7,10 +7,8 @@ import { get } from 'lodash';
 
 export default function InsightDetailPageType({ articlesInsights, configSidebar }: any) {
   const article = get(articlesInsights, 'article', null);
-  const tags = get(articlesInsights, 'article.tags', null);
+  // const tags = get(articlesInsights, 'article.tags', null);
   const relate = get(articlesInsights, 'relate', null);
-
-  console.log('configSidebar', articlesInsights);
   const getSidebarConfig = get(configSidebar, 'config.content', '');
   return (
     <>
@@ -21,9 +19,9 @@ export default function InsightDetailPageType({ articlesInsights, configSidebar 
           <section className="ibc-insight-container">
             <BreadcrumbsComponent />
             <div className="ibc-insight-swapper">
-              <div className="ibc-content-format">
+              <div className="ibc-content-insight">
                 <h1>{article?.name}</h1>
-                <ul className="ibc-content-format__tags">
+                <ul className="ibc-content-insight__tags">
                   <li>
                     <a>Operations</a>
                   </li>
@@ -37,10 +35,10 @@ export default function InsightDetailPageType({ articlesInsights, configSidebar 
                     height="435"
                     width="773"
                   />
-                  <p>{article?.metadescription}</p>
+                  <div dangerouslySetInnerHTML={{ __html: article?.content }}></div>
                 </div>
               </div>
-              <div className="ibc-insight-swapper__sidebar">
+              <div className="ibc-insight-swapper__sidebar ibc-content-format">
                 <SideBarComponent config={getSidebarConfig} relate={relate} />
               </div>
             </div>

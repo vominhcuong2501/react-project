@@ -7,6 +7,7 @@ import ButtonComponent from './Button';
 import ComponentsCareer from './ComponentsCareer';
 import ComponentsFaq from './ComponentsFaq';
 import FormModalSubscribe from './FormModalSubscribe';
+import Information from './Information';
 
 export default function GroupComponents() {
   const handleChange = (value) => value;
@@ -57,6 +58,10 @@ export default function GroupComponents() {
         </div>
 
         <ButtonComponent className="ibc-btn" />
+
+        <div>
+          <Information />
+        </div>
       </div>
     </div>
   );

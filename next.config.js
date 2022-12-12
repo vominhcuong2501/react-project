@@ -7,9 +7,7 @@ module.exports = {
   swcMinify: true,
   trailingSlash: false,
   productionBrowserSourceMaps: false,
-  scrollRestoration: true,
-  compress: false,
-  nextScriptWorkers: true,
+  compress: true,
   eslint: {
     ignoreDuringBuilds: true,
   },

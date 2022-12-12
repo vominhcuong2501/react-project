@@ -8,16 +8,18 @@ import GlobalCountry from '@svg/global-country.svg';
 import LogoOneIbcBlack from '@svg/logo-oneibc-black.svg';
 import LogoOneIbc from '@svg/logo-oneibc.svg';
 import Search from '@svg/search.svg';
+import classNames from 'classnames';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Header({ menu }: any) {
-  console.log({ menu });
   const [isShow, setIsShow] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
   const handleClose = () => setIsShow((x) => !x);
   const navRef = useRef(null);
   const mobileIconRef = useRef(null);
+  const itemMenu = useRef(null);
+  const [activeMegaMenu, setActiveMegaMenu] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,9 +60,18 @@ export default function Header({ menu }: any) {
             <ul className="ibc-nav__main-menu">
               {menu?.length > 0 &&
                 menu.map((item, index) => (
-                  <li key={`${index}`.toString()}>
+                  <li
+                    key={`${index}`.toString()}
+                    onMouseEnter={() => setActiveMegaMenu(index)}
+                    onMouseLeave={() => setActiveMegaMenu(null)}
+                  >
                     <Link className="ibc-nav__link" href={`/${item.url}`}>
-                      <a className="ibc-nav__link" target="_self" title={item.name}>
+                      <a
+                        className="ibc-nav__link"
+                        target="_self"
+                        title={item.name}
+                        onClick={() => setActiveMegaMenu(null)}
+                      >
                         <span>{item.name}</span>
                         {item.sub.length > 0 && (
                           <>
@@ -72,8 +83,18 @@ export default function Header({ menu }: any) {
                     </Link>
 
                     {item.sub.length > 0 && (
-                      <div className="ibc-nav__mega-menu">
-                        <MegaMenu data={item.sub} name={item.name} />
+                      <div
+                        className={classNames([
+                          'ibc-nav__mega-menu',
+                          { 'ibc-nav__mega-menu--in-active': index !== activeMegaMenu },
+                          { 'ibc-nav__mega-menu--active': index === activeMegaMenu },
+                        ])}
+                      >
+                        <MegaMenu
+                          data={item.sub}
+                          name={item.name}
+                          onMouseUp={() => setActiveMegaMenu(null)}
+                        />
                       </div>
                     )}
                   </li>

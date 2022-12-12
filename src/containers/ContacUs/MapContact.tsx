@@ -93,9 +93,7 @@ export default function MapContact({ countriesService, officesAllService }: Serv
               onChange={handleChangeNation}
               disabled={nations.length === 0}
             >
-              <option value="" disabled selected>
-                Select
-              </option>
+              <option>Country</option>
 
               {nationsArea.map((item) => (
                 <option key={item.id} value={item.code}>

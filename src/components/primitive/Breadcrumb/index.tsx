@@ -2,10 +2,15 @@ import { Breadcrumbs, Typography } from '@mui/material';
 import style from '@scss/components/breadcrumb.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
 const BreadcrumbsComponent = () => {
   const router = useRouter();
-  const pathnames = router.asPath.split('/').filter((x) => x);
+  const [pathnames, setPathnames] = useState([]);
+
+  useEffect(() => {
+    setPathnames(router.asPath.split('/').filter((x) => x));
+  }, [router.asPath]);
   return (
     <>
       <style jsx>{style}</style>

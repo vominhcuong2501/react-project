@@ -1,6 +1,5 @@
 import style from '@scss/components/phone-input.scss';
 import classNames from 'classnames';
-import { get } from 'lodash';
 import { Controller, UseFormReturn } from 'react-hook-form';
 import PhoneInput from 'react-phone-input-2';
 import inputStyle from 'react-phone-input-2/lib/style.css';
@@ -18,13 +17,12 @@ export default function GroupPhoneNumber(props: GroupPhoneNumberProps) {
   const { form, name, onValueChange } = props;
   const {
     formState: { errors },
+    setValue,
   } = form;
   const hasError: any = errors[name];
   const onChange = (value, geo) => {
-    const iso2 = get(geo, 'iso2', null);
-    const phoneCountryCode = get(geo, 'countryCode', null);
-    if (iso2 && value) onValueChange(value, iso2, phoneCountryCode);
-    return !hasError;
+    setValue('phone', value);
+    onValueChange(value, geo, geo.countryCode);
   };
 
   return (
@@ -42,12 +40,13 @@ export default function GroupPhoneNumber(props: GroupPhoneNumberProps) {
                 inputProps={{
                   ref,
                   required: true,
-                  autoFocus: true,
+                  autoFocus: false,
                 }}
                 specialLabel="Phone"
                 countryCodeEditable={false}
                 country="vn"
-                isValid={onChange}
+                onChange={onChange}
+                isValid={() => !hasError}
               />
               <div className="icon_phone">
                 <i className="fas fa-phone"></i>
