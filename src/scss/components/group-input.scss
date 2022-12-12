@@ -1,0 +1,27 @@
+@import '../abstracts';
+
+.ibc-group-input {
+  margin-bottom: 24px;
+
+  &__label {
+    font-size: $font-size-base;
+    margin-bottom: 8px;
+    font-weight: $font-weight-base;
+    font-style: normal;
+
+    span {
+      font-size: $font-size-base;
+      line-height: 140%;
+    }
+  }
+
+  &__error-text {
+    position: absolute;
+    bottom: 10px;
+    color: $red-2;
+    margin-top: 8px;
+    line-height: 16px;
+    font-size: $font-size-small;
+    display: block;
+  }
+}

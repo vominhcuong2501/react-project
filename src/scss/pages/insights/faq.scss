@@ -1,0 +1,42 @@
+.ibc-insightsFaq__list {
+  max-width: 1300px;
+  // border-top: 1px solid #d8d8d8;
+  margin: 0 auto;
+  padding: 60px 0;
+  @include breakpoint-down(small-laptop) {
+    padding-left: 15px;
+  }
+
+  h2 {
+    font-weight: $font-weight-medium;
+    font-size: 24px;
+    color: $black-1;
+    text-transform: uppercase;
+  }
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    :nth-child(2) {
+      a {
+        font-weight: $font-weight-base;
+        font-size: 18px;
+        line-height: 140%;
+        color: $black-1;
+        padding: 23.5px 0;
+        border-bottom: 1px solid $gray-4;
+
+        p {
+          margin-right: 20px;
+        }
+
+        &:hover {
+          color: $red-3;
+          border-bottom: 1px solid $red-4;
+        }
+      }
+    }
+  }
+}

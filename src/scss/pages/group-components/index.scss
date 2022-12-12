@@ -1,0 +1,84 @@
+@import '@scss/abstracts/';
+
+* {
+  font-size: 1.6rem;
+}
+
+.ibc-sidebar {
+  margin: 100px auto;
+  background: $white-5;
+  border-radius: 8px;
+  padding: 20px;
+  width: 307px;
+  text-align: center;
+  @include breakpoint-down(xsmallphone) {
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__header {
+    &__content {
+      background: $white;
+      padding: 20px 16px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+
+      h1 {
+        font-weight: $font-weight-light;
+        font-size: 20px;
+        line-height: 140%;
+        @include current-bg;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+
+      h3 {
+        font-weight: $font-weight-base;
+        font-size: 16px;
+        line-height: 140%;
+        color: $black-1;
+        margin-bottom: 20px;
+      }
+    }
+
+    img {
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
+
+  &__article {
+    text-align: start;
+
+    h2 {
+      font-weight: $font-weight-light;
+      font-size: 32px;
+      line-height: 120%;
+      color: $black-1;
+      padding-top: 20px;
+    }
+
+    &__item {
+      margin-top: 20px;
+
+      a {
+        font-weight: $font-weight-base;
+        font-size: 14px;
+        line-height: 140%;
+        color: $black-1;
+      }
+    }
+  }
+}
+
+.ibc-btn--medium.jsx-2591655437 {
+  width: 203px;
+  height: 46px;
+  font-size: 16px;
+  font-weight: $font-weight-base;
+}

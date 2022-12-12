@@ -1,0 +1,44 @@
+{
+  "syntax": "postcss-scss",
+  "extends": ["stylelint-config-standard", "stylelint-config-recommended-scss"],
+  "ignoreFiles": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+  "rules": {
+    "block-closing-brace-newline-after": [
+      "always",
+      {
+        "ignoreAtRules": ["if", "else"]
+      }
+    ],
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"]
+      }
+    ],
+    "max-empty-lines": 2,
+    "max-nesting-depth": 5,
+    "string-quotes": "single",
+    "value-keyword-case": "lower",
+    "value-no-vendor-prefix": true,
+    "function-url-quotes": "always",
+    "number-leading-zero": "always",
+    "declaration-no-important": null,
+    "font-weight-notation": "numeric",
+    "selector-no-vendor-prefix": true,
+    "property-no-vendor-prefix": null,
+    "no-descending-specificity": null,
+    "at-rule-empty-line-before": null,
+    "selector-no-qualifying-type": null,
+    "selector-attribute-quotes": "always",
+    "function-url-no-scheme-relative": true,
+    "declaration-empty-line-before": "never",
+    "media-feature-name-no-vendor-prefix": true,
+    "selector-pseudo-element-colon-notation": "single",
+    "font-family-name-quotes": "always-where-recommended",
+    "declaration-colon-newline-after": null,
+    "import-notation": "string",
+    "number-max-precision": null,
+    "property-no-unknown": null,
+    "selector-class-pattern": null
+  }
+}

@@ -1,0 +1,135 @@
+@import '@scss/abstracts';
+
+.ibc-sidebar {
+  background: $white-5;
+  border-radius: 8px;
+  padding: 20px;
+  width: 307px;
+  text-align: center;
+  @include breakpoint-down(xsmallphone) {
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__header {
+    &__content {
+      background: $white;
+      padding: 20px 16px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+
+      h1 {
+        font-weight: $font-weight-light;
+        font-size: 20px;
+        line-height: 140%;
+        @include current-bg;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+
+      h3 {
+        font-weight: $font-weight-base;
+        font-size: 16px;
+        line-height: 140%;
+        color: $black-1;
+        margin-bottom: 20px;
+      }
+
+      a {
+        @include current-bg;
+        padding: 1.2rem 3.35rem;
+        border-radius: 8px;
+        color: $white;
+        position: relative;
+        font-size: 1.6rem;
+
+        &:before {
+          content: url('../images/more-right2.png');
+          position: absolute;
+          right: -32px;
+          z-index: 11;
+          width: 34px;
+          height: 11px;
+          background-size: 150%;
+        }
+
+        &:after {
+          content: '';
+          top: calc(50% - 1.6rem);
+          background-color: $gray-1;
+          padding-left: 2rem;
+          text-decoration: none;
+          position: absolute;
+          left: calc(100% - $font-size-medium);
+          transform: translateY(0%);
+          border-radius: 6rem;
+          height: 3.2rem;
+          display: inline-flex;
+          align-items: center;
+          border: 1px solid $white;
+          width: 3.2rem;
+          transition: width 0.5s;
+          cursor: pointer;
+          z-index: 1;
+        }
+
+        &:hover:after {
+          width: 4.2rem;
+        }
+
+        i {
+          position: absolute;
+          left: 100%;
+          color: red;
+          z-index: 2;
+          font-size: 25px;
+          top: 50%;
+          transform: translateY(calc(-50% - 1px));
+        }
+      }
+    }
+
+    img {
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
+
+  &__article {
+    text-align: start;
+
+    h2 {
+      font-weight: $font-weight-light;
+      font-size: 32px;
+      line-height: 120%;
+      color: $black-1;
+      padding-top: 20px;
+    }
+
+    &__item {
+      margin-top: 20px;
+
+      a {
+        font-weight: $font-weight-base;
+        font-size: 14px;
+        line-height: 140%;
+        color: $black-1;
+      }
+
+      &:hover {
+        a {
+          color: $red-4;
+        }
+
+        img {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}

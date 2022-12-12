@@ -1,0 +1,32 @@
+@import '../abstracts/';
+
+.ibc-input {
+  font-size: $font-size-medium;
+  border-radius: 4px;
+  background-color: $white;
+  color: $black-1;
+  display: inline-block;
+  height: 52px;
+  padding: 0 12px;
+  border: 1px solid $white-4;
+  transition: border-color 0.15s ease-in-out;
+
+  &:hover {
+    border-color: $blue-5;
+  }
+
+  &--full {
+    display: block;
+    width: 100%;
+  }
+
+  &--error {
+    border-color: $red-1;
+  }
+}
+
+.ibc-input::placeholder {
+  font-size: $font-size-medium;
+  line-height: 150%;
+  color: $black-1;
+}

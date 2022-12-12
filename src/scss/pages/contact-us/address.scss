@@ -1,0 +1,72 @@
+/* stylelint-disable max-nesting-depth */
+@import '../../abstracts/';
+
+.ibc-contact {
+  &_list {
+    width: 100%;
+    position: relative;
+    @include breakpoint-down(desktop) {
+      width: auto;
+      max-width: 65.6rem;
+    }
+
+    &:before {
+      content: '';
+      height: 100%;
+      position: absolute;
+      border-left: 1px solid #f0f2f5;
+      left: calc(50% - 0.5px);
+      @include breakpoint-down(desktop) {
+        border-left: unset;
+      }
+    }
+
+    ul {
+      text-align: left;
+      -webkit-columns: 2;
+      columns: 2;
+      -webkit-column-gap: 5px;
+      column-gap: 80px;
+      @include breakpoint-down(desktop) {
+        columns: 1;
+      }
+    }
+
+    &_item {
+      font-weight: $font-weight-base;
+      font-size: $font-size-medium;
+      line-height: 140%;
+      display: inline-block;
+      margin-bottom: 4rem;
+
+      p {
+        display: inline-block;
+        margin-left: 0.8rem;
+      }
+
+      &_title {
+        display: flex;
+        align-items: center;
+        font-size: 2rem;
+        font-weight: $font-weight-medium;
+      }
+
+      &_address {
+        img {
+          width: 24px;
+          height: 24px;
+          object-fit: cover;
+        }
+        width: 90%;
+        display: flex;
+        margin-top: 1.7rem;
+        margin-bottom: 1.2rem;
+      }
+
+      &_time {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@import '../abstracts';
+
+.list_custom {
+  .box_list {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+
+    > div {
+      padding: 0;
+      margin-top: 32px;
+    }
+
+    .css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root:hover {
+      color: $red-3;
+    }
+  }
+
+  span {
+    font-style: normal;
+    font-weight: $font-weight-base;
+    font-size: 16px;
+    line-height: 140%;
+    color: $black-1;
+  }
+
+  .list_submenu {
+    display: block;
+    border-left: 2px solid $gray-7;
+
+    &:after {
+      content: ' ';
+      position: absolute;
+      left: -1.5px;
+      top: -50%;
+      -webkit-transform: translateY(50%);
+      -ms-transform: translateY(50%);
+      transform: translateY(50%);
+      z-index: 1;
+      height: 100%;
+      width: 3px;
+      background-color: $red-3;
+      display: none;
+      border-radius: 10px;
+    }
+
+    &:hover:after {
+      display: block;
+    }
+  }
+}

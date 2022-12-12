@@ -1,0 +1,82 @@
+@import '@scss/abstracts';
+
+.ibc-insight {
+  &__lastest {
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2rem;
+      gap: 3rem;
+
+      @include breakpoint-down(phone) {
+        flex-wrap: wrap;
+        // justify-content: center;
+      }
+    }
+
+    h1 {
+      font-weight: $font-weight-bold-md;
+      font-size: 2.4rem;
+      line-height: 140%;
+      text-transform: uppercase;
+      color: #3b3a3c;
+      margin-top: 6rem;
+    }
+
+    img {
+      width: 62rem;
+      height: 35rem;
+      border-radius: 8px;
+      object-fit: cover;
+
+      @include breakpoint-down(desktop) {
+        width: 100%;
+        // min-width: 62rem;
+      }
+    }
+
+    &__text {
+      width: calc((100% / 2) - 40px);
+
+      @include breakpoint-down(desktop) {
+        width: unset;
+        margin-top: 20px;
+      }
+
+      p {
+        &:first-child {
+          font-weight: $font-weight-base;
+          font-size: 4rem;
+          color: $black-5;
+        }
+
+        &:last-child {
+          font-size: 2rem;
+          line-height: 140%;
+          color: $black-5;
+
+          @include breakpoint-down(desktop) {
+            margin-top: 8px;
+          }
+        }
+      }
+    }
+
+    &--list {
+      margin-top: 6rem;
+    }
+
+    &__select-box {
+      display: flex;
+      justify-content: flex-start !important;
+      gap: 20px;
+    }
+  }
+}
+
+.ibc-select-box {
+  &__menu {
+    font-size: 20px;
+  }
+}

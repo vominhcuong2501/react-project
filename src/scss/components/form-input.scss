@@ -1,0 +1,72 @@
+@import '@/scss/abstracts';
+
+.ibc-input-form {
+  position: relative;
+
+  &__main {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    input {
+      width: 100%;
+      min-height: 5.2rem;
+      border-radius: 8px;
+      border: 1px solid $white-4;
+      padding: 0 10px;
+      padding-right: 5rem;
+      font-size: $font-size-medium;
+
+      &:focus {
+        border: 1px solid $blue-5;
+        outline: none;
+      }
+
+      &::placeholder {
+        color: #3b3a3c;
+        font-size: $font-size-medium;
+      }
+    }
+
+    span {
+      @include abs-center-ver;
+      font-size: 2rem;
+
+      &:first-child {
+        left: 1rem;
+      }
+
+      &:last-child {
+        right: 1rem;
+      }
+    }
+  }
+
+  &__label {
+    font-weight: $font-weight-base;
+    font-size: $font-size-base;
+    line-height: 140%;
+    margin-bottom: 8px;
+  }
+}
+
+.ibc-form-input {
+  &__error-text {
+    position: absolute;
+    line-height: 16px;
+    font-size: $font-size-base;
+    display: inline-block;
+    color: $red-4;
+  }
+}
+
+.ibc-input {
+  &--error {
+    border: 1px solid $red-4 !important;
+    background-color: unset;
+
+    &:focus {
+      background-color: unset;
+    }
+  }
+}

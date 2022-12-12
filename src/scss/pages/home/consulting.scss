@@ -1,0 +1,184 @@
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+
+.ibc-consulting {
+  z-index: -1;
+  margin: 0 auto;
+  margin-top: 7.3rem;
+  overflow: hidden;
+
+  @include breakpoint-down(desktop) {
+    margin-bottom: 6rem;
+  }
+
+  > div {
+    overflow: hidden;
+  }
+
+  .swiper {
+    overflow: unset;
+  }
+
+  .swiper-slide {
+    $root: &;
+    margin: 0;
+
+    img {
+      width: 37.1rem;
+      height: 28rem;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: grayscale(100%);
+      @include breakpoint-down(tablet) {
+        width: 223px;
+        height: 186px;
+        margin: 0 auto;
+      }
+    }
+
+    > div {
+      // mix-blend-mode: luminosity;
+    }
+  }
+
+  &__boundary {
+    width: 37.3rem;
+    position: relative;
+    height: 45rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include breakpoint-down(desktop) {
+      height: 318px;
+    }
+
+    &:before {
+      content: ' ';
+      display: block;
+      background: rgb(1 1 1 / 8%);
+      width: calc(100% + 3.2rem);
+      position: absolute;
+      top: -1.6rem;
+      height: 100%;
+      left: -1.6rem;
+      z-index: -1;
+      border-radius: 1.6rem;
+
+      @include breakpoint-down(tablet) {
+        width: calc(100%);
+        left: 0;
+      }
+    }
+  }
+
+  h2 {
+    @include current-bg;
+    font-style: normal;
+    font-weight: $font-weight-light;
+    font-size: 4.8rem;
+    line-height: 120%;
+    margin-bottom: 4rem;
+    text-align: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+    @include breakpoint-down(desktop) {
+      font-size: 32px;
+      font-weight: $font-weight-light;
+    }
+  }
+
+  &__container {
+    margin: 0 auto;
+    width: 37.3rem;
+    border: 1px solid transparent;
+    text-align: center;
+    clip-path: ellipse(460% 115% at 50% 115%);
+    position: relative;
+
+    @include breakpoint-down(desktop) {
+      clip-path: unset;
+    }
+
+    .swiper {
+      @include breakpoint-down(desktop) {
+        overflow: hidden;
+      }
+    }
+
+    .ibc-arrow {
+      &--prev {
+        position: absolute;
+        left: calc(0px - 53px - 50px);
+        bottom: -0.7rem;
+        z-index: 1;
+        transform: rotate(180deg);
+
+        @include breakpoint-down(desktop) {
+          top: 50%;
+          bottom: unset;
+          left: -40px;
+        }
+      }
+
+      &--next {
+        position: absolute;
+        left: calc(100% + 6.2rem);
+        bottom: 0;
+        z-index: 1;
+
+        @include breakpoint-down(desktop) {
+          top: 50%;
+          left: calc(100% + 12px);
+        }
+      }
+    }
+
+    h3 {
+      @include current-bg;
+      font-weight: $font-weight-light;
+      font-size: 2rem;
+      text-align: center;
+      text-transform: uppercase;
+      margin: 2rem;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+
+      @include breakpoint-down(desktop) {
+        font-size: 20px;
+      }
+    }
+
+    p {
+      width: 37.1rem;
+      height: 2.2rem;
+      font-weight: $font-weight-base;
+      font-size: 1.6rem;
+      line-height: 140%;
+      text-align: center;
+
+      @include breakpoint-down(desktop) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__description {
+    display: none;
+  }
+}
+
+.swiper-slide-active {
+  .ibc-consulting__description {
+    display: block;
+  }
+
+  img {
+    filter: unset !important;
+  }
+}

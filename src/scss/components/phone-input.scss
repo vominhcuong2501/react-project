@@ -1,0 +1,106 @@
+@import '@/scss/abstracts';
+
+.ibc-form-number {
+  position: relative;
+  margin-top: 6.1rem;
+
+  .box {
+    position: relative;
+  }
+
+  .icon_phone {
+    @include abs-center-ver;
+    right: 12px;
+
+    i {
+      font-size: 2rem;
+    }
+  }
+
+  .react-tel-input {
+    width: 100%;
+
+    .special-label {
+      display: block;
+      left: 0;
+      top: -20px;
+      font-weight: $font-weight-base;
+      font-size: $font-size-base;
+      line-height: 140%;
+      margin-bottom: 8px;
+      background-color: transparent !important;
+    }
+
+    input {
+      min-height: 5.2rem;
+      width: 100%;
+      border: 0.5px solid $white-4;
+      border-radius: 8px;
+      font-size: $font-size-medium;
+
+      &:focus {
+        border: 0.5px solid $blue-5;
+        outline: unset;
+      }
+
+      &.error {
+        border: 0.5px solid $red-4;
+        outline: unset;
+      }
+    }
+
+    .flag-dropdown.open .selected-flag {
+      background: unset;
+    }
+
+    .selected-flag:hover,
+    .selected-flag:focus {
+      background-color: unset;
+    }
+
+    .flag-dropdown {
+      border: unset;
+      background: unset;
+
+      &.open {
+        background: unset;
+      }
+
+      .selected-flag {
+        padding: 0 0 0 15px;
+
+        &:hover {
+          background: unset;
+        }
+      }
+
+      &:hover {
+        background: unset;
+      }
+
+      &:focus {
+        border: 1px solid $blue-5;
+        outline: none;
+      }
+    }
+  }
+
+  &__error {
+    &--text {
+      position: absolute;
+      line-height: 16px;
+      font-size: $font-size-base;
+      display: inline-block;
+      color: $red-4;
+    }
+  }
+
+  .react-tel-input .form-control.invalid-number {
+    border: 1px solid $red-4;
+    background-color: unset;
+
+    &:focus {
+      background-color: unset;
+    }
+  }
+}

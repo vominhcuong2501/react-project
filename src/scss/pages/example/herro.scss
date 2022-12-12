@@ -1,0 +1,17 @@
+.ibc-hero {
+  &:before {
+    position: absolute;
+    content: ' ';
+    display: block;
+    width: 50%;
+    height: calc(13rem + 1px);
+    background-color: white;
+    bottom: -1px;
+    z-index: 2;
+    transform: translateX(100%);
+
+    @include breakpoint-down(phone) {
+      display: none;
+    }
+  }
+}

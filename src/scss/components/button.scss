@@ -1,0 +1,74 @@
+@import '../abstracts/';
+
+.ibc-btn {
+  @include flex-center-hoz;
+  border: none;
+  align-items: center;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-medium;
+  height: 4.4rem;
+  background-color: $blue-1;
+  color: $white;
+  padding: 0.8rem 1.6rem;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  opacity: 1;
+  transition: opacity 0.15s ease-in-out;
+  line-height: 1;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  &--loading {
+    opacity: 0.6;
+    cursor: not-allowed;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  &__loading-icon {
+    animation: spinner 1s linear infinite forwards;
+  }
+
+  &__text {
+    display: block;
+    margin-left: 0.8rem;
+  }
+
+  &--danger {
+    border-radius: 0.8rem;
+    @include current-bg;
+  }
+
+  &--medium {
+    width: 24.8rem;
+    height: 4.9rem;
+    font-size: $font-size-large;
+    font-weight: $font-weight-base;
+  }
+
+  &--small {
+    width: 18.4rem;
+    height: 3.8rem;
+    font-size: 1.6rem;
+    font-weight: $font-weight-base;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

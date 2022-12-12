@@ -1,0 +1,53 @@
+@import '@scss/abstracts/';
+
+.ibc-btn-group {
+  position: relative;
+  width: fit-content;
+
+  &__expand {
+    background-color: $gray-1;
+    padding-left: 2rem;
+    text-decoration: none;
+    position: absolute;
+    left: calc(100% - $font-size-medium);
+    top: 0;
+    transform: translateY(25%);
+    border-radius: 6rem;
+    height: 3.2rem;
+    display: inline-flex;
+    align-items: center;
+    width: auto;
+    width: 3.2rem;
+    transition: width 0.5s;
+    cursor: pointer;
+  }
+
+  &:hover &__expand {
+    width: 6rem;
+
+    @include breakpoint-down(largedesktop) {
+      width: 6.3rem;
+    }
+  }
+
+  &__icon {
+    font-family: Roboto-Regular, sans-serif;
+    font-size: $font-size-medium;
+    margin-right: 1.5rem;
+    padding: 0 0.8rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    white-space: nowrap;
+    padding-right: 1.5rem;
+    color: transparent;
+  }
+
+  &__arrow {
+    left: 0;
+    position: absolute;
+    margin-left: 1.5rem;
+  }
+}

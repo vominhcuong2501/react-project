@@ -1,0 +1,8 @@
+@import '@scss/abstracts';
+
+.ibc-btn {
+  &__group {
+    border-radius: 8px;
+    @include current-bg;
+  }
+}

@@ -1,0 +1,10 @@
+/* stylelint-disable */
+@function breakpoint-min($value, $breakpoints: $bs-breakpoints) {
+  $min: map-get($breakpoints, $value);
+  $min: if($min != 0, $min, null);
+  @return $min;
+}
+
+@function breakpoint-prefix($value, $breakpoints: $bs-breakpoints) {
+  @return if(breakpoint-min($value, $breakpoints) == null, '', '-#{$value}');
+}

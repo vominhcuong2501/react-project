@@ -1,0 +1,73 @@
+/* stylelint-disable max-nesting-depth */
+@import '../../abstracts/';
+
+main {
+  background: $white-5;
+  overflow: hidden;
+}
+
+footer {
+  background: $white !important;
+}
+
+.ibc-contact {
+  max-width: 128.4rem;
+  padding-left: 8rem;
+  padding-top: 6.2rem;
+  padding-bottom: 6.2rem;
+  position: relative;
+  z-index: 2;
+  @include breakpoint-down(desktop) {
+    padding: 6.2rem 0;
+  }
+  @include breakpoint-down(smallphone) {
+    padding: 40px 16px;
+  }
+
+  &:after {
+    content: '';
+    background: $white;
+    height: 100%;
+    width: 370%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+}
+
+.ibc__form {
+  padding: 0 0 0 4rem !important;
+  border-left: 1px solid #f0f2f5;
+  @include breakpoint-down(desktop) {
+    padding: 0 !important;
+    flex: none;
+    order: 0;
+    padding-bottom: 4rem !important;
+    border-left: unset !important;
+  }
+
+  .ibc-input-form {
+    display: flow-root;
+    margin-top: 3.1rem;
+  }
+
+  .ibc-input-upload {
+    margin-top: 3.1rem;
+  }
+
+  .ibc-form-number {
+    margin-top: 6rem !important;
+  }
+}
+
+.call-form {
+  border: unset !important;
+  padding: 0 4rem 0 0 !important;
+  @include breakpoint-down(desktop) {
+    padding: 0 !important;
+    flex: none;
+    order: 1;
+    margin-top: 4rem;
+  }
+}

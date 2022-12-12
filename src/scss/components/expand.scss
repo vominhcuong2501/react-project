@@ -1,0 +1,49 @@
+@import '@scss/abstracts/';
+
+div {
+  @include flex-center-ver;
+  justify-content: end;
+  padding-right: 10px;
+
+  a {
+    @include current-bg;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-size: 16px;
+    position: relative;
+    display: block;
+    height: 68px;
+    line-height: 68px;
+    text-align: right;
+    margin-right: 28px;
+
+    &:before {
+      content: ' ';
+      border-radius: 50px;
+      height: 32px;
+      z-index: -1;
+      width: 32px;
+      margin: 0 1%;
+      float: left;
+      left: calc(100% + 11px);
+      position: absolute;
+      transition: width 0.5s;
+      -webkit-transition: width 0.5s;
+      text-align: center;
+      overflow: hidden;
+      background-color: $white-5;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &:hover {
+    a {
+      &:before {
+        width: 60px;
+      }
+    }
+  }
+}

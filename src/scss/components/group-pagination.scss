@@ -1,0 +1,75 @@
+.ibc-pagination {
+  // @include flex-center;
+  // font-family: $font-family-second;
+
+  &-link {
+    cursor: pointer;
+  }
+
+  &-item {
+    // @include flex-center;
+    // color: $gray;
+    font-size: 16px;
+    // font-weight: $font-weight-bold;
+    height: 21px;
+    margin: 0 3px;
+    user-select: none;
+
+    &__active {
+      // color: $black;
+    }
+  }
+
+  &-action-link {
+    // @include flex-center;
+    // font-weight: $font-weight-bold;
+  }
+
+  &-next,
+  &-previous {
+    cursor: pointer;
+
+    &.disabled {
+      // color: $gray;
+      cursor: not-allowed;
+    }
+
+    .MuiSvgIcon-root {
+      // @include square(15px);
+    }
+  }
+
+  &-break {
+    // color: $gray;
+    // font-family: $font-family-base;
+    user-select: none;
+  }
+
+  &-next {
+    margin-left: 21px;
+  }
+
+  &-previous {
+    margin-right: 21px;
+  }
+
+  // @include breakpoint-down(phone) {
+  //   &-item {
+  //     height: 40px;
+  //     margin: 0;
+  //     min-width: 34px;
+  //   }
+
+  //   &-break {
+  //     font-size: 13px;
+  //     min-width: 38px;
+  //   }
+
+  //   &-next,
+  //   &-previous {
+  //     .MuiSvgIcon-root {
+  //       @include square(21px);
+  //     }
+  //   }
+  // }
+}

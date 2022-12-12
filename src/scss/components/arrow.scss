@@ -1,0 +1,45 @@
+@import '@scss/abstracts/';
+
+.ibc-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $gray-1;
+  position: relative;
+
+  @include breakpoint-down(desktop) {
+    width: 28px;
+    height: 28px;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    &:before {
+      transform: scale(1.2);
+    }
+  }
+
+  &:before {
+    content: ' ';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: $gray-1;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    z-index: -1;
+
+    @include breakpoint-down(desktop) {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  &__svg {
+    @include abs-center;
+  }
+}

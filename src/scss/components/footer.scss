@@ -1,0 +1,147 @@
+@import '../abstracts/';
+
+.ibc {
+  color: $black-1;
+
+  &_footer {
+    padding-top: 6rem;
+    background-color: $white;
+
+    &_up {
+      @include flex-center-hoz;
+      @include breakpoint-down(phone) {
+        padding: 0 1.5rem;
+      }
+      padding-bottom: 4rem;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+    }
+  }
+
+  .row {
+    @include breakpoint-down(phone) {
+      text-align: center;
+      max-width: 65.6rem;
+      margin: 0 auto;
+    }
+    @include breakpoint-down(desktop) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  &_logo_footer {
+    margin-bottom: 4rem;
+
+    .logo {
+      span {
+        margin-top: 0.8rem;
+        display: block;
+        font-weight: $font-weight-bold-md;
+        font-size: $font-size-large;
+        color: $black-1;
+      }
+      margin-bottom: 2rem;
+    }
+
+    .social {
+      text-align: left;
+      font-size: $font-size-medium;
+
+      p {
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+      }
+
+      ul {
+        @include breakpoint-down(desktop) {
+          display: flex;
+        }
+
+        li {
+          @include breakpoint-down(desktop) {
+            flex: auto;
+            text-align: center;
+            margin-right: 0;
+          }
+          display: inline;
+          margin-right: 1.6rem;
+        }
+      }
+    }
+  }
+
+  &_menu_footer {
+    font-size: $font-size-medium;
+    font-style: normal;
+    font-weight: $font-weight-base;
+
+    h2 {
+      text-align: left;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    ul {
+      @include breakpoint-down(desktop) {
+        margin-bottom: 2rem;
+      }
+      text-align: left;
+      columns: 2;
+      column-gap: 5px;
+      list-style-type: disc;
+
+      li {
+        margin-bottom: 0.8rem;
+        margin-left: 3rem;
+
+        a {
+          line-height: 140%;
+          font-size: $font-size-medium;
+          color: $black-1;
+        }
+
+        &:hover {
+          a {
+            color: $red-3;
+          }
+        }
+      }
+    }
+  }
+
+  .col-md-3,
+  .col-md-6,
+  .col-sm-12 {
+    @include breakpoint-down(desktop) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  .copyright {
+    @include breakpoint-down(phone) {
+      padding: 16px;
+      font-size: 10px;
+    }
+    background: $white-5;
+    padding: 1.5rem 0;
+    font-size: $font-size-min;
+    text-align: center;
+
+    span {
+      @include breakpoint-up(xsmallphone) {
+        width: 100%;
+      }
+      @include breakpoint-up(desktop) {
+        width: 74rem;
+        margin-bottom: 9px;
+      }
+      display: inline-block;
+      line-height: 120%;
+      text-align: center;
+      margin-bottom: 0.9rem;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@import '@/scss/abstracts';
+
+.ibc-input-upload {
+  display: flex;
+
+  &_btn {
+    display: block;
+    background: $white-5;
+    border-radius: 8px;
+    text-align: center;
+    margin-right: 2rem;
+
+    label {
+      height: 64px;
+      cursor: pointer;
+      padding: 10px 8px;
+      font-weight: $font-weight-base;
+      font-size: 14px;
+      line-height: 140%;
+      color: $black-4;
+      margin: auto;
+      display: block;
+      width: 110px;
+
+      svg {
+        display: block;
+        margin: auto;
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  &_title {
+    width: 100;
+
+    h5 {
+      @include flex-center-ver;
+      font-weight: $font-weight-bold-md;
+      font-size: 14px;
+      line-height: 140%;
+      color: $black-1;
+    }
+
+    p {
+      font-weight: $font-weight-base;
+      font-size: 14px;
+      line-height: 140%;
+      display: flex;
+      align-items: center;
+      color: $black-1;
+    }
+  }
+}

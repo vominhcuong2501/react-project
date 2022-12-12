@@ -1,0 +1,109 @@
+/* stylelint-disable max-nesting-depth */
+@import '../../abstracts/';
+
+main {
+  background: $white-5;
+  overflow: hidden;
+}
+
+footer {
+  background: $white !important;
+}
+
+.ibc-container-content {
+  @include breakpoint-down(desktop) {
+    padding: 0;
+  }
+
+  .ibc-banner_link {
+    @include breakpoint-down(phone) {
+      display: none;
+    }
+  }
+}
+
+.ibc-make {
+  max-width: 128.4rem;
+  padding-left: 8rem;
+  padding-top: 6.2rem;
+  padding-bottom: 6.2rem;
+  position: relative;
+  z-index: 2;
+  @include breakpoint-down(desktop) {
+    padding: 6.2rem 0 0;
+  }
+
+  &:after {
+    content: '';
+    background: $white;
+    height: 100%;
+    width: 370%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+
+  &:before {
+    content: url('../images/make-an-enquiry.png');
+    background: $white;
+    position: absolute;
+    bottom: 0;
+    right: -25%;
+    @include breakpoint-down(tablet) {
+      content: url('../images/make-an-enquiry-mobile.png');
+      right: 0;
+      bottom: 8px;
+    }
+  }
+}
+
+.ibc__form {
+  @include breakpoint-down(smallphone) {
+    padding: 40px 16px;
+  }
+  width: 60%;
+  padding: 4rem !important;
+  background: $white;
+  box-shadow: 0 2px 8px rgb(91 91 91 / 20%);
+  border-radius: 20px;
+  margin-right: 6rem;
+  @include breakpoint-down(desktop) {
+    margin-right: 0;
+    width: 100% !important;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  @include breakpoint-down(mediumphone) {
+    border-bottom: 8px solid #f0f2f5;
+  }
+
+  .ibc-input-form {
+    display: flow-root;
+  }
+
+  .ibc-form-number {
+    padding-top: 0;
+  }
+}
+
+.ibc_info_form {
+  width: calc(40% - 6rem);
+  padding: 6rem 18rem;
+  @include breakpoint-down(desktop) {
+    width: 100%;
+    max-width: 65.6rem;
+  }
+}
+
+.call-form {
+  border-left: 1px solid #f0f2f5;
+  padding: 0 0 0 6rem !important;
+  @include breakpoint-down(desktop) {
+    border: none;
+  }
+  @include breakpoint-down(mediumphone) {
+    padding: 40px 16px !important;
+    border-bottom: 8px solid #f0f2f5;
+  }
+}

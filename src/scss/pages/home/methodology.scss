@@ -1,0 +1,182 @@
+.ibc-methodology {
+  overflow: hidden;
+  margin-top: 68px;
+  @include breakpoint-down(desktop) {
+    padding: 0 16px;
+  }
+
+  .title {
+    text-align: -webkit-center;
+    margin: 0 auto;
+    font-style: normal;
+    font-weight: $font-weight-base;
+    font-size: 16px;
+    line-height: 140%;
+    color: $black-1;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+      @include current-bg;
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      font-style: normal;
+      font-weight: $font-weight-light;
+      font-size: 4.8rem;
+      line-height: 120%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__slide {
+    margin: 40px;
+
+    .swiper {
+      overflow: unset;
+
+      @include breakpoint-down(desktop) {
+        overflow: hidden;
+      }
+      @include breakpoint-up(phone) {
+        text-align: left;
+      }
+
+      .swiper-slide {
+        position: relative;
+
+        &:nth-child(2n + 1):after {
+          position: absolute;
+          top: 13px;
+          left: calc(50% + 21px);
+          content: url(' ../images/left.jpg ');
+          width: 100%;
+          height: 100%;
+
+          @include breakpoint-down(tablet) {
+            left: calc(0% + 48px);
+          }
+          @include breakpoint-down(phone) {
+            left: calc(0% + 30px);
+          }
+        }
+
+        &:nth-child(2n):after {
+          position: absolute;
+          top: 13px;
+          left: calc(50% + 21px);
+          content: url('../images/right.jpg');
+          width: 100%;
+          height: 100%;
+
+          @include breakpoint-down(tablet) {
+            left: calc(0% + 48px);
+          }
+          @include breakpoint-down(phone) {
+            left: calc(0% + 30px);
+          }
+        }
+
+        &:nth-last-child(6n + 1):after {
+          content: '';
+        }
+      }
+    }
+
+    &_item {
+      &:hover &_number {
+        box-shadow: 0 0 0 8px rgb(0 189 255 / 12%);
+
+        /* Visible in Windows high-contrast themes */
+        outline-color: transparent;
+        outline-width: 8px;
+        -webkit-outline-style: dotted;
+      }
+
+      &_number {
+        @include flex-center;
+        height: 50px;
+        width: 50px;
+        background: linear-gradient(215.9deg, #00c6ff 15.48%, #0072ff 110.47%);
+        border-radius: 27.9999px;
+        // border: 8px solid $white;
+        overflow: hidden;
+        font-weight: $font-weight-bold-md;
+        font-size: 24px;
+        line-height: 140%;
+        text-align: center;
+        color: $white;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 40px;
+        @include breakpoint-up(desktop) {
+          text-align: left;
+          margin: auto;
+        }
+        @include breakpoint-down(desktop) {
+          text-align: center;
+          margin: auto;
+        }
+        @include breakpoint-down(tablet) {
+          text-align: left;
+          margin: unset;
+        }
+      }
+
+      &_text {
+        a {
+          color: #3b3a3c;
+          font-style: normal;
+          font-weight: $font-weight-bold-md;
+          font-size: 18px;
+          line-height: 140%;
+        }
+        @include breakpoint-down(desktop) {
+          text-align: left;
+        }
+
+        /* or 25px */
+        text-align: center;
+
+        &_desc {
+          @include breakpoint-down(desktop) {
+            text-align: left;
+          }
+          margin-top: 16px;
+          font-style: normal;
+          font-weight: $font-weight-base;
+          font-size: 14px;
+          line-height: 140%;
+
+          /* or 20px */
+          align-items: center;
+
+          /* Primary colors/6#3B3A3C */
+          color: #3b3a3c;
+        }
+      }
+    }
+  }
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// .width_methodology {
+//   @include breakpoint-down(phone) {
+//     max-width: 65.6rem;
+//   }
+// }

@@ -1,0 +1,164 @@
+@import '@/scss/abstracts';
+
+.ibc-faq__question-group {
+  max-width: 1300px;
+  margin: 0 auto;
+
+  &__item {
+    padding: 80px 15px 0 30px;
+
+    &__title {
+      padding: 20px;
+      background: $white-5;
+      border-radius: 20px 20px 0 0;
+      font-weight: $font-weight-light;
+      font-size: 24px;
+      line-height: 140%;
+      color: $black-1;
+      @include breakpoint-down(phone) {
+        font-size: 18px;
+      }
+    }
+
+    a {
+      font-weight: $font-weight-base;
+      font-size: 18px;
+      line-height: 140%;
+      color: $black-1;
+      padding: 23.5px 0;
+      border-bottom: 1px solid $gray-4;
+      @include breakpoint-down(phone) {
+        font-size: 14px;
+      }
+
+      p {
+        margin-right: 20px;
+      }
+
+      &:hover {
+        color: $red-3;
+        border-bottom: 1px solid $red-4;
+      }
+    }
+  }
+}
+
+.ibc-faq__operation {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 80px 15px 80px 30px;
+
+  h1 {
+    font-weight: $font-weight-light;
+    font-size: 48px;
+    line-height: 120%;
+    @include current-bg;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+
+  a {
+    font-weight: $font-weight-base;
+    font-size: 18px;
+    line-height: 140%;
+    color: $black-1;
+    padding: 23.5px 0;
+    border-bottom: 1px solid $gray-4;
+    @include breakpoint-down(phone) {
+      font-size: 14px;
+    }
+
+    p {
+      margin-right: 20px;
+    }
+
+    &:hover {
+      color: $red-3;
+      border-bottom: 1px solid $red-4;
+    }
+  }
+
+  &__sidebar {
+    max-width: 307px;
+    margin: 0 auto;
+    background: $white-5;
+    padding: 20px;
+    border-radius: 8px;
+
+    h2 {
+      font-weight: $font-weight-light;
+      font-size: 32px;
+      line-height: 120%;
+      color: $black-1;
+    }
+
+    &__item {
+      margin-top: 40px;
+
+      a {
+        border: none;
+        padding: 0;
+        font-weight: $font-weight-base;
+        font-size: 18px;
+        line-height: 140%;
+        color: $black-1;
+        text-decoration: none;
+      }
+
+      &:hover a {
+        color: $red-3;
+        border: none;
+      }
+    }
+    @include breakpoint-down(phone) {
+      display: none;
+    }
+  }
+
+  &__btn {
+    max-width: 375px;
+    margin: 0 auto;
+  }
+
+  &__btn-dropdown {
+    display: none;
+    background: $white-5;
+    padding: 5px 15px;
+
+    #arrow-up {
+      display: none;
+    }
+
+    h2 {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 140%;
+      color: $black-1;
+    }
+  }
+
+  &__group-service {
+    display: none;
+    background: $white-5;
+    padding: 15px;
+
+    a {
+      font-weight: $font-weight-light;
+      font-size: 24px;
+      line-height: 140%;
+      color: $black-1;
+
+      &:hover {
+        color: $red-3;
+      }
+    }
+  }
+
+  @include breakpoint-down(phone) {
+    &__btn-dropdown {
+      display: block;
+    }
+  }
+}

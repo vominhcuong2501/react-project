@@ -1,0 +1,153 @@
+.ibc-insight {
+  &__list {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    padding-bottom: 44px;
+    // border: 1px solid red;
+
+    @include breakpoint-down(desktop) {
+      padding-bottom: 0;
+    }
+
+    @include breakpoint-down(phone) {
+      width: 100%;
+    }
+
+    h2 {
+      font-weight: $font-weight-bold-md;
+      font-size: 24px;
+      text-transform: uppercase;
+      text-align: start;
+    }
+
+    &__swapper {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-left: -2rem;
+      margin-top: -2rem;
+      border-bottom: 1px solid $gray-4;
+      padding-bottom: 8rem;
+
+      @include breakpoint-down(phone) {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+
+    &__item {
+      padding-left: 2rem;
+      padding-top: 2rem;
+      flex-grow: 1;
+      width: calc((100% / 3));
+      max-width: calc((100% / 3));
+      @include breakpoint-down(desktop) {
+        width: calc((100% / 2));
+      }
+
+      @include breakpoint-down(phone) {
+        width: 100%;
+      }
+
+      img {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        object-fit: cover;
+        height: 18.2rem;
+        width: 100%;
+      }
+
+      @include breakpoint-down(desktop) {
+        width: calc(100% / 2);
+        max-width: calc(100% / 2);
+      }
+
+      @include breakpoint-down(phone) {
+        width: calc(100%);
+        max-width: calc(100%);
+        padding: 1.5rem 0;
+      }
+
+      div {
+        padding: 16px;
+        // width: 100%;
+        @include breakpoint-down(phone) {
+          padding: 10px;
+        }
+
+        h3 {
+          a {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 150%;
+            color: #343434;
+          }
+
+          &:hover {
+            color: #c91f26;
+          }
+        }
+
+        p {
+          font-weight: $font-weight-base;
+          font-size: 14px;
+          line-height: 140%;
+          color: #343434;
+          margin-top: 8px;
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        img {
+          opacity: 0.8;
+        }
+
+        a {
+          color: $red-4;
+        }
+      }
+    }
+  }
+
+  &__swapper {
+    border-bottom: 1px solid #d8d8d8;
+    margin-top: 60px;
+    @include breakpoint-down(phone) {
+      border-bottom: 8px solid #d8d8d8;
+    }
+
+    &--border {
+      border: unset;
+    }
+  }
+
+  // &__view-more {
+  //   margin: 0 auto;
+  //   display: none;
+  //   padding: 20px 0;
+
+  //   @include breakpoint-down(desktop) {
+  //     display: block;
+  //   }
+  // }
+
+  &__more {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    @include breakpoint-down(phone) {
+      > div {
+        display: none;
+      }
+
+      h2 {
+        padding: 20px 0;
+      }
+    }
+  }
+}

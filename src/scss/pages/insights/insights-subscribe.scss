@@ -1,0 +1,123 @@
+@import '@scss/abstracts';
+
+.bg_insights {
+  background: #f0f2f5;
+  overflow: hidden;
+  @include breakpoint-down(phone) {
+    background: $white;
+    border-bottom: 8px solid #d8d8d8;
+  }
+}
+
+.ibc-container-subcirbe {
+  @include flex-center-hoz;
+  margin: 0 auto;
+  max-width: 128.4rem;
+  @include breakpoint-down(desktop) {
+    flex-wrap: wrap;
+  }
+}
+
+.ibc-insightsSubcribe {
+  &__form {
+    width: 65%;
+    align-self: center;
+    @include breakpoint-down(desktop) {
+      width: 100%;
+      order: 1;
+      padding: 20px;
+    }
+    @include breakpoint-down(phone) {
+      text-align: center;
+    }
+
+    h1 {
+      font-weight: $font-weight-light;
+      font-size: 48px;
+      line-height: 120%;
+      @include current-bg;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      @include breakpoint-down(smallphone) {
+        font-size: 32px;
+      }
+    }
+
+    p {
+      font-weight: $font-weight-base;
+      font-size: 18px;
+      line-height: 140%;
+      color: #3b3a3c;
+      margin: 20px 0 40px;
+      @include breakpoint-down(smallphone) {
+        font-size: 14px;
+        margin: 8px 0 20px;
+      }
+    }
+
+    .ibc-insightsSubcribe-input {
+      width: 445px;
+      @include breakpoint-down(phone) {
+        margin: 0 auto;
+      }
+    }
+
+    .ibc-touch-form {
+      flex-wrap: wrap;
+      gap: 20px;
+
+      input {
+        margin-bottom: 0;
+        height: 52px;
+      }
+
+      a {
+        margin-left: 20px;
+        height: 49px;
+      }
+      @include breakpoint-down(phone) {
+        .ibc-input-form__main span:last-child {
+          right: 2rem;
+        }
+
+        .ibc-input-form__main span {
+          font-size: 2rem;
+          top: 20px;
+          position: absolute;
+        }
+      }
+
+      .ibc-insightsSubcribe-btn {
+        margin: 0 auto;
+      }
+      @include breakpoint-down(smallphone) {
+        .ibc-insightsSubcribe-btn {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+
+  &__img {
+    margin-left: auto;
+    width: 35%;
+    @include breakpoint-down(desktop) {
+      width: 100%;
+      order: 0;
+    }
+    @include breakpoint-down(phone) {
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.ibc-btn-group__expand {
+  @include breakpoint-down(desktop) {
+    top: 8px !important;
+  }
+}

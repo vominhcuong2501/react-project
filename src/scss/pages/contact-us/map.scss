@@ -1,0 +1,70 @@
+/* stylelint-disable max-nesting-depth */
+@import '../../abstracts/';
+
+.ibc-map {
+  max-width: 128.4rem;
+  padding-left: 8rem;
+  padding-top: 6.2rem;
+  padding-bottom: 6.2rem;
+  position: relative;
+  z-index: 2;
+
+  &:after {
+    content: '';
+    background: $white;
+    height: 100%;
+    width: 370%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+
+  &_title {
+    @include breakpoint-down(desktop) {
+      width: auto;
+      max-width: 65.6rem;
+    }
+    width: 100%;
+  }
+
+  &_select {
+    height: 100%;
+    width: 1600px;
+    margin: 4rem -32rem -6rem -8rem;
+  }
+}
+
+.box_select_map {
+  display: inline-block;
+  margin-right: 3rem;
+  margin-top: -3rem;
+
+  label {
+    margin-bottom: 8px;
+    font-weight: $font-weight-bold-md;
+    font-size: 16px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    color: #3b3a3c;
+  }
+
+  select {
+    padding: 16px;
+    width: 360.5px;
+    height: 54px;
+    border: 1px solid #cfcfcf;
+    border-radius: 8px;
+    font-size: 16px;
+
+    ::placeholder {
+      font-weight: $font-weight-base;
+      font-size: 16px;
+      line-height: 140%;
+      display: flex;
+      align-items: center;
+      color: #aaa;
+    }
+  }
+}

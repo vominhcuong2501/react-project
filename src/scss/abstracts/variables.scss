@@ -1,0 +1,79 @@
+$bs-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+) !default;
+
+$grid-gutter-width: 15px;
+
+// Font-weight
+$font-weight-light: 300;
+$font-weight-base: 400;
+$font-weight-bold-md: 500;
+$font-weight-medium: 600;
+$font-weight-bold: 700;
+$font-size-fit: 2.4rem;
+
+// Font-size
+$font-size-min: 1.1rem;
+$font-size-small: 1.2rem;
+$font-size-base: 1.4rem;
+$font-size-medium: 1.6rem;
+$font-size-large: 1.8rem;
+
+$font-family-base: 'Roboto', sans-serif;
+
+// colors
+$white: #fff;
+$white-1: #e5e5e5;
+$white-2: #f6f6fb;
+$white-3: #d9dbe6;
+$white-4: #cfcfcf;
+$white-5: #f0f2f5;
+$white-6: #d6d6d6;
+$white-7: #e7e7e7;
+
+$red-1: #ff4742;
+$red-2: #e52e3d;
+$red-3: #c91f26;
+$red-4: #cc1f26;
+
+$blue-1: #5245e5;
+$blue-2: linear-gradient(215.9deg, #00c6ff 15.48%, #0072ff 110.47%);
+$blue-3: #def1ff;
+$blue-4: #d2edd5;
+$blue-5: #0154b8;
+$blue-6: #30c19d;
+
+$shadow-small: 0 0.125rem 0.25rem rgb(0 0 0 / 7.5%);
+$shadow-regular: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+$shadow-large: 0 1rem 3rem rgb(0 0 0 / 17.5%);
+
+$black-1: #3b3a3c;
+$black-3: #19151d;
+$black-4: #858486;
+$black-5: #343434;
+$black-2: #605f61;
+
+$pink-1: #fff1ed;
+
+$yellow-1: #fff9e3;
+
+$gray-1: #f0f2f5;
+$gray-2: #8b8b8b;
+$gray-3: #f0f2f5;
+$gray-4: #d8d8d8;
+$gray-5: #aaa;
+$gray-6: #f0f2f5;
+$gray-7: #9c9c9c;
+$gray-8: #fbfbfb;
+$gray-9: #ccc;
+
+$green-1: #00c6ff;
+$green-2: #96c93d;
+
+$orange-1: #ff6a00;
+
+$violet-1: #8e2de2;

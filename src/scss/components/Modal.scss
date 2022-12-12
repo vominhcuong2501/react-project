@@ -1,0 +1,97 @@
+@import '../abstracts';
+
+.ibc-modal {
+  .MuiDialog-container,
+  .MuiBackdrop-root {
+    transition: none !important;
+  }
+
+  .MuiDialog-paper {
+    color: $black-1;
+    max-width: 644px;
+    width: 100%;
+
+    @include breakpoint-down(phone) {
+      height: 100%;
+      margin: 18px;
+      max-height: 628px;
+      max-width: 100%;
+    }
+
+    @media (orientation: landscape) {
+      height: auto;
+      max-height: initial;
+      min-height: auto;
+    }
+  }
+
+  .MuiDialogContent-root {
+    flex-direction: column;
+    padding: 40px 32px;
+    @include flex-center;
+  }
+
+  .MuiPaper-rounded {
+    border-radius: 10px;
+
+    @include breakpoint-down(phone) {
+      border-radius: 20px;
+    }
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: $font-weight-bold;
+    line-height: 23px;
+  }
+
+  &__content {
+    text-align: center;
+  }
+
+  &__detail {
+    font-size: 15px;
+    line-height: 22px;
+    padding: 56px 0 65px;
+
+    @include breakpoint-down(phone) {
+      padding-bottom: 160px;
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+    padding: 16px 16px 0;
+    z-index: 10;
+    @include position(absolute, null, 0, null, null);
+
+    .ibc-button {
+      margin: 0;
+      min-width: auto;
+
+      &__icon {
+        margin-left: 0;
+      }
+    }
+
+    svg {
+      fill: $black-1;
+      font-size: 32px;
+    }
+  }
+
+  &__actions {
+    @include flex-center-hoz;
+    margin-bottom: 24px;
+
+    @include breakpoint-down(phone) {
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .ibc-button {
+      max-width: 219px;
+      width: 100%;
+    }
+  }
+}

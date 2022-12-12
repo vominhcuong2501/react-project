@@ -1,0 +1,9 @@
+// stylelint-disable
+
+$positions: static, relative, absolute, fixed, sticky !default;
+
+@each $value in $positions {
+  .position-#{$value} {
+    position: $value !important;
+  }
+}

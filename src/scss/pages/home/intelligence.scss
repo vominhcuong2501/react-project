@@ -1,0 +1,106 @@
+.ibc-intelligence {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7rem;
+
+  @include breakpoint-down(desktop) {
+    align-items: center;
+    flex-direction: column;
+    padding: 0 16px;
+  }
+
+  p {
+    color: $black-1;
+    font-style: normal;
+    font-weight: $font-weight-base;
+    font-size: $font-size-large;
+    line-height: 140%;
+    align-self: stretch;
+  }
+
+  &__content {
+    @include flex-center-hoz;
+    flex-direction: column;
+
+    h1 {
+      @include current-bg;
+      font-style: normal;
+      font-weight: $font-weight-light;
+      font-size: 4.8rem;
+      line-height: 120%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+
+      @include breakpoint-down(desktop) {
+        text-align: center;
+        font-size: 32px;
+      }
+    }
+
+    > p {
+      margin-top: 2rem;
+      margin-bottom: 4rem;
+
+      @include breakpoint-down(desktop) {
+        text-align: center;
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-wrap: wrap;
+    // max-width: 75rem;
+    @include breakpoint-down(desktop) {
+      justify-content: center;
+    }
+
+    li {
+      @include flex-column;
+      width: 50%;
+
+      &:not(:first-child, :nth-child(2)) {
+        margin-top: 2rem;
+      }
+
+      h3 {
+        background: linear-gradient(225deg, #ff6a00 30%, #ee0979 100%);
+        font-style: normal;
+        font-weight: 600;
+        font-size: 4.8rem;
+        line-height: 120%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+
+      p {
+        font-size: 2rem;
+        max-width: 30rem;
+
+        @include breakpoint-down(desktop) {
+          text-align: unset;
+        }
+
+        @include breakpoint-down(phone) {
+          max-width: 166px;
+        }
+      }
+    }
+  }
+
+  img {
+    width: 60rem;
+    height: 60rem;
+    @include breakpoint-down(desktop) {
+      text-align: center;
+      width: 310px;
+      height: 324px;
+      margin-top: 20px;
+    }
+  }
+}

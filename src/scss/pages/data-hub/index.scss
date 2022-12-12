@@ -1,0 +1,114 @@
+@import '@scss/abstracts';
+
+.ibc-data-hub {
+  max-width: 1300px;
+  background: $gray-3;
+  border-radius: 6px;
+  padding: 24.5px 40px;
+  margin: 60px auto;
+
+  &__content {
+    color: $black-1;
+
+    h2 {
+      font-weight: $font-weight-bold-md;
+      font-size: 20px;
+      line-height: 140%;
+      margin-left: 12px;
+    }
+
+    h1 {
+      font-weight: $font-weight-bold-md;
+      font-size: 40px;
+      line-height: 120%;
+      margin: 20px 0 8px;
+      @include breakpoint-down(smallphone) {
+        font-size: 16px;
+        margin: 10px 0 8px;
+      }
+    }
+
+    p {
+      font-weight: $font-weight-base;
+      font-size: 16px;
+      line-height: 140%;
+      @include breakpoint-down(smallphone) {
+        font-size: 14px;
+      }
+    }
+  }
+  @include breakpoint-down(phone) {
+    padding: 18px 16px;
+  }
+  @include breakpoint-down(smallphone) {
+    flex-wrap: wrap;
+    margin: 0 15px;
+  }
+
+  &__img {
+    background: $white;
+    border-radius: 8px;
+
+    &__download {
+      display: none;
+    }
+    @include breakpoint-down(smallphone) {
+      margin-top: 20px;
+
+      &__download {
+        display: block;
+        @include breakpoint-down(smallphone) {
+          width: 100%;
+        }
+      }
+
+      img {
+        width: 140px;
+        height: 140px;
+        border-radius: 8px;
+      }
+    }
+  }
+}
+
+.button_update {
+  margin-top: 20px !important;
+  background: linear-gradient(225deg, #ff6a00, #ee0979);
+  padding: 1px;
+  border-radius: 8px;
+  margin-right: 20px;
+  width: 178px;
+  @include breakpoint-down(smallphone) {
+    display: none;
+  }
+}
+
+.button_update .ibc__form__box__button {
+  transform: translateY(0%);
+  background: $white-5;
+  border-radius: 8px;
+  @include flex-center;
+}
+
+.button_update .ibc__form__box__button button {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.ibc__form__box__button button {
+  height: 4.9rem;
+  @include current-bg;
+  font-weight: $font-weight-base;
+  font-size: 18px;
+  line-height: 140%;
+  border: none;
+  cursor: pointer;
+
+  img {
+    margin-right: 5px;
+  }
+}
+
+.ibc-btn__data-hub {
+  border: 1px solid red;
+}
