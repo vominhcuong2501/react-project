@@ -19,8 +19,12 @@
 }
 
 .ibc-insightsSubcribe {
+  position: relative;
+
   &__form {
     width: 65%;
+    // border: 1px solid red;
+    padding: 0 30px 0 0;
     align-self: center;
     @include breakpoint-down(desktop) {
       width: 100%;
@@ -31,7 +35,7 @@
       text-align: center;
     }
 
-    h1 {
+    h2 {
       font-weight: $font-weight-light;
       font-size: 48px;
       line-height: 120%;
@@ -42,6 +46,7 @@
       text-fill-color: transparent;
       @include breakpoint-down(smallphone) {
         font-size: 32px;
+        padding: 0 60px;
       }
     }
 
@@ -49,7 +54,7 @@
       font-weight: $font-weight-base;
       font-size: 18px;
       line-height: 140%;
-      color: #3b3a3c;
+      color: $black-1;
       margin: 20px 0 40px;
       @include breakpoint-down(smallphone) {
         font-size: 14px;
@@ -58,15 +63,21 @@
     }
 
     .ibc-insightsSubcribe-input {
-      width: 445px;
+      max-width: 445px;
+      flex: 1;
+
       @include breakpoint-down(phone) {
         margin: 0 auto;
+        max-width: unset;
+        width: 100%;
       }
     }
 
     .ibc-touch-form {
       flex-wrap: wrap;
-      gap: 20px;
+      // gap: 20px;
+      // border: 1px solid red;
+      max-width: 1300px;
 
       input {
         margin-bottom: 0;
@@ -76,26 +87,38 @@
       a {
         margin-left: 20px;
         height: 49px;
+        @include breakpoint-down(phone) {
+          margin-left: -35px;
+        }
       }
+
       @include breakpoint-down(phone) {
+        flex-direction: column;
+
         .ibc-input-form__main span:last-child {
           right: 2rem;
         }
 
         .ibc-input-form__main span {
           font-size: 2rem;
-          top: 20px;
           position: absolute;
+        }
+
+        .ibc-insightsSubcribe-btn {
+          margin: 40px 0 20px;
         }
       }
 
-      .ibc-insightsSubcribe-btn {
-        margin: 0 auto;
+      // .ibc-insightsSubcribe-btn {
+      //   margin: 0 auto;
+      // }
+
+      .ibc-custom-btn:before {
+        background: $white;
       }
-      @include breakpoint-down(smallphone) {
-        .ibc-insightsSubcribe-btn {
-          margin-top: 20px;
-        }
+
+      .ibc-custom-btn:hover:before {
+        background: $gray-1;
       }
     }
   }
@@ -114,10 +137,191 @@
       }
     }
   }
+
+  .ibc-subscribe-success {
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    left: 30%;
+    transform: translate(-50%, -50%);
+
+    h2 {
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 140%;
+      color: $black-1;
+      margin-top: 20px;
+    }
+  }
+
+  .ibc-btn-wrapper .ibc-custom-btn {
+    padding: 14px 46px;
+    @include breakpoint-down(phone) {
+      padding: 14px 50px;
+    }
+  }
 }
 
-.ibc-btn-group__expand {
-  @include breakpoint-down(desktop) {
-    top: 8px !important;
+.ibc-form-input__error-text {
+  left: 0;
+}
+
+.ibc__form__box__button {
+  text-transform: uppercase;
+  color: $white;
+  font-weight: $font-weight-base;
+  font-style: normal;
+  padding-right: 0;
+  transform: translateY(0%);
+  transition: width 0.5s;
+  cursor: pointer;
+  display: flex;
+  text-align: center;
+  width: 28.8rem;
+  margin: auto;
+  margin-top: 4.8rem;
+  height: 4.9rem;
+  border: 1px solid transparent;
+  @include breakpoint-down(phone) {
+    height: 46px;
+    width: 100%;
+  }
+  border-radius: 8px;
+
+  @include current-bg;
+
+  &:hover {
+    &:after {
+      content: '';
+      position: absolute;
+      width: 28.6rem;
+      margin: auto;
+      background: #fff;
+      height: 4.7rem;
+      border-radius: 8px;
+      z-index: -1;
+      @include breakpoint-down(phone) {
+        height: 44px;
+      }
+    }
+  }
+
+  button {
+    background: #fff;
+    border-radius: 8px;
+    text-transform: uppercase;
+    width: 28.8rem;
+    height: 4.9rem;
+    @include current-bg;
+    color: $white;
+    font-size: $font-size-medium;
+    border: none;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    cursor: pointer;
+    z-index: 10;
+
+    &:hover {
+      background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+
+    &:disabled {
+      background: #fff;
+      color: #aaa;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+
+      &:hover {
+        -webkit-text-fill-color: unset;
+      }
+
+      :before {
+        content: url('../images/disabled-btn.png');
+        position: absolute;
+        right: -32px;
+        z-index: 11;
+        width: 34px;
+        height: 11px;
+        background-size: 150%;
+      }
+
+      &:hover:after {
+        width: 3.2rem;
+        @include breakpoint-down(phone) {
+          width: 32px;
+        }
+      }
+    }
+
+    &:before {
+      content: url('../images/more-right2.png');
+      position: absolute;
+      right: -32px;
+      z-index: 11;
+      width: 34px;
+      height: 11px;
+      background-size: 150%;
+    }
+    @include breakpoint-down(phone) {
+      height: 46px;
+      font-size: 16px;
+      width: 100%;
+      margin-right: 34px;
+    }
+
+    &:after {
+      content: '';
+      top: calc(50% - 1.7rem);
+      background-color: $white-5;
+      padding-left: 2rem;
+      text-decoration: none;
+      position: absolute;
+      left: calc(100% - $font-size-medium);
+      transform: translateY(0%);
+      border-radius: 6rem;
+      height: 3.2rem;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid $white;
+      width: 3.2rem;
+      transition: width 0.5s;
+      cursor: pointer;
+      z-index: 1;
+
+      @include breakpoint-down(phone) {
+        width: 32px;
+        height: 32px;
+        top: calc(50% - 2.4rem);
+      }
+    }
+
+    &:hover:after {
+      width: 6rem;
+
+      @include breakpoint-down(largedesktop) {
+        width: 6.3rem;
+      }
+
+      @include breakpoint-down(phone) {
+        width: 50px;
+      }
+    }
+  }
+}
+
+.disabledtrue {
+  background: unset;
+  cursor: unset !important;
+
+  &:hover {
+    background: unset;
+    @include breakpoint-down(phone) {
+      height: 44px;
+    }
   }
 }

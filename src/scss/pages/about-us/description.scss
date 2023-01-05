@@ -1,0 +1,36 @@
+.ibc-about-us__about-us {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 60px 0;
+  @include breakpoint-down(phone) {
+    padding: 60px 15px;
+  }
+
+  h1 {
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 120%;
+    background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    @include breakpoint-down(phone) {
+      text-align: center;
+      font-size: 32px;
+    }
+  }
+
+  &__content {
+    border-left: 1px solid $red-2;
+    padding: 0 15px;
+    margin-top: 20px;
+
+    p {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 140%;
+      color: $black-1;
+    }
+  }
+}

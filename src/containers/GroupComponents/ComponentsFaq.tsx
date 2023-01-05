@@ -32,7 +32,7 @@ export default function ComponentsFaq() {
               <h1>Most Asked Questions</h1>
             </div>
             <a
-              href="#"
+              href="/404"
               target="_self"
               className="d-flex justify-content-between align-items-center"
             >
@@ -40,7 +40,7 @@ export default function ComponentsFaq() {
               <i className="fa-light fa-arrow-right-long"></i>
             </a>
             <a
-              href="#"
+              href="/404"
               target="_self"
               className="d-flex justify-content-between align-items-center"
             >
@@ -51,7 +51,7 @@ export default function ComponentsFaq() {
               <i className="fa-light fa-arrow-right-long"></i>
             </a>
             <a
-              href="#"
+              href="/404"
               target="_self"
               className="d-flex justify-content-between align-items-center"
             >
@@ -59,7 +59,7 @@ export default function ComponentsFaq() {
               <i className="fa-light fa-arrow-right-long"></i>
             </a>
             <a
-              href="#"
+              href="/404"
               target="_self"
               className="d-flex justify-content-between align-items-center"
             >
@@ -67,7 +67,7 @@ export default function ComponentsFaq() {
               <i className="fa-light fa-arrow-right-long"></i>
             </a>
             <a
-              href="#"
+              href="/404"
               target="_self"
               className="d-flex justify-content-between align-items-center"
             >
@@ -83,7 +83,7 @@ export default function ComponentsFaq() {
           <div className="col-md-6 col-12">
             <h1>Most Asked Questions</h1>
             <a
-              href="#"
+              href="/404"
               target="_self"
               className="d-flex justify-content-between align-items-center"
             >
@@ -91,7 +91,7 @@ export default function ComponentsFaq() {
               <i className="fa-light fa-arrow-right-long"></i>
             </a>
             <a
-              href="#"
+              href="/404"
               target="_self"
               className="d-flex justify-content-between align-items-center"
             >
@@ -102,7 +102,7 @@ export default function ComponentsFaq() {
               <i className="fa-light fa-arrow-right-long"></i>
             </a>
             <a
-              href="#"
+              href="/404"
               target="_self"
               className="d-flex justify-content-between align-items-center"
             >
@@ -110,7 +110,7 @@ export default function ComponentsFaq() {
               <i className="fa-light fa-arrow-right-long"></i>
             </a>
             <a
-              href="#"
+              href="/404"
               target="_self"
               className="d-flex justify-content-between align-items-center"
             >
@@ -118,7 +118,7 @@ export default function ComponentsFaq() {
               <i className="fa-light fa-arrow-right-long"></i>
             </a>
             <a
-              href="#"
+              href="/404"
               target="_self"
               className="d-flex justify-content-between align-items-center"
             >
@@ -129,32 +129,32 @@ export default function ComponentsFaq() {
           <div className="col-md-6 col-12 ibc-faq__operation__sidebar">
             <h2>Services</h2>
             <div className="ibc-faq__operation__sidebar__item">
-              <a href="#" target="_self">
+              <a href="/404" target="_self">
                 Strategy
               </a>
             </div>
             <div className="ibc-faq__operation__sidebar__item">
-              <a href="#" target="_self">
+              <a href="/404" target="_self">
                 People & Organizational Performance
               </a>
             </div>
             <div className="ibc-faq__operation__sidebar__item">
-              <a href="#" target="_self">
+              <a href="/404" target="_self">
                 Governance, Risk & Compliance
               </a>
             </div>
             <div className="ibc-faq__operation__sidebar__item">
-              <a href="#" target="_self">
+              <a href="/404" target="_self">
                 Wealth & Asset Management
               </a>
             </div>
             <div className="ibc-faq__operation__sidebar__item">
-              <a href="#" target="_self">
+              <a href="/404" target="_self">
                 Corporate Finance
               </a>
             </div>
             <div className="ibc-faq__operation__sidebar__item">
-              <a href="#" target="_self">
+              <a href="/404" target="_self">
                 Digital Transformation
               </a>
             </div>
@@ -176,32 +176,32 @@ export default function ComponentsFaq() {
         </div>
         <div id="ibc-faq__operation__group-service" className="ibc-faq__operation__group-service">
           <div className="ibc-faq__operation__group-service__item">
-            <a href="#" target="_self">
+            <a href="/404" target="_self">
               Strategy
             </a>
           </div>
           <div className="ibc-faq__operation__group-service__item">
-            <a href="#" target="_self">
+            <a href="/404" target="_self">
               People & Organizational Performance
             </a>
           </div>
           <div className="ibc-faq__operation__group-service__item">
-            <a href="#" target="_self">
+            <a href="/404" target="_self">
               Governance, Risk & Compliance
             </a>
           </div>
           <div className="ibc-faq__operation__group-service__item">
-            <a href="#" target="_self">
+            <a href="/404" target="_self">
               Wealth & Asset Management
             </a>
           </div>
           <div className="ibc-faq__operation__group-service__item">
-            <a href="#" target="_self">
+            <a href="/404" target="_self">
               Corporate Finance
             </a>
           </div>
           <div className="ibc-faq__operation__group-service__item">
-            <a href="#" target="_self">
+            <a href="/404" target="_self">
               Digital Transformation
             </a>
           </div>

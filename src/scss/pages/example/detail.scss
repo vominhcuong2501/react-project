@@ -92,7 +92,7 @@
       font-weight: $font-weight-base;
       font-size: 1.6rem;
       line-height: 140%;
-      color: #3b3a3c;
+      color: $black-1;
       text-align: start;
 
       @include breakpoint-down(desktop) {
@@ -104,8 +104,8 @@
         line-height: 140%;
         text-align: center;
 
-        /* Primary colors/6#3B3A3C */
-        color: #3b3a3c;
+        /* Primary colors/6$black-1 */
+        color: $black-1;
 
         /* Inside auto layout */
         flex: none;

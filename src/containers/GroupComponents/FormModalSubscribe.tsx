@@ -52,7 +52,7 @@ export default function FormModalSubscribe() {
                   variant="danger"
                   size="medium"
                   className="ibc-hero__button"
-                  href="#"
+                  href="/404"
                 />
               </div>
             </div>

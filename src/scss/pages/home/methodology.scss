@@ -13,6 +13,9 @@
     font-size: 16px;
     line-height: 140%;
     color: $black-1;
+    @include breakpoint-down(desktop) {
+      font-size: 14px;
+    }
   }
 
   &__description {
@@ -35,13 +38,11 @@
 
   &__slide {
     margin: 40px;
+    margin-bottom: 50px;
 
     .swiper {
       overflow: unset;
 
-      @include breakpoint-down(desktop) {
-        overflow: hidden;
-      }
       @include breakpoint-up(phone) {
         text-align: left;
       }
@@ -49,117 +50,241 @@
       .swiper-slide {
         position: relative;
 
-        &:nth-child(2n + 1):after {
-          position: absolute;
-          top: 13px;
-          left: calc(50% + 21px);
-          content: url(' ../images/left.jpg ');
-          width: 100%;
-          height: 100%;
-
-          @include breakpoint-down(tablet) {
-            left: calc(0% + 48px);
-          }
-          @include breakpoint-down(phone) {
-            left: calc(0% + 30px);
-          }
-        }
-
-        &:nth-child(2n):after {
-          position: absolute;
-          top: 13px;
-          left: calc(50% + 21px);
-          content: url('../images/right.jpg');
-          width: 100%;
-          height: 100%;
-
-          @include breakpoint-down(tablet) {
-            left: calc(0% + 48px);
-          }
-          @include breakpoint-down(phone) {
-            left: calc(0% + 30px);
-          }
-        }
-
-        &:nth-last-child(6n + 1):after {
+        &:nth-child(1):before {
           content: '';
+          position: absolute;
+          right: -50%;
+          top: 0;
+          height: 50px;
+          width: 100%;
+          animation: slideshow 1s linear forwards;
+          background-color: #fff;
+          z-index: 1;
+          animation-delay: 3s;
+        }
+
+        &:nth-child(2):before {
+          content: '';
+          position: absolute;
+          right: -50%;
+          top: 50px;
+          height: 50px;
+          width: 100%;
+          animation: slideshow 1s linear forwards;
+          background-color: #fff;
+          z-index: 1;
+          animation-delay: 4s;
+        }
+
+        &:nth-child(3):before {
+          content: '';
+          position: absolute;
+          right: -50%;
+          top: 50px;
+          height: 50px;
+          width: 100%;
+          animation: slideshow 1s linear forwards;
+          background-color: #fff;
+          z-index: 1;
+          animation-delay: 5s;
+        }
+
+        &:nth-child(4):before {
+          content: '';
+          position: absolute;
+          right: -50%;
+          top: 50px;
+          height: 50px;
+          width: 100%;
+          animation: slideshow 1s linear forwards;
+          background-color: #fff;
+          z-index: 1;
+          animation-delay: 6s;
+        }
+
+        &:nth-child(5):before {
+          content: '';
+          position: absolute;
+          right: -50%;
+          top: 50px;
+          height: 50px;
+          width: 100%;
+          animation: slideshow 1s linear forwards;
+          background-color: #fff;
+          z-index: 1;
+          animation-delay: 7s;
+        }
+
+        &:nth-child(6):before {
+          content: '';
+          position: absolute;
+          right: -50%;
+          top: 50px;
+          height: 50px;
+          width: 100%;
+          animation: slideshow 1s linear forwards;
+          background-color: #fff;
+          z-index: 1;
+          animation-delay: 8s;
+        }
+
+        &:last-child {
+          .ibc-methodology__slide_item_news_box_number:after {
+            content: '';
+          }
         }
       }
     }
 
-    &_item {
-      &:hover &_number {
-        box-shadow: 0 0 0 8px rgb(0 189 255 / 12%);
-
-        /* Visible in Windows high-contrast themes */
-        outline-color: transparent;
-        outline-width: 8px;
-        -webkit-outline-style: dotted;
+    &_item_news {
+      position: relative;
+      height: 300px;
+      @include breakpoint-down(phone) {
+        height: 340px;
       }
 
-      &_number {
-        @include flex-center;
-        height: 50px;
-        width: 50px;
-        background: linear-gradient(215.9deg, #00c6ff 15.48%, #0072ff 110.47%);
-        border-radius: 27.9999px;
-        // border: 8px solid $white;
-        overflow: hidden;
-        font-weight: $font-weight-bold-md;
-        font-size: 24px;
-        line-height: 140%;
-        text-align: center;
-        color: $white;
-        position: relative;
-        z-index: 1;
-        margin-bottom: 40px;
-        @include breakpoint-up(desktop) {
-          text-align: left;
-          margin: auto;
-        }
-        @include breakpoint-down(desktop) {
+      &_box_text {
+        position: absolute;
+        top: 100px;
+        width: 100%;
+
+        span {
+          display: block;
+          width: 100%;
           text-align: center;
-          margin: auto;
-        }
-        @include breakpoint-down(tablet) {
-          text-align: left;
-          margin: unset;
-        }
-      }
-
-      &_text {
-        a {
-          color: #3b3a3c;
           font-style: normal;
           font-weight: $font-weight-bold-md;
           font-size: 18px;
           line-height: 140%;
-        }
-        @include breakpoint-down(desktop) {
-          text-align: left;
+          transition: 0.5s;
+          margin-top: 50px;
         }
 
-        /* or 25px */
-        text-align: center;
+        &_text {
+          z-index: -1;
+          transition: 0.5s;
+          transform: translateY(100%);
+          position: relative;
+          margin-top: 10px;
+          display: flex;
+          width: 100%;
+          align-items: end;
 
-        &_desc {
           @include breakpoint-down(desktop) {
             text-align: left;
           }
-          margin-top: 16px;
-          font-style: normal;
-          font-weight: $font-weight-base;
-          font-size: 14px;
+          @include breakpoint-down(desktop) {
+            margin-top: 20px;
+          }
+
+          &_desc {
+            overflow: hidden;
+            display: none;
+            width: 300px;
+            font-style: normal;
+            font-weight: $font-weight-base;
+            font-size: 14px;
+            line-height: 140%;
+            text-align: center;
+            margin: auto;
+            align-items: center;
+            color: $black-1;
+            @include breakpoint-down(desktop) {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      &_box_number {
+        position: absolute;
+        top: 0;
+        left: calc(50% - 25px);
+        height: 100px;
+        width: 100%;
+
+        &:after {
+          z-index: 0;
+          position: absolute;
+          bottom: 0;
+          content: url(' ../images/left.jpg ');
+          width: 100%;
+
+          @include breakpoint-down(tablet) {
+            left: calc(0% + 48px);
+          }
+          @include breakpoint-down(phone) {
+            left: calc(0% + 30px);
+          }
+        }
+
+        &:hover &_number {
+          box-shadow: 0 0 0 8px rgb(0 189 255 / 12%);
+          outline-color: transparent;
+          outline-width: 8px;
+          -webkit-outline-style: dotted;
+        }
+
+        &_number {
+          @include flex-center;
+          height: 50px;
+          width: 50px;
+          background: linear-gradient(215.9deg, #00c6ff 15.48%, #0072ff 110.47%);
+          border-radius: 50%;
+          overflow: hidden;
+          font-weight: $font-weight-bold-md;
+          font-size: 24px;
           line-height: 140%;
-
-          /* or 20px */
-          align-items: center;
-
-          /* Primary colors/6#3B3A3C */
-          color: #3b3a3c;
+          text-align: center;
+          color: $white;
+          position: absolute;
+          bottom: 0;
+          z-index: 1;
+          margin-bottom: 40px;
+          transition: 0.5s;
+          animation-name: numberanimation;
+          @include breakpoint-up(desktop) {
+            text-align: left;
+            margin: auto;
+            margin-top: 20px;
+          }
+          @include breakpoint-down(desktop) {
+            text-align: center;
+            margin: auto;
+            margin-top: 30px;
+          }
+          @include breakpoint-down(tablet) {
+            text-align: left;
+            margin: unset;
+            margin-top: 30px;
+          }
         }
       }
     }
+  }
+}
+
+.swiper-slide-active {
+  .ibc-methodology__slide_item_news_box_number_number {
+    left: -15px;
+    margin-top: unset;
+    height: 68px;
+    width: 68px;
+    font-size: 3.5rem;
+    box-shadow: 0 0 0 8px rgb(0 189 255 / 12%);
+    outline-color: transparent;
+    outline-width: 8px;
+    -webkit-outline-style: dotted;
+    transform: translateY(0);
+  }
+
+  .ibc-methodology__slide_item_news_box_text_text {
+    &_desc {
+      display: block;
+      transform: translateY(0);
+    }
+    display: block;
+    transform: translateY(0);
   }
 }
 
@@ -175,8 +300,54 @@
   object-fit: cover;
 }
 
-// .width_methodology {
-//   @include breakpoint-down(phone) {
-//     max-width: 65.6rem;
-//   }
-// }
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: $white-8;
+  display: block;
+}
+
+.width_methodology {
+  position: relative;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #0072ff;
+  display: block;
+}
+
+.slider__pagination {
+  gap: 8px;
+  justify-content: center;
+  position: absolute;
+  bottom: -50px;
+  @include abs-center-hoz;
+  display: flex;
+  @include breakpoint-down(desktop) {
+    display: flex;
+    bottom: 20px;
+  }
+  @include breakpoint-down(phone) {
+    display: flex;
+    bottom: 5px;
+  }
+}
+
+.swiper-wrapper {
+  cursor: unset !important;
+}
+
+.box {
+  position: relative;
+}
+
+@keyframes slideshow {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+  }
+}

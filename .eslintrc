@@ -22,10 +22,11 @@
     "jest": true
   },
   "rules": {
+    "array-callback-return": "off",
     "prefer-const": "off",
     "react/function-component-definition": "off",
     "@typescript-eslint/camelcase": "off",
-    "@typescript-eslint/ban-types": "error",
+    "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/ban-ts-ignore": "off",
     "@typescript-eslint/no-namespace": "error",
     "@typescript-eslint/no-this-alias": "error",

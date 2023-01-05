@@ -37,6 +37,12 @@
     },
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/containers/Search/Search.js",
+    "src/containers/Search/index.js"
+  ],
   "exclude": ["node_modules", "assets"]
 }

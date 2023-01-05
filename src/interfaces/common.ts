@@ -52,3 +52,30 @@ export interface UpdateSection extends ResponseAPI {
     insightSummary: string;
   }[];
 }
+
+export interface IHeader {
+  name: string;
+  url: string;
+  sub: {
+    name: string;
+    url: string;
+    summary: string;
+    sub: {
+      name: string;
+      url: string;
+      icon: string;
+    }[];
+  }[];
+}
+
+export interface IListInsightsUpdate extends ResponseAPI {
+  insights: {
+    id: number;
+    type_id: number;
+    name: string;
+    keyword: string;
+    icon: string;
+    summary: string;
+    type_keyword: string;
+  }[];
+}

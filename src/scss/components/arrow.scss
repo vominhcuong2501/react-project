@@ -4,7 +4,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: $gray-1;
+  background-color: $white-5;
   position: relative;
 
   @include breakpoint-down(desktop) {
@@ -25,7 +25,7 @@
     position: absolute;
     width: 40px;
     height: 40px;
-    background-color: $gray-1;
+    background-color: $white-5;
     left: 0;
     top: 0;
     bottom: 0;

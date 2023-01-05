@@ -21,3 +21,15 @@ export const selectServices = createSelector([selectAppSate], (state) =>
 export const selectUpdateSection = createSelector([selectAppSate], (state) =>
   get(state, 'listUpdateSectionInsights', []),
 );
+
+export const selectFooterConfig = createSelector([selectAppSate], (state) =>
+  get(state, 'footerConfig', []),
+);
+
+export const getFooterConfig = createSelector([selectAppSate], (state) =>
+  get(state, 'getFooterConfig', []),
+);
+
+export const getSearchString = createSelector([selectAppSate], (state) =>
+  get(state, 'searchString', []),
+);

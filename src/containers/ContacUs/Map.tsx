@@ -3,6 +3,7 @@
 // @ts-ignore
 
 import { GoogleMap, InfoWindow, Marker } from '@react-google-maps/api';
+import { map } from 'lodash';
 import { useState } from 'react';
 
 interface ILocations {
@@ -29,18 +30,19 @@ function Map({ locales }: ILocations) {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
 
-  const handleOnLoad = (map) => {
+  const handleOnLoad = (gMap) => {
     const bounds = new google.maps.LatLngBounds();
     locales.forEach(({ position }) => bounds.extend(position));
-    map.fitBounds(bounds);
+    gMap.fitBounds(bounds);
   };
   return (
     <GoogleMap
       onLoad={handleOnLoad}
       onClick={() => setActiveMarker(null)}
       mapContainerStyle={{ height: '530px' }}
+      mapContainerClassName="customclass"
     >
-      {locales.map(({ id, name, address, working, position }) => (
+      {map(locales, ({ id, name, address, working, position }) => (
         <Marker
           key={id}
           icon={{

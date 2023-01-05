@@ -1,50 +1,62 @@
-import dataHubStyle from '@scss/pages/data-hub/index.scss';
+import Expand from '@components/primitive/Expand';
+import NextLink from '@components/primitive/Link';
+import { useUrls } from '@hooks/useUrls';
+import { IFaqContainer } from '@interfaces/faq';
+import faqStyle from '@scss/pages/faq/index.scss';
+import { get, map } from 'lodash';
+import Link from 'next/link';
 
-export default function FAQContainer() {
+interface FAQContainerProps {
+  listFaq: IFaqContainer;
+}
+export default function FAQContainer({ listFaq }: FAQContainerProps) {
+  const getFaqs = get(listFaq, 'faqs');
+  const url = useUrls();
+
   return (
     <>
-      <style jsx>{dataHubStyle}</style>
-      <div className="ibc-data-hub d-flex justify-content-between">
-        <div className="ibc-data-hub__content">
-          {/* <div className="d-flex align-items-center">
-            <img src="/images/flag.svg" alt="/images/flag.svg" width="32" height="24" />
-            <h2>Hong Kong</h2>
-          </div>
-          <div>
-            <h1>Doing business in Hong Kong - 2022</h1>
-            <p>
-              This ebook provides useful information and insightful data that can help you
-              understand how to do business in Hong Kong.
-            </p>
-          </div>
-          <div className="ibc-data-hub__btn">
-            <div className=" button_update">
-              <div className="ibc__form__box__button ">
-                <button>
-                  <a
-                    href="#"
-                    target="_self"
-                    className="d-flex align-items-center justify-content-center"
-                  >
-                    <img src="./images/Download-icon.svg" alt="Download-icon.svg" />
-                    <p className="m-0">Download</p>
-                  </a>
-                </button>
-              </div>
+      <style jsx>{faqStyle}</style>
+
+      <section>
+        <div className="ibc-container">
+          <div className="ibc-container-content ibc-container-content__group-card">
+            <div className="ibc-container-content__group-card__item">
+              {map(getFaqs, (item, index) => (
+                <div className="ibc-container-content__card-item" key={`${index}`.toString()}>
+                  <div className="ibc-container-content__card-item--header">
+                    <h2>
+                      <NextLink
+                        label={item.type_name}
+                        href={`${url}/${item.type_keyword}`}
+                        title={item.type_name}
+                      />
+                    </h2>
+                    <Expand link={`${url}/${item.type_keyword}`} label="View more" />
+                  </div>
+                  <ul>
+                    {item.faqs?.length > 0 ? (
+                      map(item.faqs, (faq, idx) => (
+                        <li key={`${idx}`.toString()}>
+                          <Link href={`${url}/${faq.keyword}`}>
+                            <a title={faq.name} target="_self">
+                              {faq?.name}
+                            </a>
+                          </Link>
+                          <i className="fa-light fa-arrow-right-long"></i>
+                        </li>
+                      ))
+                    ) : (
+                      <li className="ibc-container-content__card-item__no-data">
+                        <a>No Data</a>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              ))}
             </div>
-          </div> */}
+          </div>
         </div>
-        {/* <div className="ibc-data-hub__img d-flex align-items-center">
-          <img src="./images/QR.jpg" alt="./images/QR.jpg" width="200" height="200" />
-          <a href="#" target="_self">
-            <img
-              className="ibc-data-hub__img__download"
-              src="./images/img-download-mobile.jpg"
-              alt="./images/img-download-mobile.jpg"
-            />
-          </a>
-        </div> */}
-      </div>
+      </section>
     </>
   );
 }

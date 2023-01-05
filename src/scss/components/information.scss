@@ -1,18 +1,21 @@
 @import '@scss/abstracts';
+
 .ibc-information {
   margin-left: auto;
-  border: 1px solid red;
+
   &__content {
     max-width: 1200px;
     padding: 0 80px;
     @include breakpoint-down(phone) {
       padding: 0 16px;
     }
+
     &__title {
       display: flex;
       justify-content: space-between;
       margin-top: 80px;
       align-items: flex-start;
+
       h1 {
         font-weight: 300;
         font-size: 48px;
@@ -26,6 +29,7 @@
           font-size: 32px;
         }
       }
+
       p {
         font-weight: 400;
         font-size: 16px;
@@ -36,33 +40,39 @@
           font-size: 12px;
         }
       }
+
       .button_update {
         width: 178px;
         @include breakpoint-down(phone) {
           width: 52px;
         }
-        .ibc__form__box__button {
-          padding: 3px 0;
-          button {
-            height: 49px;
-            @include breakpoint-down(phone) {
-              height: 38px;
-              span {
-                display: none;
-              }
-            }
+      }
+    }
+
+    .ibc__form__box__button {
+      padding: 3px 0;
+
+      button {
+        height: 49px;
+        @include breakpoint-down(phone) {
+          height: 38px;
+
+          span {
+            display: none;
           }
         }
       }
     }
+
     .css-1gsv261 {
       border: none;
       margin-top: 40px;
+
       .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
         font-weight: 400;
         font-size: 18px;
         line-height: 140%;
-        border-radius: 4px 4px 0px 0px;
+        border-radius: 4px 4px 0 0;
         color: $black-4;
         text-transform: capitalize;
         width: 25%;
@@ -70,64 +80,52 @@
         @include breakpoint-down(phone) {
           font-size: 12px;
         }
+
         &:hover {
           background: $white-5;
         }
       }
+
       .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
         color: $red-3;
         border: 1px solid $red-3;
         border-bottom: none;
+
         &:hover {
           background: $white;
         }
       }
+
       .css-1aquho2-MuiTabs-indicator {
         background-color: transparent;
       }
     }
+
     .css-19kzrtu {
       padding: 40px 0;
     }
   }
 }
 
-.ibc-content-format {
-  .ibc-informat-border {
+.ibc-informat-border {
+  position: relative;
+  z-index: 1;
+
+  h2 {
     position: relative;
-    z-index: 1;
-    h2 {
-      font-weight: 300;
-      font-size: 24px;
-      line-height: 140%;
-      color: $red-3;
-      position: relative;
-      background: $white;
-      display: inline-block;
-      @include breakpoint-down(phone) {
-        font-size: 20px;
-      }
-      z-index: 2;
-    }
-    &:before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
-      left: 0;
-      top: 15px;
-      z-index: 1;
-    }
+    background: $white;
+    display: inline-block;
+    z-index: 2;
   }
 
-  p {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 140%;
-    color: $black-1;
-    @include breakpoint-down(phone) {
-      font-size: 14px;
-    }
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+    left: 0;
+    top: 35px;
+    z-index: 1;
   }
 }

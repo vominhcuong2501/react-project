@@ -1,22 +1,16 @@
-import { ResponseConfig } from '@interfaces/index';
-import { get } from 'lodash';
+import { getConfigMethodologyOfApproachHTML } from '@redux/config/selecters';
+import { useAppSelector } from '@redux/hooks';
 import MethodologySlice from './MethodologySlice';
 
-interface MethodologyProps {
-  appRoach: ResponseConfig;
-  appRoachJS: any;
-}
-
-export function Methodology({ appRoach, appRoachJS }: MethodologyProps) {
-  const headerData = get(appRoach, 'config.content', '');
-  const dataSlide = JSON.parse(get(appRoachJS, 'config.content', []));
+export function Methodology() {
+  const configMethodologyOfApproachHTML = useAppSelector(getConfigMethodologyOfApproachHTML);
 
   return (
     <section className="ibc-methodology">
       <div className="ibc-container-content width_methodology">
-        <div dangerouslySetInnerHTML={{ __html: headerData }} />;
+        <div dangerouslySetInnerHTML={{ __html: configMethodologyOfApproachHTML }} />;
         <div className="ibc-methodology__slide">
-          <MethodologySlice data={dataSlide} />
+          <MethodologySlice />
         </div>
       </div>
     </section>

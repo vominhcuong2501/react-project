@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import { Controller, UseFormReturn } from 'react-hook-form';
 
 export interface InputFieldProps {
-  placeholder: string;
+  placeholder?: string;
   form: UseFormReturn<any>;
   name: any;
   className?: string;

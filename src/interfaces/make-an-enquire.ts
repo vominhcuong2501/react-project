@@ -24,5 +24,6 @@ export interface ResponseAPI {
 }
 export interface IListMake {
   banner: IBannerMake;
+  metaInfo: any;
   configFuture: IListCofig;
 }

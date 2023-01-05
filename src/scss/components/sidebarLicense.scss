@@ -1,0 +1,49 @@
+@import '@scss/abstracts/';
+
+.ibc-licenses__sidebar {
+  background: $gray-1;
+  max-width: 307px;
+  padding: 20px;
+
+  &__article {
+    text-align: start;
+
+    h2 {
+      font-weight: $font-weight-light;
+      font-size: 32px;
+      line-height: 120%;
+      color: $black-1;
+      padding-top: 20px;
+    }
+
+    &__item {
+      margin-top: 40px;
+
+      a {
+        font-weight: $font-weight-base;
+        font-size: 14px;
+        line-height: 140%;
+        color: $black-1;
+        transition: all 0.5s;
+
+        p {
+          margin-top: 8px;
+        }
+      }
+
+      img {
+        transition: all 0.5s;
+      }
+
+      &:hover {
+        a {
+          color: $red-3;
+        }
+
+        img {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}

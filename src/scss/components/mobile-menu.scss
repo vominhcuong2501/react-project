@@ -75,9 +75,11 @@
 
         ul {
           li {
-            display: flex;
             margin-bottom: 4rem;
             align-items: center;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
           }
         }
       }
@@ -87,37 +89,95 @@
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
         margin-top: 4rem;
+        .ibc-btn-wrapper:nth-child(1) {
+          margin: 0;
+          .ibc-custom-btn {
+            padding: 12.5px 67px;
+            border: 1px solid $black-4;
+            background-image: unset;
+            color: $black-1;
+            @include breakpoint-down(smallphone) {
+              padding: 12.5px 45px;
+            }
+            i {
+              margin-right: 5px;
+              filter: invert(23%) sepia(7%) saturate(14%) hue-rotate(227deg) brightness(90%)
+                contrast(92%);
+            }
+            span {
+              font-size: 18px;
+              text-transform: uppercase;
 
-        .ibc-menu-basic {
-          border: 1px solid $black-4;
+              filter: invert(23%) sepia(7%) saturate(14%) hue-rotate(227deg) brightness(90%)
+                contrast(92%);
+              @include breakpoint-down(phone) {
+                font-size: 16px;
+              }
+            }
+            &:hover {
+              background: $white-5;
+              span {
+                opacity: 0.8;
+              }
+            }
+          }
+        }
+        .ibc-btn-wrapper:nth-child(2) {
+          margin: 0;
 
-          &:hover {
-            background-color: $white-5;
+          .ibc-custom-btn {
+            padding: 12.5px 28.5px;
+            box-shadow: none;
+            @include breakpoint-down(smallphone) {
+              padding: 12.5px 11px;
+            }
+            span {
+              font-size: 18px;
+              font-weight: 500;
+              background: $white;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+              text-fill-color: transparent;
+              text-transform: uppercase;
+              @include breakpoint-down(phone) {
+                font-size: 16px;
+              }
+            }
+            &:hover {
+              box-shadow: 1px 1000px 1px #fff inset;
+              span {
+                background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+              }
+            }
           }
         }
 
-        .ibc-menu-medium {
-          @include current-bg;
-          border: unset;
-          color: $white;
-        }
+        // .ibc-menu-basic {
+        //   border: 1px solid $black-4;
 
-        button {
-          @include flex-center;
-          padding: 12px;
-          height: 46px;
-          background: $white;
-          border-radius: 4px;
-          font-size: 16px;
-          color: $black-1;
-          text-transform: uppercase;
-          gap: 8px;
-          cursor: pointer;
+        //   &:hover {
+        //     background-color: $white-5;
+        //   }
 
-          &:hover {
-            opacity: 0.8;
-          }
-        }
+        //   a {
+        //     color: $black-1;
+        //   }
+        // }
+
+        // .ibc-menu-medium {
+        //   @include current-bg;
+        //   border: unset;
+        //   color: $white;
+
+        //   a {
+        //     color: $white;
+        //   }
+        // }
       }
     }
 
@@ -126,8 +186,9 @@
 
       .icon-search {
         position: absolute;
-        top: calc(50% - 1.2rem);
+        top: calc(50%);
         left: 2.2rem;
+        transform: translateY(-50%);
       }
 
       input {
@@ -156,6 +217,25 @@
           line-height: 140%;
           color: $black-4;
         }
+      }
+
+      .gsc-input-box {
+        border: unset !important;
+        border-bottom: 1px solid transparent !important;
+        padding-left: 0 !important;
+      }
+
+      #gsc-i-id1 {
+        padding: 12px 0 !important;
+        padding-left: 5.5rem !important;
+      }
+
+      .gsib_a {
+        padding: unset !important;
+      }
+
+      .gsst_a .gscb_a {
+        display: none;
       }
     }
   }
@@ -262,6 +342,9 @@
     &_list {
       border-top: 4px solid $white-5;
       padding: 2rem 1.6rem;
+      max-height: 80vh;
+      overflow-y: auto;
+      overflow-x: hidden;
 
       .header_menu {
         display: block;

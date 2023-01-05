@@ -1,8 +1,11 @@
 // @typescript-eslint/no-use-before-define
 import { ICountriesContact, IOfficeAllContact } from '@interfaces/contact-us';
 import { useLoadScript } from '@react-google-maps/api';
+import { getConfigContactMap, getConfigContactSelect } from '@redux/common/selectors';
+
+import { useAppSelector } from '@redux/hooks';
 import styles from '@scss/pages/contact-us/map.scss?type=scoped';
-import { get } from 'lodash';
+import { get, map, pick } from 'lodash';
 import { useEffect, useState } from 'react';
 import Map from './Map';
 
@@ -14,13 +17,18 @@ export default function MapContact({ countriesService, officesAllService }: Serv
   const areaServicesData = get(countriesService, 'areas', []);
   const listServicesData = get(countriesService, 'countries', []);
   const listAllServicesData = get(officesAllService, 'office_all', []);
+
+  const titleMap = get(useAppSelector(getConfigContactMap), 'config.content', null);
+  const configMap = JSON.parse(get(useAppSelector(getConfigContactSelect), 'config.content', null));
+
   const [isLoad, setIsLoaded] = useState(false);
   const [locale, setLocale] = useState(areaServicesData);
   const [nations, setNations] = useState([]);
   const [nationsArea, setNationsArea] = useState([]);
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyBWrotO1LJ7iP82fDjrzmJ7GN-DZcrqoaI',
+    googleMapsApiKey: 'AIzaSyBSEa8zdNVPbKS_CmUe4HYNIc8tedjuLaA',
   });
+  const { area, country } = pick(configMap, ['area', 'country']);
   const defineLocationDataFrist = (data) =>
     data.map((item) => ({
       id: item.id,
@@ -71,15 +79,15 @@ export default function MapContact({ countriesService, officesAllService }: Serv
       <style jsx>{styles}</style>
       <section className="ibc_touch ibc-main ibc-map ">
         <div className=" ibc-map_title">
-          <div className="ibc-difference__content">
-            <h2>One IBC Group</h2>
-            <p>Check out our branches and representative offices around the world.</p>
-          </div>
+          <div
+            className="ibc-difference__content"
+            dangerouslySetInnerHTML={{ __html: titleMap }}
+          ></div>
           <div className="box_select_map">
-            <label htmlFor="">Area</label>
+            <label htmlFor="">{get(area, 'label', '')}</label>
             <select className="browser-default custom-select" onChange={handleChangeRegion}>
-              <option>Select</option>
-              {locale.map((item) => (
+              <option>{get(area, 'select', '')}</option>
+              {map(locale, (item) => (
                 <option key={item.id} value={item.id}>
                   {item.name}
                 </option>
@@ -87,15 +95,15 @@ export default function MapContact({ countriesService, officesAllService }: Serv
             </select>
           </div>
           <div className="box_select_map">
-            <label htmlFor="">Area</label>
+            <label htmlFor="">{get(country, 'label', '')}</label>
             <select
               className="browser-default custom-select"
               onChange={handleChangeNation}
               disabled={nations.length === 0}
             >
-              <option>Country</option>
+              <option>{get(country, 'select', '')}</option>
 
-              {nationsArea.map((item) => (
+              {map(nationsArea, (item) => (
                 <option key={item.id} value={item.code}>
                   {item.name}
                 </option>

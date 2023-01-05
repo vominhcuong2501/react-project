@@ -13,6 +13,12 @@
       width: 100%;
     }
   }
+  @include breakpoint-down(phone) {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+    width: 100%;
+  }
 
   &__header {
     &__content {
@@ -30,6 +36,10 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
         text-fill-color: transparent;
+        @include breakpoint-down(phone) {
+          font-size: 32px;
+          padding: 0 70px;
+        }
       }
 
       h3 {
@@ -39,11 +49,94 @@
         color: $black-1;
         margin-bottom: 20px;
       }
+      .ibc-btn-group__update {
+        position: relative;
+        display: flex;
+        width: 208px;
+        @include breakpoint-down(phone) {
+          margin: auto;
+        }
+
+        .ibc-hero__button {
+          height: 49px !important;
+
+          @include breakpoint-down(phone) {
+            width: 100%;
+          }
+        }
+
+        .ibc-btn-group__expand {
+          background-color: #f0f2f5;
+          padding-left: 1.5rem;
+          -webkit-text-decoration: none;
+          text-decoration: none;
+          position: absolute;
+          left: calc(100% - 1.5rem);
+          top: 2px;
+          -webkit-transform: translateY(25%);
+          -ms-transform: translateY(25%);
+          transform: translateY(25%);
+          border-radius: 6rem;
+          height: 30px;
+          display: inline-box;
+          display: inline-flex;
+          display: inline-flexbox;
+          display: inline-flex;
+          -webkit-align-items: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          width: 30px;
+          -webkit-transition: width 0.5s;
+          transition: width 0.5s;
+          cursor: pointer;
+          @include breakpoint-down(phone) {
+            top: 2px !important;
+          }
+        }
+
+        &:hover {
+          .ibc-btn-group__expand {
+            width: 60px;
+          }
+        }
+      }
     }
 
     img {
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
+    }
+  }
+
+  &-cusstom {
+    @include breakpoint-down(phone) {
+      display: none;
+    }
+
+    .ibc-sidebar__header {
+      @include breakpoint-down(phone) {
+        display: flex;
+        flex-direction: column;
+        margin: -12px -20px;
+        margin-top: 40px;
+      }
+
+      .ibc-sidebar__header__content {
+        order: 2;
+      }
+
+      img {
+        order: 1;
+
+        @include breakpoint-down(phone) {
+          border: none;
+          width: 100%;
+          height: 100%;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
     }
   }
 
@@ -66,7 +159,114 @@
         font-size: 14px;
         line-height: 140%;
         color: $black-1;
+        transition: all 0.5s;
+      }
+
+      img {
+        @include breakpoint-down(phone) {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        transition: all 0.5s;
+      }
+
+      &:hover {
+        a {
+          color: $red-3;
+        }
+
+        img {
+          opacity: 0.8;
+        }
+      }
+
+      h3 {
+        margin-top: 20px;
+        font-weight: $font-weight-base;
+        color: $black-1;
       }
     }
   }
+}
+
+.ibc-btn {
+  @include flex-center-hoz;
+  border: none;
+  align-items: center;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-medium;
+  height: 4.4rem;
+  background-color: $blue-1;
+  color: $white;
+  padding: 0.8rem 1.6rem;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  opacity: 1;
+  transition: opacity 0.15s ease-in-out;
+  line-height: 1;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  &--loading {
+    opacity: 0.6;
+    cursor: not-allowed;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  &__loading-icon {
+    animation: spinner 1s linear infinite forwards;
+  }
+
+  &__text {
+    display: block;
+    margin-left: 0.8rem;
+  }
+
+  &--danger {
+    border-radius: 0.8rem;
+    @include current-bg;
+  }
+
+  // &--medium {
+  //   width: 24.8rem;
+  //   height: 4.9rem;
+  //   font-size: $font-size-large;
+  //   font-weight: $font-weight-base;
+  // }
+
+  // &--small {
+  //   width: 18.4rem;
+  //   height: 3.8rem;
+  //   font-size: 1.6rem;
+  //   font-weight: $font-weight-base;
+  // }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.ibc__mobile__fix {
+  @include breakpoint-up(phone) {
+    display: none;
+  }
+  margin: -20px;
+  margin-top: 40px;
 }

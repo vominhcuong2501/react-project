@@ -1,0 +1,45 @@
+@import '@scss/abstracts';
+
+.ibc-team-group {
+  max-width: 1600px;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8rem;
+
+  h2 {
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 120%;
+
+    /* identical to box height, or 58px */
+    display: flex;
+    align-items: center;
+
+    /* Primary colors/Gradient/Sunset */
+    background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+
+    /* or 25px */
+    display: flex;
+    align-items: center;
+
+    /* Primary colors/6#3B3A3C */
+    color: #3b3a3c;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+}

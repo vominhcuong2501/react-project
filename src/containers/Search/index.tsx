@@ -1,9 +1,22 @@
+import BreadcrumbsComponent from '@components/primitive/Breadcrumb';
+import searchStyle from '@scss/pages/search/index.scss';
+import SearchComponent from './Search';
+
 export default function Search() {
   return (
-    <div
-      style={{ height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-    >
-      <h2 style={{ fontSize: '30px' }}>Search Page</h2>
-    </div>
+    <>
+      <style jsx>{searchStyle}</style>
+
+      <div className="ibc-search-fluid">
+        <div className="ibc-search-container">
+          <div className="ibc-search-content">
+            <BreadcrumbsComponent />
+            <div className="ibc-search-content-result">
+              <SearchComponent />
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }

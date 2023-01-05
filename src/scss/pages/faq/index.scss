@@ -1,0 +1,133 @@
+@import '@scss/abstracts';
+
+.ibc-container-content {
+  &__group-card {
+    display: flex;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+    width: 100%;
+
+    @include breakpoint-down(smalldesktop) {
+      margin-left: unset;
+    }
+
+    &__item {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      @include breakpoint-down(smalldesktop) {
+        margin-left: unset;
+      }
+    }
+  }
+
+  &__card-item {
+    flex: 1;
+    max-width: calc((100% / 2) - 40px);
+    flex-basis: calc((100% / 2) - 40px);
+    padding-bottom: 8rem;
+
+    @include breakpoint-down(smalldesktop) {
+      width: 100%;
+      flex-basis: 100%;
+      padding: 0;
+      padding-bottom: 4rem;
+      max-width: calc(100%);
+    }
+
+    &__no-data {
+      border-bottom: 1px solid transparent !important;
+    }
+
+    &--header {
+      min-height: 7.4rem;
+      background-color: $white-5;
+      font-size: $font-size-fit;
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid transparent;
+      padding: 0 20px;
+
+      > div {
+        padding: 0;
+        border: 1px solid transparent;
+      }
+
+      h2,
+      h1 {
+        font-weight: $font-weight-light !important;
+        font-size: $font-size-fit;
+        color: $black-1;
+      }
+
+      a {
+        line-height: 140%;
+        color: $black-1;
+        font-size: 24px;
+        @include breakpoint-down(phone) {
+          font-size: 18px;
+        }
+        &:before {
+          background-color: $white !important;
+          z-index: 0 !important;
+        }
+
+        &:hover {
+          color: $red-3;
+        }
+      }
+
+      span {
+        z-index: 3 !important;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    ul {
+      li {
+        color: $black-1;
+        font-size: $font-size-large;
+        padding: 20px 0;
+        border-bottom: 1px solid $gray-5;
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        align-items: center;
+
+        a {
+          color: $black-3;
+          line-height: 140%;
+          font-size: 1.8rem;
+        }
+
+        &:hover {
+          border-bottom: 1px solid $red-3;
+
+          a,
+          i {
+            color: $red-3 !important;
+          }
+        }
+      }
+    }
+  }
+
+  &__footer {
+    a {
+      width: 23.3rem;
+
+      @include breakpoint-down(phone) {
+        width: 10rem;
+      }
+    }
+  }
+
+  @include breakpoint-down(phone) {
+    padding: unset;
+  }
+}

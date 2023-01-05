@@ -1,0 +1,56 @@
+@import '@scss/abstracts';
+
+body .ibc-tab {
+  .MuiAppBar-root {
+    background: $white;
+    border-bottom: 2px solid transparent;
+    box-shadow: none;
+    color: $black-4;
+  }
+
+  .MuiTabs-root {
+    min-height: auto;
+  }
+
+  .MuiTab-root {
+    color: $gray-2;
+    // flex: 1;
+    margin-left: 1px;
+    padding: 12px 24px;
+    font-weight: $font-weight-light;
+    // padding: 0;
+    font-family: inherit;
+    font-size: $font-size-large;
+    letter-spacing: inherit;
+    // line-height: 23px;
+    max-width: none;
+    min-height: auto;
+    min-width: 0;
+    opacity: 1;
+    // padding: 0 0 13px;
+    background-color: $white-5;
+    text-transform: none;
+    border: 2px solid transparent;
+
+    &.Mui-selected {
+      color: $red-3;
+      font-size: $font-size-large;
+      background-color: $white;
+      font-weight: $font-weight-bold-md;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      border: 1px solid $red-3;
+      border-bottom: 1px solid transparent;
+    }
+
+    @include breakpoint-down(phone) {
+      font-size: 16px;
+      line-height: 22px;
+      padding-bottom: 10px;
+    }
+  }
+
+  .MuiTabs-indicator {
+    display: none;
+  }
+}

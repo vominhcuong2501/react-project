@@ -6,3 +6,10 @@
 .ibc-service {
   background-color: $white-5;
 }
+
+.ibc-services__item li p {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  display: flexbox;
+}

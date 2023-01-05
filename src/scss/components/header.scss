@@ -22,13 +22,13 @@
 
   &--scroll {
     background-color: $white;
-    border-bottom: 1px solid $gray-3;
+    border-bottom: 1px solid $white-5;
     backdrop-filter: blur(4px);
 
     #{$root}__menu > ul > li {
       i,
       a {
-        color: #19151d;
+        color: $black-3;
       }
 
       &:hover {
@@ -144,10 +144,9 @@
   }
 
   &__logo {
+    @include flex-center-ver;
     height: 100%;
-    display: flex;
-    align-items: center;
-    margin-right: 18.3rem;
+    // margin-right: 18.3rem;
     $root: &;
 
     i {
@@ -229,6 +228,46 @@
         background-color: unset;
       }
     }
+
+    .ibc-btn-wrapper {
+      margin: 0;
+      &:hover {
+        background-color: transparent;
+      }
+      .ibc-custom-btn {
+        padding: 10px 14.5px;
+        box-shadow: none;
+        line-height: unset;
+
+        @include breakpoint-down(smallphone) {
+          padding: 9.5px 4px;
+          border-radius: 4px;
+        }
+        span {
+          font-size: 16px;
+          font-weight: 400;
+          background: $white;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+          text-transform: uppercase;
+          @include breakpoint-down(phone) {
+            font-size: 12px;
+          }
+        }
+        &:hover {
+          box-shadow: 1px 1000px 1px #fff inset;
+          span {
+            background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+          }
+        }
+      }
+    }
   }
 
   &__flag {
@@ -241,3 +280,57 @@
     width: 3.6rem;
   }
 }
+
+.ibc-nav-wrapper {
+  display: flex;
+  max-width: 1660px;
+  justify-content: space-between;
+  width: fill-available;
+
+  @include breakpoint-down(largedesktop) {
+    padding: 0 16px;
+  }
+
+  @include breakpoint-down(desktop) {
+    padding: unset;
+  }
+}
+
+.gsc-completion-container span {
+  font-size: 12px;
+}
+
+.ibc-nav__button:hover {
+  background-color: #fff !important;
+  border: 1px solid $red-1;
+}
+
+.gsc-search-button {
+  display: none !important;
+}
+
+.gsc-input-box {
+  background-color: unset !important;
+}
+
+.ibc-search-header {
+  position: relative;
+
+  .gsc-input-box {
+    border: unset !important;
+  }
+
+  input {
+    padding: 10px 50px !important;
+  }
+}
+
+.gsib_b {
+  display: none;
+}
+
+// .ibc-nav-search {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }

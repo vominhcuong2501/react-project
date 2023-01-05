@@ -49,6 +49,11 @@
     @include breakpoint-down(desktop) {
       width: 100%;
     }
+    @include breakpoint-down(phone) {
+      width: 100%;
+      object-fit: cover;
+      height: 240px;
+    }
 
     svg {
       @include breakpoint-down(desktop) {
@@ -88,17 +93,49 @@
         text-transform: uppercase;
         color: $white;
         font-weight: $font-weight-base;
-        border: none;
         font-style: normal;
-        padding-right: 16px;
+        padding-right: 0;
         transform: translateY(0%);
         transition: width 0.5s;
         cursor: pointer;
         display: flex;
         text-align: center;
+        width: 28.8rem;
+        margin: auto;
         margin-top: 4.8rem;
+        height: 4.9rem;
+        border: 1px solid transparent;
+        @include breakpoint-down(phone) {
+          height: 46px;
+          width: 100%;
+        }
+        @include current-bg;
+        border-radius: 8px;
+
+        &:hover {
+          &:after {
+            content: '';
+            position: absolute;
+            width: 28.6rem;
+            bottom: 0;
+            margin: auto;
+            background: #fff;
+            height: 4.7rem;
+            border-radius: 8px;
+            z-index: -1;
+            @include breakpoint-down(phone) {
+              height: 44px;
+            }
+          }
+        }
 
         button {
+          @include breakpoint-down(phone) {
+            height: 46px;
+            width: 100%;
+          }
+          border: unset;
+          background: #fff;
           border-radius: 8px;
           text-transform: uppercase;
           width: 28.8rem;
@@ -106,11 +143,54 @@
           @include current-bg;
           color: $white;
           font-size: $font-size-medium;
-          border: none;
           text-align: center;
           margin: auto;
           position: relative;
           cursor: pointer;
+          z-index: 10;
+
+          &:hover {
+            background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+          }
+
+          &:disabled {
+            background: #fff;
+            color: #aaa;
+            border: 1px solid #aaa;
+            border-radius: 8px;
+            cursor: unset;
+
+            &:hover {
+              -webkit-text-fill-color: unset;
+            }
+
+            :before {
+              content: url('../images/disabled-btn.png');
+              position: absolute;
+              right: -32px;
+              z-index: 11;
+              width: 34px;
+              height: 11px;
+              background-size: 150%;
+            }
+
+            &:hover:after {
+              width: 3.2rem;
+              @include breakpoint-down(phone) {
+                width: 32px;
+              }
+            }
+          }
+          @include breakpoint-down(phone) {
+            height: 46px;
+            font-size: 16px;
+            width: 100%;
+            margin-right: 34px;
+          }
 
           &:before {
             content: url('../images/more-right2.png');
@@ -124,8 +204,8 @@
 
           &:after {
             content: '';
-            top: calc(50% - 1.6rem);
-            background-color: $gray-1;
+            top: calc(50% - 1.7rem);
+            background-color: $white-5;
             padding-left: 2rem;
             text-decoration: none;
             position: absolute;
@@ -140,6 +220,12 @@
             transition: width 0.5s;
             cursor: pointer;
             z-index: 1;
+
+            @include breakpoint-down(phone) {
+              width: 32px;
+              height: 32px;
+              top: calc(50% - 2.4rem);
+            }
           }
 
           &:hover:after {
@@ -147,6 +233,10 @@
 
             @include breakpoint-down(largedesktop) {
               width: 6.3rem;
+            }
+
+            @include breakpoint-down(phone) {
+              width: 50px;
             }
           }
         }
@@ -159,6 +249,9 @@
       &_otp {
         > div {
           justify-content: center;
+          @include breakpoint-down(phone) {
+            gap: 10px;
+          }
           gap: 42px;
 
           input {
@@ -166,6 +259,10 @@
             height: 80px;
             background: $white;
             border: unset;
+            @include breakpoint-down(phone) {
+              width: 40px !important;
+              height: 50px;
+            }
 
             /* Secondary colors/Chaotic/4#858486 */
             border-bottom: 1px solid #858486;
@@ -181,9 +278,58 @@
   }
 }
 
+.disabledtrue {
+  background: unset;
+  cursor: unset !important;
+
+  &:hover {
+    background: unset;
+    @include breakpoint-down(phone) {
+      height: 44px;
+    }
+  }
+}
+
 .verifyDiv {
   font-weight: $font-weight-base;
   font-size: 14px;
   line-height: 140%;
   color: $black-2;
+}
+
+.skip {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  border: none;
+  background: unset;
+  text-align: center;
+  display: block;
+  margin: auto;
+  color: #605f61;
+  margin-top: 2rem;
+  cursor: pointer;
+
+  :hover {
+    color: #000;
+  }
+}
+
+.box_verification {
+  position: relative;
+}
+
+.verify__height {
+  margin-top: 8.8rem !important;
+}
+
+.eror_otp {
+  color: #cc1f26;
+  font-size: 16px;
+  text-align: center;
+  display: block;
+  position: absolute;
+  bottom: 11rem;
+  margin: auto;
+  width: 100%;
 }

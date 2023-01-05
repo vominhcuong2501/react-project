@@ -18,6 +18,12 @@
     height: 100%;
     width: 100%;
 
+    &__content {
+      @include breakpoint-down(desktop) {
+        padding: 0 10px;
+      }
+    }
+
     img {
       position: absolute;
       left: 0;
@@ -70,6 +76,7 @@
         @include breakpoint-down(desktop) {
           font-size: 48px;
           white-space: unset;
+          width: 100%;
         }
       }
     }

@@ -7,6 +7,7 @@ import {
   CACHE_MAIN_LIST_CONSULTING_SERVICES,
 } from '@/constants';
 import { writeCache } from '@/lib/writeCache';
+import { writeCacheDynamic } from '@/lib/writeCacheDynamic';
 import { serverRequest } from '@utils/api';
 import { to } from '@utils/await-to-js';
 
@@ -19,7 +20,7 @@ const consultingServices = {
         data: payload,
       }),
     );
-    if (!error) writeCache(CACHE_CONSULTING_BANNER, response);
+    if (!error) writeCacheDynamic(CACHE_CONSULTING_BANNER, response, 'consulting-services');
     return response;
   },
 
@@ -31,7 +32,7 @@ const consultingServices = {
         data: payload,
       }),
     );
-    if (!error) writeCache(CACHE_CONSULTING_META_SEO, response);
+    if (!error) writeCacheDynamic(CACHE_CONSULTING_META_SEO, response, 'consulting-services');
     return response;
   },
 
@@ -55,11 +56,12 @@ const consultingServices = {
         data: payload,
       }),
     );
-    if (!error) writeCache(CACHE_CONSULTING_LIST, response);
+    if (!error) writeCacheDynamic(CACHE_CONSULTING_LIST, response, 'home');
     return response;
   },
 
   getBannerDetail: async (payload, container) => {
+    const cacheName = `${CACHE_CONSULTING_DETAIL_BANNER}-${container}`;
     const [error, response] = await to(
       serverRequest.request({
         method: 'POST',
@@ -67,7 +69,9 @@ const consultingServices = {
         data: payload,
       }),
     );
-    if (!error) writeCache(`${CACHE_CONSULTING_DETAIL_BANNER}-${container}`, response);
+    if (!error) {
+      writeCacheDynamic(cacheName, response, 'consulting-services');
+    }
     return response;
   },
 
@@ -79,7 +83,13 @@ const consultingServices = {
         data: payload,
       }),
     );
-    if (!error) writeCache(`${CACHE_CONSULTING_DETAIL_META_SEO}-${keyword}`, response);
+    if (!error) {
+      writeCacheDynamic(
+        `${CACHE_CONSULTING_DETAIL_META_SEO}-${keyword}`,
+        response,
+        'consulting-services',
+      );
+    }
     return response;
   },
 };

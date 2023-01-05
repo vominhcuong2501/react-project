@@ -1,0 +1,66 @@
+.ibc-insight-container {
+  margin-top: calc(7.6rem + 20px);
+}
+
+.ibc-insight-swapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+
+  &__sidebar {
+    margin-top: 8rem;
+    @include breakpoint-down(phone) {
+      margin: 0 -10px;
+    }
+    @include breakpoint-down(smalldesktop) {
+      margin-top: 4rem;
+    }
+  }
+
+  @include breakpoint-down(smalldesktop) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.ibc-content-insight__tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  height: fit-content;
+  padding-left: 0 !important;
+  list-style: none;
+
+  a {
+    padding: 8px 12px;
+    background-color: $white-5;
+    font-size: 1.4rem;
+    color: $black-4;
+    margin-right: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  > li {
+    list-style: none !important;
+  }
+}
+
+.ibc-breadcrumbs {
+  @include breakpoint-down(smalldesktop) {
+    display: none;
+  }
+}
+
+.ibc_touch {
+  margin-top: 8rem;
+}
+
+.container {
+  margin: unset;
+  padding: unset;
+}

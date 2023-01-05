@@ -2,15 +2,18 @@ import {
   CACHE_CONSULTING_BANNER,
   CACHE_CONSULTING_LIST,
   CACHE_CONSULTING_META_SEO,
+  CACHE_INSIGHT_LIST_COMMON,
 } from '@/constants';
-import { readCache } from '@/lib/readCache';
+import { readCacheDynamic } from '@/lib/readCacheDynamic';
 import { MainLayout } from '@components/compound';
 import ConsultingService from '@containers/ConsultingServices';
 import withCommon from '@hoc/withCommon';
-import { IGetBanner } from '@interfaces/index';
+import { IGetBanner, IGetInsightHome } from '@interfaces/index';
 import { setListConsultingService } from '@redux/app/slice';
+import { setBreadcrumb, setListInsights } from '@redux/common/slice';
 import consultingServices from '@services/consulting';
-import { coverObj } from '@utils/helpers';
+import insightServices from '@services/insight';
+import { coverObj, getDataBreadcrumb } from '@utils/helpers';
 
 const Index = (props: any) => <ConsultingService {...props} />;
 
@@ -26,19 +29,41 @@ export const getServerSideProps = withCommon({
       language: region.lang,
       countryCode: region.country,
     };
+
+    const reqDataInsight: IGetInsightHome = {
+      isHome: 'Y',
+      limit: 4,
+      ...region,
+    };
+
     const promises = [
-      readCache(CACHE_CONSULTING_BANNER) || consultingServices.getBanner(reqDataGetBanner),
-      readCache(CACHE_CONSULTING_META_SEO) || consultingServices.getInfoPageMeta(metaInfoPage),
-      readCache(CACHE_CONSULTING_LIST) ?? consultingServices.getListServices(metaInfoPage),
+      readCacheDynamic(CACHE_CONSULTING_BANNER, 'consulting-services') ||
+        consultingServices.getBanner(reqDataGetBanner),
+
+      readCacheDynamic(CACHE_CONSULTING_META_SEO, 'consulting-services') ||
+        consultingServices.getInfoPageMeta(metaInfoPage),
+
+      readCacheDynamic(CACHE_CONSULTING_LIST, 'home') ??
+        consultingServices.getListServices({ metaInfoPage }),
+
+      readCacheDynamic(CACHE_INSIGHT_LIST_COMMON, 'insights') ||
+        insightServices.getListCommon(reqDataInsight),
     ];
     const response: any = await Promise.allSettled(promises);
     const data = await response.map((item) =>
       item.status === 'fulfilled' ? item.value ?? [] : null,
     );
-    const ar = ['banner', 'metaInfo', 'listConsultingServices'];
+    const ar = ['banner', 'metaInfo', 'listConsultingServices', 'listInsight'];
 
     const convertData = coverObj(ar, data);
     store.dispatch(setListConsultingService(convertData['listConsultingServices']));
+    store.dispatch(setListInsights(convertData['listInsight']));
+
+    // config breadcrumb
+    const detailPage = getDataBreadcrumb(convertData['metaInfo'], 'page');
+
+    store.dispatch(setBreadcrumb([detailPage]));
+
     return {
       props: { ...convertData },
     };

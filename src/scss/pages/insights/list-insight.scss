@@ -4,7 +4,6 @@
     width: 100%;
     flex-wrap: wrap;
     padding-bottom: 44px;
-    // border: 1px solid red;
 
     @include breakpoint-down(desktop) {
       padding-bottom: 0;
@@ -42,6 +41,7 @@
       flex-grow: 1;
       width: calc((100% / 3));
       max-width: calc((100% / 3));
+      height: fit-content;
       @include breakpoint-down(desktop) {
         width: calc((100% / 2));
       }
@@ -53,8 +53,8 @@
       img {
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
-        object-fit: cover;
-        height: 18.2rem;
+        // object-fit: contain;
+        // height: 18.2rem;
         width: 100%;
       }
 
@@ -71,21 +71,23 @@
 
       div {
         padding: 16px;
-        // width: 100%;
         @include breakpoint-down(phone) {
           padding: 10px;
         }
 
-        h3 {
-          a {
-            font-weight: 600;
+        a {
+          font-weight: $font-weight-bold-md;
+          font-size: 16px;
+          line-height: 150%;
+          color: $black-5;
+
+          @include breakpoint-down(desktop) {
             font-size: 16px;
-            line-height: 150%;
-            color: #343434;
+            font-weight: $font-weight-bold-md;
           }
 
           &:hover {
-            color: #c91f26;
+            color: $red-3;
           }
         }
 
@@ -93,8 +95,13 @@
           font-weight: $font-weight-base;
           font-size: 14px;
           line-height: 140%;
-          color: #343434;
+          color: $black-5;
           margin-top: 8px;
+
+          @include breakpoint-down(desktop) {
+            font-size: 14px;
+            font-weight: $font-weight-base;
+          }
         }
       }
 

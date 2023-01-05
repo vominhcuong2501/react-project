@@ -1,0 +1,262 @@
+.ibc-about-us__licenses {
+  margin: 0 auto;
+  @include breakpoint-down(phone) {
+    max-width: 768px;
+  }
+  @include breakpoint-down(smallphone) {
+    max-width: 576px;
+  }
+  @include breakpoint-down(mediumphone) {
+    max-width: 413px;
+  }
+  @include breakpoint-down(xsmallphone) {
+    max-width: 375px;
+  }
+
+  &__content {
+    max-width: 1600px;
+    margin-left: auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+      position: relative;
+      @include breakpoint-down(phone) {
+        padding: 20px 8px;
+        text-align: center;
+      }
+
+      h2 {
+        font-weight: 300;
+        font-size: 48px;
+        line-height: 120%;
+        background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        @include breakpoint-down(phone) {
+          font-size: 32px;
+        }
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 140%;
+        color: $black-1;
+        margin-top: 20px;
+        @include breakpoint-down(phone) {
+          font-size: 14px;
+        }
+      }
+
+      .ibc-arrow--next {
+        position: absolute;
+        right: 80px;
+        bottom: -80px;
+        z-index: 2;
+        cursor: pointer;
+        @include breakpoint-down(tablet) {
+          right: 40px;
+        }
+        @include breakpoint-down(phone) {
+          bottom: 0;
+          right: 16px;
+        }
+
+        i {
+          font-size: 35px;
+          background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+          -webkit-text-stroke: 0.35px white;
+          position: relative;
+
+          &:after {
+            position: absolute;
+            content: '';
+            height: 40px;
+            width: 40px;
+            background: #f0f2f5;
+            top: calc(50% - 20px);
+            border-radius: 50%;
+            left: calc(0% - 20px);
+            z-index: -1;
+            transition: all 0.5s;
+          }
+
+          &:hover:after {
+            width: 70px;
+            border-radius: 50px;
+          }
+        }
+      }
+
+      .ibc-arrow--prev {
+        position: absolute;
+        left: calc(100% - 260px);
+        bottom: -80px;
+        z-index: 2;
+        cursor: pointer;
+        @include breakpoint-down(tablet) {
+          left: calc(100% - 200px);
+        }
+        @include breakpoint-down(phone) {
+          bottom: 0;
+          left: 16px;
+        }
+
+        i {
+          font-size: 35px;
+          background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+          -webkit-text-stroke: 0.35px white;
+          position: relative;
+
+          &:after {
+            position: absolute;
+            content: '';
+            height: 40px;
+            width: 40px;
+            background: #f0f2f5;
+            top: calc(50% - 20px);
+            border-radius: 50%;
+            right: calc(0% - 20px);
+            z-index: -1;
+            transition: all 0.5s;
+          }
+
+          &:hover:after {
+            width: 70px;
+            border-radius: 50px;
+          }
+        }
+      }
+    }
+
+    &__slider {
+      max-width: 50%;
+      flex: 1;
+      @include breakpoint-down(phone) {
+        padding: 0;
+        position: relative;
+        max-width: 100%;
+      }
+
+      .swiper {
+        margin-left: auto;
+        margin-right: auto;
+        overflow-x: hidden;
+        list-style: none;
+        padding: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: box;
+        display: flex;
+        display: flexbox;
+        display: flex;
+        -webkit-transition-property: -webkit-transform;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+        box-sizing: content-box;
+      }
+
+      .swiper-slide {
+        border-left: 2px solid $white-5;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        -webkit-transition-property: -webkit-transform;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+        padding: 20px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          @include breakpoint-down(phone) {
+            margin-top: 20px;
+          }
+        }
+
+        a {
+          font-weight: 400;
+          font-size: 24px;
+          line-height: 140%;
+          color: $black-1;
+          margin-top: 16px;
+          @include breakpoint-down(phone) {
+            font-size: 18px;
+          }
+        }
+
+        &:hover {
+          img {
+            opacity: 0.8;
+          }
+
+          a {
+            color: $red-3;
+          }
+        }
+        @include breakpoint-down(smallphone) {
+          div {
+            padding: 16px 0;
+            border-bottom: 1px solid $gray-4;
+          }
+        }
+      }
+    }
+
+    @include breakpoint-down(phone) {
+      flex-wrap: wrap;
+    }
+  }
+
+  .slider__pagination {
+    gap: 8px;
+    justify-content: center;
+    position: absolute;
+    top: 71%;
+    left: 0;
+    display: flex;
+    height: 20px;
+    @include breakpoint-down(phone) {
+      top: -20px;
+      right: 0;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    width: 20px;
+    height: 4px;
+    background: #aaa;
+    border-radius: 4px;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 48px;
+    height: 4px;
+    background: #c91f26;
+    border-radius: 4px;
+  }
+}

@@ -1,8 +1,15 @@
-import { CACHE_FOOTER, CACHE_GET_UPDATE_SECTION, CACHE_MENU_TOP } from '@/constants';
+import { CACHE_FOOTER, CACHE_MENU_TOP } from '@/constants';
 import { readCache } from '@/lib/readCache';
 import { IGetInsightHome, IGetService } from '@interfaces/index';
-import { setFooterMenu, setMenuHeader } from '@redux/app/slice';
+import {
+  setFooterConfig,
+  setFooterConfigTxt,
+  setFooterMenu,
+  setMenuHeader,
+} from '@redux/app/slice';
+import { setFormConfigTxt } from '@redux/common/slice';
 import { AppStore, wrapper } from '@redux/configureStore';
+import { setIp, setUserAgent } from '@redux/home/slice';
 import commonService from '@services/common';
 import { get } from 'lodash';
 import { GetServerSidePropsContext } from 'next';
@@ -48,21 +55,31 @@ const withWrapperSSG = ({ callback = () => null }: GsspType) =>
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const result = await callback(store, ctx, region);
+    const ip = ctx.req.headers['x-forwarded-for'] || ctx.req.connection.remoteAddress;
+    const userAgent = ctx.req.headers['user-agent'];
 
     const promises = [
       readCache(CACHE_MENU_TOP) ?? commonService.getMenuHeader(reqDataGetService),
       readCache(CACHE_FOOTER) ?? commonService.getMenuFooter(reqDataGetService),
-      readCache(CACHE_GET_UPDATE_SECTION) ?? commonService.getInsightUpdate(reqUpdateSection),
+
+      commonService.getConfigFooter(reqDataGetService),
+      commonService.getFooterConfig(reqDataGetService),
+      commonService.getFormConfig(reqDataGetService),
     ];
     const response: any = await Promise.allSettled(promises);
 
-    const [menuList, footerMenu] = await response.map((item) =>
-      item.status === 'fulfilled' ? item.value ?? [] : null,
+    const [menuList, footerMenu, footerSocial, footerConfig, formConfig] = await response.map(
+      (item) => (item.status === 'fulfilled' ? item.value ?? [] : null),
     );
 
     store.dispatch(setMenuHeader(menuList));
     store.dispatch(setFooterMenu(footerMenu));
-    // store.dispatch(setListUpdateSectionInsights(updateSection));
+    store.dispatch(setFooterConfig(footerSocial));
+    store.dispatch(setFooterConfigTxt(footerConfig));
+
+    store.dispatch(setFormConfigTxt(formConfig));
+    store.dispatch(setIp(ip));
+    store.dispatch(setUserAgent(userAgent));
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore

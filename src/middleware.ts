@@ -4,8 +4,8 @@ export const config = {
   matcher: ['/((?!api|_next/static|fonts|images|favicon.ico).*)'],
 };
 
-const countries = ['vn', 'jp', 'ca', 'in', 'us', 'gx'];
 const languages = ['en', 'vi'];
+const countries = ['vn', 'jp', 'ca', 'in', 'us', 'gx'];
 
 const setCookie = ({ res, language, country }) => {
   res.cookies.set('language', language);
@@ -29,12 +29,13 @@ export async function middleware(req) {
 
   const parsedInfo = info.split('-').filter((it) => !!it);
 
-  if (
+  const isValidation =
     !parsedInfo ||
     parsedInfo.length !== 2 ||
     !languages.find((it) => it === parsedInfo[0]) ||
-    !countries.find((it) => it === parsedInfo[1])
-  ) {
+    !countries.find((it) => it === parsedInfo[1]);
+
+  if (isValidation) {
     const url = req.nextUrl.clone();
     url.pathname = `/en-gx${url.pathname}`;
     const res = NextResponse.rewrite(url);

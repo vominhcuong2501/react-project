@@ -117,4 +117,12 @@ export interface IGetInContact {
   phone: number;
   enquiry: string;
   upload: [];
+  ip: string;
+  agent: string;
+}
+export interface IGetInSubscribe {
+  name: string;
+  email: string;
+  ip: string;
+  agent: string;
 }

@@ -17,14 +17,26 @@
       padding-right: 5rem;
       font-size: $font-size-medium;
 
+      &::placeholder {
+        @include breakpoint-down(phone) {
+          font-size: 14px;
+        }
+      }
+
       &:focus {
         border: 1px solid $blue-5;
         outline: none;
       }
 
       &::placeholder {
-        color: #3b3a3c;
+        color: $white-9;
+        font-size: 1.6rem;
         font-size: $font-size-medium;
+      }
+
+      @include breakpoint-down(phone) {
+        height: 52px;
+        font-size: 14px;
       }
     }
 
@@ -47,16 +59,27 @@
     font-size: $font-size-base;
     line-height: 140%;
     margin-bottom: 8px;
+
+    @include breakpoint-down(phone) {
+      font-size: 14px;
+    }
   }
 }
 
 .ibc-form-input {
   &__error-text {
     position: absolute;
+    bottom: -25px;
     line-height: 16px;
     font-size: $font-size-base;
     display: inline-block;
     color: $red-4;
+    @include breakpoint-down(desktop) {
+      bottom: -18px;
+    }
+    @include breakpoint-down(phone) {
+      font-size: 12px;
+    }
   }
 }
 

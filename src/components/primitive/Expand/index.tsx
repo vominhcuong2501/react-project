@@ -17,9 +17,11 @@ export default function Expand({ link, target, label }: ExpandProps) {
         <Link href={link}>
           <a target={target || '_self'}>{label}</a>
         </Link>
-        <span>
-          <ArrowRight></ArrowRight>
-        </span>
+        <Link href={link}>
+          <span>
+            <ArrowRight></ArrowRight>
+          </span>
+        </Link>
       </div>
     </>
   );

@@ -57,7 +57,7 @@ export default function Information() {
               <div className="ibc__form__box__button ">
                 <button>
                   <a
-                    href="#"
+                    href="/404"
                     target="_self"
                     className="d-flex align-items-center justify-content-center"
                   >
@@ -81,9 +81,9 @@ export default function Information() {
               <div className="ibc-informat-border">
                 <h2>1.Overview</h2>
               </div>
-              <br />
-              <p>Non-cooperative jurisdictions</p>
-              <br />
+
+              <strong>Non-cooperative jurisdictions</strong>
+
               <p>
                 The website www.oneibc.com is administered by One IBC Limited, a company registered
                 in the Hong Kong SAR (License Number: TC001305) whose registered office is Unit
@@ -92,7 +92,7 @@ export default function Information() {
                 Raffles Place, #40-02, One Raffles Place, Office Tower 1, Singapore 048616 (License
                 Number: FA20180115)
               </p>
-              <br />
+
               <p>
                 Any articles or publications contained on this website are not intended to provide
                 specific business or investment advice. No responsibility for any errors or
@@ -101,50 +101,49 @@ export default function Information() {
                 the author(s) or One IBC Limited or/and One IBC Pte.Ltd. You should take specific
                 independent advice before making any business or investment decision.
               </p>
-              <br />
+
               <p>
-                One IBC Group is the brand used by a network of independent company formation,
-                accounting and consulting firms, each of which practices in its own right. The
-                network is not itself a separate legal entity of any description in any
+                One IBC<sup>®</sup> Group is the brand used by a network of independent company
+                formation, accounting and consulting firms, each of which practices in its own
+                right. The network is not itself a separate legal entity of any description in any
                 jurisdiction.
               </p>
-              <br />
+
               <ul>
                 <li>
-                  The network is administered by One IBC AG, whose registered office in
+                  The network is administered by One IBC<sup>®</sup> AG, whose registered office in
                   Hinterbergstrasse 48, Steinhausen, Switzerland
                 </li>
                 <li>
-                  The brand and trademark One IBC and other intellectual property rights used by
-                  members of the network are owned by One IBC AG, a registered company in
+                  The brand and trademark One IBC<sup>®</sup> and other intellectual property rights
+                  used by members of the network are owned by One IBC AG, a registered company in
                   Switzerland.
                 </li>
               </ul>
-              <br />
+
               <p>
-                All the name and logo of the banks used on the website One IBC Group are all
-                trademarks of the banks and One IBC does not hold any ownership to these properties.
-                All the banks listed are all One IBCs business partners and are subject to the
-                agreements between the parties involved.
+                All the name and logo of the banks used on the website One IBC<sup>®</sup> Group are
+                all trademarks of the banks and One IBC<sup>®</sup> does not hold any ownership to
+                these properties. All the banks listed are all One IBC<sup>®</sup>s business
+                partners and are subject to the agreements between the parties involved.
               </p>
-              <br />
+
               <div className="ibc-informat-border">
                 <h2>Contact Us</h2>
               </div>
-              <br />
+
               <p>
                 <i className="fa-light fa-location-dot"></i> Unit 1411, 14/Floor, Cosco Tower, 183
                 Queens Road Central, Sheung Wan, Hong Kong.
               </p>
-              <br />
+
               <p>
                 <i className="fa-regular fa-phone"></i> +852 8199 0825
               </p>
-              <br />
+
               <p>
                 <i className="fa-regular fa-envelope"></i> support@oneibc.com
               </p>
-              <br />
             </TabPanel>
             <TabPanel value={value} index={1}>
               Item Two

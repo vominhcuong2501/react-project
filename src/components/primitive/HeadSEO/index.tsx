@@ -15,6 +15,8 @@ export default function HeadSEO(props: IHeadSEOProps) {
   return (
     <Head>
       <title>{title}</title>
+      <meta charSet="utf-8"></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="theme-color" content="#e60000" />
       <meta name="description" content={meta_description} />

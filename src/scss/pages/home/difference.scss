@@ -1,6 +1,5 @@
 .ibc-difference {
   @include flex-center-hoz;
-  margin-top: 10rem;
 
   @include breakpoint-down(desktop) {
     flex-direction: column;
@@ -12,7 +11,7 @@
     h2 {
       @include current-bg;
       font-weight: $font-weight-light;
-      font-size: 4.8rem;
+      font-size: 48px;
       line-height: 120%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -22,8 +21,10 @@
       @include breakpoint-down(desktop) {
         font-size: 32px;
         text-align: center;
-        max-width: 260px;
         margin: 0 auto;
+      }
+      @include breakpoint-down(smallphone) {
+        text-align: left;
       }
     }
 
@@ -40,7 +41,7 @@
 
     > p {
       margin-top: 2rem;
-      margin-bottom: 5rem;
+      margin-bottom: 2rem;
       max-width: 60rem;
 
       @include breakpoint-down(desktop) {
@@ -54,6 +55,10 @@
       color: $black-1;
       line-height: 140%;
       margin-left: 1.4rem;
+
+      @include breakpoint-down(phone) {
+        max-width: 60px;
+      }
     }
 
     ul {
@@ -78,8 +83,14 @@
             background-color: $yellow-1;
           }
 
-          @include breakpoint-down(desktop) {
+          @include breakpoint-down(phone) {
             padding-left: 10px;
+          }
+        }
+
+        @include breakpoint-down(phone) {
+          h3 {
+            max-width: 60px;
           }
         }
 
@@ -105,6 +116,7 @@
 
           @include breakpoint-down(desktop) {
             padding-left: 10px;
+            margin-bottom: 32px;
           }
         }
 
@@ -118,6 +130,7 @@
 
           @include breakpoint-down(desktop) {
             padding-right: 10px;
+            margin-bottom: 32px;
           }
         }
       }
@@ -141,6 +154,19 @@
       left: 10px;
       top: 45%;
       z-index: -1;
+
+      @include breakpoint-down(desktop) {
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+    svg {
+      @include breakpoint-down(desktop) {
+        width: 22px;
+        height: 22px;
+        margin-right: 12px;
+      }
     }
   }
 

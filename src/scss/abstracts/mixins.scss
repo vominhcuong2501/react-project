@@ -436,3 +436,35 @@ $breakpoints-up: (
 @mixin current-text {
   color: $black-1;
 }
+
+@mixin text-color {
+  background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  line-height: 120%;
+}
+
+@mixin custom-btn {
+  display: block;
+  border-radius: 8px;
+  font-size: 16px;
+  border: solid 1px transparent;
+  background-image: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%),
+    linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #fff inset;
+  padding: 24px 16px;
+
+  &:hover {
+    background-image: unset;
+    background-origin: unset;
+    color: white;
+    background-clip: unset;
+    box-shadow: unset;
+    padding: 24px 16px;
+    background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+  }
+}

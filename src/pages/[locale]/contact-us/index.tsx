@@ -7,14 +7,16 @@ import {
   CACHE_MAIN_CONTACTS_OFFICES_ALL_SERVICE,
   CACHE_MAIN_CONTACTS_OFFICES_SERVICE,
   CACHE_MAIN_CONTACT_BANNER,
+  CACHE_META_SEO_CONTACT,
 } from '@/constants';
-import { readCache } from '@/lib/readCache';
 
+import { readCacheDynamic } from '@/lib/readCacheDynamic';
 import withCommon from '@hoc/withCommon';
 import { IGetBanner } from '@interfaces/home';
+import { setBreadcrumb } from '@redux/common/slice';
 import commonService from '@services/common';
 import oneIbcContacts from '@services/contactsPage';
-import { coverObj } from '@utils/helpers';
+import { coverObj, getDataBreadcrumb } from '@utils/helpers';
 
 const Index = (props: any) => <ContactUS {...props} />;
 
@@ -26,13 +28,27 @@ export const getServerSideProps = withCommon({
       controller: 'contactus',
       ...region,
     };
+    const metaInfoPage = {
+      language: region.lang,
+      countryCode: region.country,
+    };
     const promises = [
-      readCache(CACHE_MAIN_CONTACT_BANNER) ??
+      readCacheDynamic(CACHE_MAIN_CONTACT_BANNER, 'common') ??
         commonService.getBanner(reqDataGetBanner, CACHE_MAIN_CONTACT_BANNER),
-      readCache(CACHE_MAIN_CONTACTS_CUSTOMER_SERVICE) ?? oneIbcContacts.getCustomerService(region),
-      readCache(CACHE_MAIN_CONTACTS_OFFICES_SERVICE) ?? oneIbcContacts.getOfficesService(region),
-      readCache(CACHE_MAIN_CONTACTS_COUNTRIES_SERVICE) ?? oneIbcContacts.getOfficesService(region),
-      readCache(CACHE_MAIN_CONTACTS_OFFICES_ALL_SERVICE) ??
+
+      readCacheDynamic(CACHE_MAIN_CONTACTS_CUSTOMER_SERVICE, 'contact-us') ??
+        oneIbcContacts.getCustomerService(region),
+
+      readCacheDynamic(CACHE_META_SEO_CONTACT, 'contact-us') ??
+        oneIbcContacts.getInfoPageMetaDetail(metaInfoPage),
+
+      readCacheDynamic(CACHE_MAIN_CONTACTS_OFFICES_SERVICE, 'contact-us') ??
+        oneIbcContacts.getOfficesService(region),
+
+      readCacheDynamic(CACHE_MAIN_CONTACTS_COUNTRIES_SERVICE, 'contact-us') ??
+        oneIbcContacts.getOfficesService(region),
+
+      readCacheDynamic(CACHE_MAIN_CONTACTS_OFFICES_ALL_SERVICE, 'contact-us') ??
         oneIbcContacts.getOfficesService(region),
     ];
     const response: any = await Promise.allSettled(promises);
@@ -40,10 +56,25 @@ export const getServerSideProps = withCommon({
       item.status === 'fulfilled' ? item.value ?? [] : null,
     );
 
-    const ar = ['banner', 'listService', 'officesService', 'countriesService', 'officesAllService'];
+    const ar = [
+      'banner',
+      'listService',
+      'metaInfo',
+      'officesService',
+      'countriesService',
+      'officesAllService',
+    ];
+
+    const convertData: any = coverObj(ar, data);
+
+    // config breadcrumb
+    const detailPage = getDataBreadcrumb(convertData['metaInfo'], 'page');
+
+    store.dispatch(setBreadcrumb([detailPage]));
+
     return {
       props: {
-        ...coverObj(ar, data),
+        ...convertData,
       },
     };
   },

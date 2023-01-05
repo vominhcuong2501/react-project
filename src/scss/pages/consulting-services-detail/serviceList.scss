@@ -115,7 +115,7 @@
     &--text {
       display: flex;
       align-items: flex-end;
-      background-color: #f0f2f5;
+      background-color: $white-5;
       margin-bottom: -9.2rem;
       margin-top: 9.2rem;
       position: relative;
@@ -136,7 +136,7 @@
         font-size: 20px;
         line-height: 140%;
         padding-bottom: 9.2rem;
-        color: #3b3a3c;
+        color: $black-1;
 
         @include breakpoint-down(desktop) {
           font-size: 16px;
@@ -146,7 +146,7 @@
 
       &:after {
         content: ' ';
-        background-color: #f0f2f5;
+        background-color: $white-5;
         height: 100%;
         width: 50%;
         position: absolute;
@@ -162,9 +162,8 @@
   }
 
   &__provide {
+    @include flex-center-ver;
     margin-top: 17.2rem;
-    display: flex;
-    align-items: center;
     flex-direction: column;
 
     @include breakpoint-down(desktop) {
@@ -173,13 +172,9 @@
     }
 
     h2 {
-      line-height: 120%;
+      @include text-color;
+      font-weight: $font-weight-light;
       font-size: 4.8rem;
-      @include current-bg;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
 
       @include breakpoint-down(desktop) {
         font-size: 32px;
@@ -191,7 +186,7 @@
       font-size: 2rem;
       line-height: 140%;
       max-width: 80rem;
-      color: #3b3a3c;
+      color: $black-1;
 
       @include breakpoint-down(desktop) {
         font-size: 14px;
@@ -281,7 +276,7 @@
 
       h3 {
         font-weight: $font-weight-base;
-        font-size: 2.8rem;
+        font-size: 28px;
         line-height: 120%;
         margin-top: 2.8rem;
 
@@ -289,7 +284,6 @@
           white-space: nowrap;
           font-style: normal;
           font-weight: $font-weight-base;
-          font-size: 2.8rem;
           line-height: 120%;
         }
       }
@@ -297,13 +291,12 @@
       p {
         @include flex-center-ver;
         font-weight: $font-weight-base;
-        font-size: $font-size-large;
+        font-size: 18px;
         margin-top: 1.6rem;
         line-height: 140%;
-        color: #3b3a3c;
+        color: $black-1;
 
         @include breakpoint-down(desktop) {
-          font-size: $font-size-large;
           text-align: left;
         }
       }
@@ -325,4 +318,8 @@
       }
     }
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }

@@ -1,29 +1,33 @@
+import { useAppSelector } from '@redux/hooks';
+import { selectsListDataHub, selectsListInSightsTypes } from '@redux/insights/selecters';
 import appStyle from '@scss/pages/insights/index.scss';
-import { get } from 'lodash';
+import { get, map } from 'lodash';
 import FAQ from './FAQ';
 import Lastest from './Lastest';
 import List from './List';
 
-export default function Insights({ articlesInsights, faq, dataHub, listInsightLastest }: any) {
-  const listInsights = get(articlesInsights, 'insights', []);
-  const faqs = get(faq, 'faqs', null);
-  const dataHubs = get(dataHub, 'faqs', null);
+export default function Insights() {
+  const listInsightTypes = get(useAppSelector(selectsListInSightsTypes), 'insights', []);
+  const listDataHub = get(useAppSelector(selectsListDataHub), 'data-hub', null);
 
   return (
     <>
       <style jsx>{appStyle}</style>
-      <Lastest listInsights={listInsightLastest} />
-      {listInsights &&
-        listInsights?.map((item, index) => (
-          <List
-            data={item.articles}
-            title={item.name}
-            key={`${index}`.toString()}
-            keyword={item.keyword}
-          />
-        ))}
-      {dataHubs && <List data={dataHubs} title="data hub" keyword="data-hub" />}
-      {faqs && <FAQ data={faqs} keyword="faqs" />}
+      <Lastest />
+
+      {map(listInsightTypes, (item, index) => (
+        <List
+          data={item.articles}
+          title={item.name}
+          key={`${index}`.toString()}
+          keyword={item.keyword}
+        />
+      ))}
+      {/* Data-Hub */}
+
+      {listDataHub && <List data={listDataHub} title="data hub" keyword="data-hub" />}
+      {/* Faq */}
+      <FAQ />
     </>
   );
 }

@@ -1,16 +1,19 @@
 import {
   CACHE_BANNER_INDUSTRIES,
+  CACHE_INSIGHT_LIST_COMMON,
   CACHE_LIST_INDUSTRIES,
   CACHE_META_SEO_INDUSTRIES,
   CONTROLLER_INDUSTRIES,
 } from '@/constants';
-import { readCache } from '@/lib/readCache';
+import { readCacheDynamic } from '@/lib/readCacheDynamic';
 import { MainLayout } from '@components/compound';
 import Industries from '@containers/Industries';
 import withCommon from '@hoc/withCommon';
-import { IGetBanner } from '@interfaces/index';
+import { IGetBanner, IGetInsightHome } from '@interfaces/index';
+import { setBreadcrumb, setListInsights } from '@redux/common/slice';
 import industriesServices from '@services/industries';
-import { coverObj } from '@utils/helpers';
+import insightServices from '@services/insight';
+import { coverObj, getDataBreadcrumb } from '@utils/helpers';
 
 const Index = (props: any) => <Industries {...props} />;
 
@@ -23,26 +26,43 @@ export const getServerSideProps = withCommon({
       controller,
       ...region,
     };
+    const reqDataInsight: IGetInsightHome = {
+      isHome: 'Y',
+      limit: 4,
+      ...region,
+    };
     const locale = {
       language: region.lang,
       countryCode: region.country,
     };
     const localeRequest = { ...locale };
     const promises = [
-      readCache(CACHE_BANNER_INDUSTRIES) || industriesServices.getBanner(reqDataGetBanner),
-      readCache(CACHE_META_SEO_INDUSTRIES) || industriesServices.getInfoPageMeta(localeRequest),
-      readCache(CACHE_LIST_INDUSTRIES) || industriesServices.getListItems(localeRequest),
+      readCacheDynamic(CACHE_BANNER_INDUSTRIES, 'industries') ||
+        industriesServices.getBanner(reqDataGetBanner),
+
+      readCacheDynamic(CACHE_META_SEO_INDUSTRIES, 'industries') ||
+        industriesServices.getInfoPageMetaDetail(localeRequest),
+
+      readCacheDynamic(CACHE_LIST_INDUSTRIES, 'industries') ||
+        industriesServices.getListItemsDetail(localeRequest),
+
+      readCacheDynamic(CACHE_INSIGHT_LIST_COMMON, 'insights') ||
+        insightServices.getListCommon(reqDataInsight),
     ];
 
     const response: any = await Promise.allSettled(promises);
     const data = await response.map((item) =>
       item.status === 'fulfilled' ? item.value ?? [] : null,
     );
-    const ar = ['banner', 'metaInfo', 'listIndustries'];
+    const ar = ['banner', 'metaInfo', 'listIndustries', 'listInsight'];
+    const convertData = coverObj(ar, data);
+    const detailPage = getDataBreadcrumb(convertData['metaInfo'], 'page');
+
+    store.dispatch(setListInsights(convertData['listInsight']));
+    store.dispatch(setBreadcrumb([detailPage]));
+
     return {
-      props: {
-        ...coverObj(ar, data),
-      },
+      props: { ...convertData },
     };
   },
 });

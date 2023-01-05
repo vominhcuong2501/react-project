@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>INFORMATION</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./information.css" />
+  </head>
+  <body>
+    <div class="ibc-information">
+      <div class="ibc-information-component">
+        <div class="ibc-information__content">
+          <div class="ibc-information__content__title">
+            <div>
+              <h1>Legal Disclaimer</h1>
+              <p>Updated time: 16 Apr, 2020, 18:00 (UTC+08:00)</p>
+            </div>
+            <div class="button-down-load">
+              <button class="d-flex align-items-center justify-content-center">
+                <img
+                  src="https://d2dsfq4y7kldre.cloudfront.net/uploads/icon-download-1671504067.svg"
+                  alt="Download-icon.svg"
+                />
+                <span>Download Now</span>
+              </button>
+            </div>
+          </div>
+          <div class="ibc-information__content__tabs">
+            <div>
+              <button class="tablink active" onclick="showContent(event,'content-1')">
+                Safeguard
+              </button>
+            </div>
+            <div>
+              <button class="tablink" onclick="showContent(event,'content-2')">
+                Statement on conduct
+              </button>
+            </div>
+            <div>
+              <button class="tablink" onclick="showContent(event,'content-3')">
+                Client KYC requirement
+              </button>
+            </div>
+            <div>
+              <button class="tablink" onclick="showContent(event,'content-4')">
+                AML - CTF Policy
+              </button>
+            </div>
+          </div>
+          <div class="ibc-content-format">
+            <div id="content-1" class="tabs-content">
+              <h2 class="ibc-content-format__line-through">1. Overview</h2>
+              <p><strong>Non-cooperative jurisdictions</strong></p>
+              <p>
+                The website
+                <a
+                  class="website"
+                  href="https://www.oneibc.com"
+                  target="_blank"
+                  title="www.oneibc.com"
+                  >www.oneibc.com</a
+                >
+                is administered by One IBC Limited, a company registered in the Hong Kong SAR
+                (License Number: TC001305) whose registered office is Unit 1411, 14/Floor, Cosco
+                Tower, 183 Queens Road Central, Sheung Wan, Hong Kong and/or One IBC Pte. Ltd, a
+                company registered in Singapore whose registered office is 1 Raffles Place, #40-02,
+                One Raffles Place, Office Tower 1, Singapore 048616 (License Number: FA20180115)
+              </p>
+              <p>
+                Any articles or publications contained on this website are not intended to provide
+                specific business or investment advice. No responsibility for any errors or
+                omissions nor loss occasioned to any person or organization acting or refraining
+                from acting as a result of any material in this website can, however, be accepted by
+                the author(s) or One IBC Limited or/and One IBC Pte.Ltd. You should take specific
+                independent advice before making any business or investment decision.
+              </p>
+              <p>
+                One IBC Group is the brand used by a network of independent company formation,
+                accounting and consulting firms, each of which practices in its own right. The
+                network is not itself a separate legal entity of any description in any
+                jurisdiction.
+              </p>
+              <ul>
+                <li>
+                  The network is administered by One IBC AG, whose registered office in
+                  Hinterbergstrasse 48, Steinhausen, Switzerland
+                </li>
+                <li>
+                  The brand and trademark One IBC and other intellectual property rights used by
+                  members of the network are owned by One IBC AG, a registered company in
+                  Switzerland.
+                </li>
+              </ul>
+              <p>
+                All the name and logo of the banks used on the website One IBC Group are all
+                trademarks of the banks and One IBC does not hold any ownership to these properties.
+                All the banks listed are all One IBCs business partners and are subject to the
+                agreements between the parties involved.
+              </p>
+
+              <h2 class="ibc-content-format__line-through">2. Contact Us</h2>
+              <p class="d-flex align-items-center">
+                <img
+                  src="https://d2dsfq4y7kldre.cloudfront.net/uploads/icon-local-1671506978.svg"
+                  alt="Address"
+                />
+                Unit 1411, 14/Floor, Cosco Tower, 183 Queens Road Central, Sheung Wan, Hong Kong.
+              </p>
+              <p>
+                <a href="tel: 85281990825" class="d-flex align-items-center">
+                  <img
+                    src="https://d2dsfq4y7kldre.cloudfront.net/uploads/icon-phone-1671506979.svg"
+                    alt="Phonenumber"
+                    target="_blank"
+                    title="+852 8199 0825"
+                  />
+                  +852 8199 0825</a
+                >
+              </p>
+              <p>
+                <a href="mailto:support@oneibc.com" class="d-flex align-items-center">
+                  <img
+                    src="https://d2dsfq4y7kldre.cloudfront.net/uploads/icon-mailbox-1671506979.svg"
+                    alt="Email"
+                    target="_blank"
+                    title="support@oneibc.com"
+                  />
+                  support@oneibc.com</a
+                >
+              </p>
+            </div>
+            <div id="content-2" class="tabs-content" style="display: none">
+              <h2>England</h2>
+              <p>London is the capital of England.</p>
+            </div>
+            <div id="content-3" class="tabs-content" style="display: none">
+              <h2>Vietnam</h2>
+              <p>Hanoi is the capital of Vietnam.</p>
+            </div>
+            <div id="content-4" class="tabs-content" style="display: none">
+              <h2>Tokyo</h2>
+              <p>Tokyo is the capital of Japan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showContent(evt, content) {
+        var i, x, tablinks;
+        var x = document.getElementsByClassName('tabs-content');
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = 'none';
+        }
+        tablinks = document.getElementsByClassName('tablink');
+        for (i = 0; i < x.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(' active', ' ');
+        }
+        document.getElementById(content).style.display = 'block';
+        evt.currentTarget.className += ' active';
+      }
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

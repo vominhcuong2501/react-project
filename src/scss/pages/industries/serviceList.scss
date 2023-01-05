@@ -27,7 +27,7 @@
     z-index: 2;
     margin-top: -13rem;
     background-color: $white;
-    overflow-y: hidden;
+    overflow: hidden;
 
     &:before {
       content: ' ';
@@ -35,6 +35,9 @@
       height: calc(100%);
       z-index: -1;
       background-color: $white;
+    }
+    @include breakpoint-down(phone) {
+      padding-bottom: 40px;
     }
   }
 
@@ -47,9 +50,17 @@
   &__main {
     padding-top: 20px;
     max-width: 120rem;
+
     @include breakpoint-down(desktop) {
       padding-left: unset;
       margin: 0 auto;
+      padding-top: 20px;
+    }
+
+    @include breakpoint-down(phone) {
+      padding-left: unset;
+      margin: 0 auto;
+      padding-top: unset;
     }
   }
 
@@ -101,7 +112,7 @@
       font-weight: $font-weight-base;
       font-size: 1.6rem;
       line-height: 140%;
-      color: #3b3a3c;
+      color: $black-1;
       text-align: start;
 
       @include breakpoint-down(desktop) {
@@ -109,9 +120,10 @@
         font-weight: $font-weight-base;
         font-size: 14px;
         line-height: 140%;
-        color: #3b3a3c;
+        color: $black-1;
         text-align: center;
         padding: 0 16px;
+        margin-top: 10px;
       }
     }
   }
@@ -168,12 +180,15 @@
 
   &__list {
     display: flex;
-    width: 100%;
+    width: calc(100% + 60px);
     flex-wrap: wrap;
     margin-top: 40px;
+    margin-left: -3rem;
 
     @include breakpoint-down(phone) {
       margin-top: 20px;
+      width: 100%;
+      margin-left: 0;
     }
 
     &--item {
@@ -182,10 +197,6 @@
       max-width: calc(100% / 3);
       padding: 3rem;
       display: flex;
-
-      img {
-        max-height: 80px;
-      }
 
       @include breakpoint-down(desktop) {
         width: calc(100% / 2);
@@ -213,25 +224,24 @@
       img {
         width: 100%;
         object-fit: cover;
+        max-height: 80px;
       }
 
       h3 {
-        color: $black-3;
-        font-weight: $font-weight-light;
-        font-size: $font-size-fit;
-        line-height: 140%;
-        padding: $font-size-medium 0;
-        text-transform: uppercase;
-        cursor: pointer;
+        margin-top: 16px;
 
         a {
-          color: $black-3;
           font-weight: $font-weight-light;
           font-size: $font-size-fit;
           line-height: 140%;
           padding: $font-size-medium 0;
           text-transform: uppercase;
           cursor: pointer;
+          color: $black-1;
+
+          @include breakpoint-down(phone) {
+            font-size: 20px;
+          }
         }
       }
 
@@ -240,6 +250,11 @@
         font-weight: $font-weight-base;
         font-size: $font-size-large;
         line-height: 140%;
+        margin-top: 16px;
+
+        @include breakpoint-down(phone) {
+          font-size: 16px;
+        }
       }
 
       &:hover {
@@ -257,4 +272,95 @@
       }
     }
   }
+  // &__list {
+  //   display: flex;
+  //   width: 100%;
+  //   flex-wrap: wrap;
+  //   margin-top: 40px;
+
+  //   @include breakpoint-down(phone) {
+  //     margin-top: 20px;
+  //   }
+
+  //   &--item {
+  //     flex-grow: 1;
+  //     width: calc(100% / 3);
+  //     max-width: calc(100% / 3);
+  //     padding: 3rem;
+  //     display: flex;
+
+  //     img {
+  //       max-height: 80px;
+  //     }
+
+  //     @include breakpoint-down(desktop) {
+  //       width: calc(100% / 2);
+  //       max-width: calc(100% / 2);
+  //     }
+
+  //     @include breakpoint-down(phone) {
+  //       width: 100%;
+  //       max-width: 100%;
+  //       padding: 1.5rem;
+  //     }
+  //   }
+
+  //   &--item-content {
+  //     flex: 1;
+  //     border-top-left-radius: 16px;
+  //     border-top-right-radius: 16px;
+  //     overflow: hidden;
+  //     text-align: start;
+  //     display: flex;
+  //     justify-content: space-between;
+  //     border-bottom: 1px solid $gray-5;
+  //     flex-direction: column;
+
+  //     img {
+  //       width: 100%;
+  //       object-fit: cover;
+  //     }
+
+  //     h3 {
+  //       color: $black-3;
+  //       font-weight: $font-weight-light;
+  //       font-size: $font-size-fit;
+  //       line-height: 140%;
+  //       padding: $font-size-medium 0;
+  //       text-transform: uppercase;
+  //       cursor: pointer;
+
+  //       a {
+  //         color: $black-3;
+  //         font-weight: $font-weight-light;
+  //         font-size: $font-size-fit;
+  //         line-height: 140%;
+  //         padding: $font-size-medium 0;
+  //         text-transform: uppercase;
+  //         cursor: pointer;
+  //       }
+  //     }
+
+  //     p {
+  //       color: $black-1;
+  //       font-weight: $font-weight-base;
+  //       font-size: $font-size-large;
+  //       line-height: 140%;
+  //     }
+
+  //     &:hover {
+  //       cursor: pointer;
+
+  //       img {
+  //         opacity: 0.7;
+  //       }
+
+  //       h3 {
+  //         a {
+  //           color: $red-4;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 }

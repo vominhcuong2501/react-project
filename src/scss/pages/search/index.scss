@@ -1,0 +1,171 @@
+@import '@scss/abstracts';
+
+.ibc-search-fluid {
+  background-color: $white-5;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.ibc-search-container {
+  border: 1px solid transparent;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.ibc-search-content {
+  background-color: $white;
+  max-width: 1600px;
+  min-height: 70vh;
+  margin-left: auto;
+  margin-top: calc(7.6rem + 60px);
+  padding: 20px 80px;
+  margin-bottom: 60px;
+}
+
+.ibc-search-bar {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  gap: 30px;
+  margin-top: 47px;
+
+  form {
+    flex: 1;
+  }
+
+  input {
+    outline: none;
+    width: 100%;
+    border: 1px solid transparent;
+    // border-bottom: 1px solid $white-5
+    border-bottom: 1px solid $red-3;
+    padding-bottom: 10px;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 140%;
+
+    /* Primary colors/6#3B3A3C */
+    color: #3b3a3c;
+  }
+
+  i {
+    font-size: 30px;
+    color: $red-3;
+    cursor: pointer;
+  }
+}
+
+.gsc-search-button {
+  display: none;
+}
+
+.gsc-input {
+  outline: none;
+  width: 100%;
+  border: 1px solid transparent;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 140%;
+  color: #3b3a3c;
+}
+
+.gsc-input-box {
+  border: 1px solid transparent !important;
+  border-bottom: 1px solid $red-3 !important;
+  padding-left: 50px;
+}
+
+.ibc-search-box {
+  position: relative;
+
+  i {
+    position: absolute;
+    left: 0;
+    // top: 10px;
+    font-size: 30px;
+    color: $red-3;
+    cursor: pointer;
+  }
+}
+
+.gs-title {
+  color: #3b3a3c !important;
+  font-weight: 400 !important;
+  font-size: 20px !important;
+  line-height: 140%;
+
+  &:hover {
+    color: $red-3 !important;
+  }
+}
+
+.gcsc-more-maybe-branding-root {
+  display: none;
+}
+
+.gs-bidi-start-align span {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  color: #605f61 !important;
+}
+
+.gs-web-image-box {
+  width: 100px;
+  height: 60px;
+}
+
+.gs-web-image-box .gs-image,
+.gs-promotion-image-box .gs-promotion-image {
+  object-fit: cover;
+  max-width: 100px !important;
+  max-height: 60px !important;
+  width: 100% !important;
+}
+
+.gsc-results .gsc-cursor-box .gsc-cursor-page {
+  padding: 15px;
+  border-radius: 8px;
+  color: $red-3 !important;
+  background: rgb(201 31 38 / 10%) !important;
+  text-decoration: none !important;
+}
+
+.gsc-cursor-box .gs-bidi-start-align {
+  margin-top: 40px !important;
+}
+
+.gsc-cursor-box {
+  margin-top: 40px !important;
+}
+
+// search complete
+
+.gsc-completion-container {
+  td {
+    color: $black-3 !important;
+    font-weight: 300 !important;
+    font-size: 24px !important;
+    line-height: 140%;
+  }
+}
+
+.ibc-search-content-result {
+  margin-top: 47px;
+  max-width: 120rem;
+}
+
+.gsc-adBlock,
+.gsc-above-wrapper-area,
+.gsc-positioningWrapper {
+  display: none !important;
+}
+
+.gsib_b {
+  display: block;
+
+  .gsst_a {
+    display: block !important;
+    color: $black-2;
+  }
+}

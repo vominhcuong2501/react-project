@@ -1,0 +1,146 @@
+@import '@scss/abstracts';
+// @import '@scss/components/custom-button-expand';
+@import '../components/custom-button-expand';
+
+.ibc-container {
+  &__faq-banner {
+    width: 100%;
+    height: 380px;
+    background-image: url('/images/faq-banner.jpg');
+    position: relative;
+
+    p {
+      position: absolute;
+      font-size: 8rem;
+      color: $white;
+      @include abs-center;
+    }
+  }
+
+  &__faq-footer {
+    width: 100%;
+    height: 12rem;
+    background-image: url('/images/faq-footer.png');
+    position: relative;
+    margin-top: 6rem;
+
+    @include breakpoint-down(desktop) {
+      height: 202px;
+      background-image: url('/images/make-an-enquiry-mobile.jpg');
+    }
+
+    img {
+      position: absolute;
+      z-index: -1;
+      max-width: 100%;
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    p {
+      font-size: 3.2rem;
+      color: $white;
+
+      @include breakpoint-down(phone) {
+        padding: 0 50px;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.ibc-container-content {
+  &__breadcrumb {
+    margin-top: 2rem;
+    @include breakpoint-down(desktop) {
+      display: none;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+
+    @include breakpoint-down(desktop) {
+      // display: flex;
+      flex-direction: column;
+      justify-content: center;
+      row-gap: 30px;
+      text-align: center;
+      // align-items: center;
+      // text-align: center;
+    }
+  }
+
+  &__faq-layout {
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoint-down(desktop) {
+      flex-wrap: wrap;
+
+      .ibc-content__faq-content {
+        order: 2;
+
+        @include breakpoint-down(desktop) {
+          width: 100%;
+          padding: 0 16px;
+        }
+
+        @include breakpoint-down(phone) {
+          padding: 0 10px;
+        }
+      }
+    }
+  }
+}
+
+.ibc-content__faq-sidebar {
+  margin-top: 8rem;
+  width: 30.7rem;
+  background-color: $white-5;
+  padding: 2rem 2rem 10rem;
+  border-radius: 8px;
+
+  @include breakpoint-down(desktop) {
+    width: 100%;
+    margin-top: 0;
+    border-radius: 4px;
+    padding: unset;
+  }
+
+  h2 {
+    font-size: $font-size-max;
+    font-weight: $font-weight-light;
+  }
+
+  ul {
+    margin-top: 2rem;
+
+    li {
+      padding: 2rem 0;
+
+      a {
+        color: $black-1;
+        font-size: $font-size-large;
+
+        &:hover {
+          color: $red-3;
+        }
+      }
+    }
+  }
+}
+
+.ibc-custom-btn {
+  padding: 12px 40px !important;
+  font-size: 18px;
+
+  @include breakpoint-down(phone) {
+    font-size: 16px;
+    font-weight: $font-weight-base;
+  }
+}

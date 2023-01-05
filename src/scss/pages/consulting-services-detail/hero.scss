@@ -36,9 +36,12 @@
       width: 100%;
 
       @include breakpoint-down(desktop) {
-        top: 40%;
         left: 50%;
+        top: 45%;
         transform: translate(-50%, -50%);
+        max-width: 100%;
+        text-align: center;
+        padding: 0 10px;
       }
 
       h3 {
@@ -65,10 +68,12 @@
         font-weight: 600;
         font-size: 70px;
         line-height: 120%;
+        width: 100%;
 
         @include breakpoint-down(desktop) {
           font-size: 48px;
           white-space: unset;
+          width: 100%;
         }
       }
     }

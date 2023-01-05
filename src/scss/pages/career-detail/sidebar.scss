@@ -1,0 +1,112 @@
+// side bar
+
+.overlay-career {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 1000vh;
+  width: 200%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  background: rgb(25 21 29 / 40%);
+  z-index: 100;
+}
+
+.ibc-sidebar-form {
+  $root: &;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 999;
+  right: 0;
+
+  &__container {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100%;
+    min-width: 480px;
+    transition: all 0.4s ease;
+
+    @include breakpoint-down(phone) {
+      width: 100%;
+      min-width: 100%;
+    }
+  }
+
+  &__main {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    width: 700px;
+    @include breakpoint-down(phone) {
+      width: 100%;
+    }
+  }
+
+  &__first {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    height: 100%;
+    box-shadow: 0 5px 1px rgb(0 0 0 / 10%);
+    transition: all 0.4s ease;
+    background-color: #fff;
+    z-index: 2;
+    width: 100%;
+
+    &--open {
+      right: 0;
+      @include breakpoint-down(phone) {
+        right: unset;
+        width: 100%;
+      }
+    }
+  }
+
+  &--open {
+    #{$root}__container {
+      right: 0;
+    }
+
+    ~ {
+      .overlay-career {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+}
+
+.ibc__form {
+  // padding: 4.8rem 6rem;
+  width: auto !important;
+  text-align: left;
+  padding: 4.8rem 6rem !important;
+}
+
+.ibc__form .ibc-input-form {
+  display: flow-root;
+  margin-top: 3.1rem;
+}
+
+.text-center {
+  text-align: left;
+  @include breakpoint-down(phone) {
+    text-align: center;
+  }
+}
+
+.ibc__form .ibc-input-upload {
+  margin-top: 3.1rem;
+}
+
+.close_career {
+  position: absolute;
+  top: 48px;
+  right: 40px;
+  cursor: pointer;
+}

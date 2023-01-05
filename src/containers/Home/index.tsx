@@ -1,10 +1,19 @@
 import appStyle from '@/scss/pages/home/index.scss';
 import { GroupGetInTouch } from '@components/compound/GroupGetInTouch';
 import { GroupGetUpdate } from '@components/compound/GroupGetUpdate';
+import OurDifferenceAndValues from '@components/compound/OurDifferenceAndValues';
 import HeadSEO from '@components/primitive/HeadSEO';
-import { InfoPage, ResponseBanner, ResponseConfig, ResponseListInsight } from '@interfaces/index';
+import {
+  ConfigTXT,
+  InfoPage,
+  ResponseBanner,
+  ResponseConfig,
+  ResponseListInsight,
+} from '@interfaces/index';
+import { getConfig } from '@utils/helpers';
+import button from '../../scss/components/custom-button-expand.scss';
+
 import { Consulting } from './Consulting';
-import { Difference } from './Difference';
 import { Hero } from './Hero';
 import { Intelligence } from './Intelligence';
 import { Methodology } from './Methodology';
@@ -14,27 +23,24 @@ interface HomePageProps {
   banner: ResponseBanner;
   listInsight: ResponseListInsight;
   intelligenceNetwork: ResponseConfig;
-  difference: ResponseConfig;
-  appRoach: ResponseConfig;
-  appRoachJS: ResponseConfig;
   infoPage: InfoPage;
+  txtConsultingName: ConfigTXT;
 }
 
 export default function HomePage(props: HomePageProps) {
-  const { banner, listInsight, intelligenceNetwork, difference, appRoach, appRoachJS, infoPage } =
-    props;
-
+  const { banner, listInsight, intelligenceNetwork, infoPage, txtConsultingName } = props;
   return (
     <>
-      {infoPage && <HeadSEO title="oneibc homepage" {...infoPage.page}></HeadSEO>}
+      {infoPage && <HeadSEO {...infoPage.page}></HeadSEO>}
       <main>
+        <style jsx>{button}</style>
         <style jsx>{appStyle}</style>
         {banner && <Hero bannerList={banner} />}
         {listInsight && <Trending listInsight={listInsight} />}
         {intelligenceNetwork && <Intelligence intelligenceNetwork={intelligenceNetwork} />}
-        <Consulting />
-        {difference && <Difference difference={difference} />}
-        {appRoach && <Methodology appRoach={appRoach} appRoachJS={appRoachJS} />}
+        <Consulting configName={getConfig(txtConsultingName)} />
+        <OurDifferenceAndValues />
+        <Methodology />
         <GroupGetUpdate />
         <GroupGetInTouch />
       </main>

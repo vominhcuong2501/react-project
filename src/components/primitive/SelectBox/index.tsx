@@ -28,7 +28,6 @@ function SelectBox({
   name,
   options,
   selectedOption,
-
   isSearchable,
   onChange,
   className,

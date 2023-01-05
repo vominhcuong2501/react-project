@@ -1,5 +1,11 @@
+import { IListInsightsUpdate } from '@interfaces/common';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+const initState = {
+  iat: null,
+  iss: null,
+  isSuccessful: null,
+};
 interface State {
   counter: number;
   user: object;
@@ -7,6 +13,9 @@ interface State {
   footerMenu: [];
   listConsultingServices: [];
   listUpdateSectionInsights: [];
+  footerConfig: any;
+  getFooterConfig: any;
+  searchString: IListInsightsUpdate;
 }
 
 const initialState: State = {
@@ -16,6 +25,13 @@ const initialState: State = {
   footerMenu: [],
   listConsultingServices: [],
   listUpdateSectionInsights: [],
+  footerConfig: null,
+  getFooterConfig: null,
+
+  searchString: {
+    insights: null,
+    ...initState,
+  },
 };
 
 const appSlice = createSlice({
@@ -40,6 +56,15 @@ const appSlice = createSlice({
     setListUpdateSectionInsights(state, { payload }: PayloadAction<any>) {
       state.listUpdateSectionInsights = payload;
     },
+    setFooterConfig(state, { payload }: PayloadAction<any>) {
+      state.footerConfig = payload;
+    },
+    setFooterConfigTxt(state, { payload }: PayloadAction<any>) {
+      state.getFooterConfig = payload;
+    },
+    setSearchString(state, { payload }: PayloadAction<IListInsightsUpdate>) {
+      state.searchString = payload;
+    },
   },
 });
 
@@ -50,6 +75,9 @@ export const {
   setFooterMenu,
   setListConsultingService,
   setListUpdateSectionInsights,
+  setFooterConfig,
+  setFooterConfigTxt,
+  setSearchString,
 } = appSlice.actions;
 
 export default appSlice;

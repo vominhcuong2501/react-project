@@ -46,6 +46,13 @@
   &--danger {
     border-radius: 0.8rem;
     @include current-bg;
+
+    &:hover {
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
   }
 
   &--medium {
@@ -53,6 +60,14 @@
     height: 4.9rem;
     font-size: $font-size-large;
     font-weight: $font-weight-base;
+
+    @include breakpoint-down(phone) {
+      width: 168px;
+      height: 46px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: $font-weight-base;
+    }
   }
 
   &--small {
@@ -60,6 +75,13 @@
     height: 3.8rem;
     font-size: 1.6rem;
     font-weight: $font-weight-base;
+
+    @include breakpoint-down(phone) {
+      width: 124px;
+      height: 33px;
+      font-size: 12px;
+      border-radius: 4px;
+    }
   }
 }
 

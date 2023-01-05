@@ -1,0 +1,68 @@
+@import '@scss/abstracts';
+
+.ibc-group-card {
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 60px;
+    @include breakpoint-down(phone) {
+      justify-content: center;
+    }
+
+    &--item {
+      max-width: min-content;
+      margin-top: 60px;
+
+      &:hover {
+        a {
+          color: $red-3;
+        }
+
+        img {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    h3 {
+      a {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 140%;
+        color: $black-1;
+        display: block;
+
+        &:hover {
+          color: $red-3;
+        }
+      }
+    }
+  }
+}
+
+.ibc-container__bread-crumb {
+  margin-top: 20px;
+}
+
+.ibc-award-licenses {
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  max-width: 1920px;
+  overflow: hidden;
+
+  &__content {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 7.6rem);
+    bottom: 0;
+
+    &__title {
+      color: $white;
+      font-weight: 600;
+      font-size: 80px;
+      line-height: 120%;
+      @include abs-center;
+    }
+  }
+}

@@ -1,6 +1,11 @@
 import HeadSEO from '@components/primitive/HeadSEO';
 import { LayoutProps } from '@interfaces/index';
-import { selectFooterMenu, selectHeaderMenu } from '@redux/app/selecters';
+import {
+  getFooterConfig,
+  selectFooterConfig,
+  selectFooterMenu,
+  selectHeaderMenu,
+} from '@redux/app/selecters';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { setServicesOptions, setTopicOption } from '@redux/insights/slice';
 import appStyle from '@scss/pages/insights/index.scss';
@@ -10,27 +15,30 @@ import { useEffect, useState } from 'react';
 import FooterLayout from '../../GroupFooter';
 import HeaderLayout from '../../GroupHeader';
 import Filter from './Filter';
-
 import InsightsSubscribe from './Subscribe';
 import TrendingSlide from './TrendingSLide';
 
 export default function InsightLayout({ children, data }: LayoutProps) {
   const dispatch = useAppDispatch();
+
   const {
     menuList,
     footerMenu,
-    insightConfig,
+    configBanner,
     listOptions,
-    isHome,
-    detailMetaSeo,
     configFilter,
-    detailPage,
+
+    options,
+    metaData,
   } = data;
   const tags = get(listOptions, 'tags', null);
   const services = get(listOptions, 'services', null);
   const menuHeaderStore = useAppSelector(selectHeaderMenu);
   const menuFooterStore = useAppSelector(selectFooterMenu);
-  const getDetailMetaSeo = get(detailMetaSeo, 'page', null);
+
+  const footerConfig = get(useAppSelector(selectFooterConfig), 'config.content', null);
+  const configFooter = get(useAppSelector(getFooterConfig), 'config.content', null);
+
   const [selectOptionsTags, setSelectOptionsTags] = useState({});
   const [selectOptionsService, setSelectOptionsService] = useState({});
   const configOption = configFilter ? JSON.parse(get(configFilter, 'config.content', {})) : {};
@@ -72,26 +80,42 @@ export default function InsightLayout({ children, data }: LayoutProps) {
   }, []);
 
   const handleOptionChange = (value) => {
-    // selectedOption
     if (value.name === 'tags') {
       setSelectOptionsTags(value.selectOption);
       dispatch(setTopicOption(value.selectOption));
       return;
     }
-    setSelectOptionsService(value.selectOption);
     dispatch(setServicesOptions(value.selectOption));
   };
+
+  const isArticles = get(options, 'isArticles', false);
+  if (isArticles) {
+    return (
+      <>
+        <style jsx>{appStyle}</style>
+        <HeadSEO {...metaData} />
+        <HeaderLayout menu={menuHeaderStore ?? menuList} />
+        {children}
+        <FooterLayout
+          menu={menuFooterStore ?? footerMenu}
+          config={footerConfig}
+          configNew={configFooter}
+        />
+      </>
+    );
+  }
 
   return (
     <>
       <style jsx>{appStyle}</style>
-      <HeadSEO {...(getDetailMetaSeo || detailPage.type)} />
+      <HeadSEO {...metaData} />
       <HeaderLayout menu={menuHeaderStore ?? menuList} />
       <section className="ibc-insight__background">
-        <p>{get(insightConfig, 'config.content', null)}</p>
+        <p>{get(configBanner, 'config.content', null)}</p>
       </section>
       <TrendingSlide menu={menuHeaderStore ?? menuList} />
-      {!isHome && (
+
+      {!options?.isHomeInsight && (
         <Filter
           optionsTags={customTags}
           optionsServices={customServices}
@@ -102,7 +126,11 @@ export default function InsightLayout({ children, data }: LayoutProps) {
       )}
       {children}
       <InsightsSubscribe />
-      <FooterLayout menu={menuFooterStore ?? footerMenu} />
+      <FooterLayout
+        menu={menuFooterStore ?? footerMenu}
+        config={footerConfig}
+        configNew={configFooter}
+      />
     </>
   );
 }

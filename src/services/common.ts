@@ -6,6 +6,7 @@ import {
   CACHE_MENU_TOP,
 } from '@/constants';
 import { writeCache } from '@/lib/writeCache';
+import { writeCacheDynamic } from '@/lib/writeCacheDynamic';
 import { serverRequest } from '@utils/api';
 import { to } from '@utils/await-to-js';
 
@@ -18,7 +19,7 @@ const commonService = {
         data: payload,
       }),
     );
-    if (!error) writeCache(CACHE_MENU_TOP, menuHeader);
+    if (!error) writeCacheDynamic(CACHE_MENU_TOP, menuHeader, 'common');
     return menuHeader;
   },
 
@@ -30,8 +31,30 @@ const commonService = {
         data: payload,
       }),
     );
-    if (!error) writeCache(CACHE_FOOTER, menuFooter);
+    if (!error) writeCacheDynamic(CACHE_FOOTER, menuFooter, 'common');
     return menuFooter;
+  },
+
+  getConfigFooter: async (payload) => {
+    const [error, response] = await to(
+      serverRequest.request({
+        method: 'POST',
+        url: '/frontend/config/txt_social_network',
+        data: payload,
+      }),
+    );
+    return response;
+  },
+
+  getFooterConfig: async (payload) => {
+    const [error, response] = await to(
+      serverRequest.request({
+        method: 'POST',
+        url: '/frontend/config/txt_footer',
+        data: payload,
+      }),
+    );
+    return response;
   },
 
   getBanner: async (payload, cacheName) => {
@@ -42,7 +65,7 @@ const commonService = {
         data: payload,
       }),
     );
-    if (!error) writeCache(cacheName, response);
+    if (!error) writeCacheDynamic(cacheName, response, 'common');
     return response;
   },
 
@@ -54,7 +77,7 @@ const commonService = {
         data: payload,
       }),
     );
-    if (!error) writeCache(CACHE_LIST_SERVICE, response);
+    if (!error) writeCacheDynamic(CACHE_LIST_SERVICE, response, 'common');
     return response;
   },
 
@@ -90,7 +113,7 @@ const commonService = {
         data: payload,
       }),
     );
-    if (!error) writeCache(CACHE_GET_UPDATE_SECTION, response);
+    if (!error) writeCacheDynamic(CACHE_GET_UPDATE_SECTION, response, 'common');
     return response;
   },
 
@@ -102,6 +125,70 @@ const commonService = {
         data: payload,
       }),
     );
+    return response;
+  },
+
+  getFormConfig: async (payload) => {
+    const [error, response] = await to(
+      serverRequest.request({
+        method: 'POST',
+        url: '/frontend/config/txt_validation',
+        data: payload,
+      }),
+    );
+    return response;
+  },
+
+  getConfigUpdate: async (payload) => {
+    const [error, response] = await to(
+      serverRequest.request({
+        method: 'POST',
+        url: '/frontend/config/txt_get_updated',
+        data: payload,
+      }),
+    );
+    return response;
+  },
+  getContactMapConfig: async (payload) => {
+    const [error, response] = await to(
+      serverRequest.request({
+        method: 'POST',
+        url: '/frontend/config/txt_contact_map',
+        data: payload,
+      }),
+    );
+
+    return response;
+  },
+  getContactSelectConfig: async (payload) => {
+    const [error, response] = await to(
+      serverRequest.request({
+        method: 'POST',
+        url: '/frontend/config/txt_contact_select',
+        data: payload,
+      }),
+    );
+    return response;
+  },
+  getContactFormConfig: async (payload) => {
+    const [error, response] = await to(
+      serverRequest.request({
+        method: 'POST',
+        url: '/frontend/config/txt_contact_form',
+        data: payload,
+      }),
+    );
+    return response;
+  },
+  getConfigSubScribeUpdate: async (payload) => {
+    const [error, response] = await to(
+      serverRequest.request({
+        method: 'POST',
+        url: '/frontend/config/subcirbe_to_our_updates',
+        data: payload,
+      }),
+    );
+
     return response;
   },
 };

@@ -7,7 +7,12 @@
 
   &__update {
     padding: 60px 0;
+
     @include flex-center-hoz;
+
+    @include breakpoint-down(phone) {
+      padding: 40px 0;
+    }
 
     .flex {
       display: grid;
@@ -36,6 +41,7 @@
           color: $red-4;
         }
       }
+
       @include breakpoint-down(desktop) {
         max-width: 100vw;
         grid-template-columns: unset;
@@ -57,12 +63,13 @@
         width: 100%;
 
         img {
-          object-fit: cover;
+          object-fit: contain;
+          border-radius: 0 40px;
+          height: fit-content;
           width: 100%;
-          height: 100%;
 
-          @include breakpoint-up(desktop) {
-            border-radius: 0 40px;
+          @include breakpoint-down(desktop) {
+            border-radius: 0;
           }
         }
       }
@@ -77,9 +84,12 @@
           margin-top: 1.6rem;
           margin-bottom: 16px;
 
-          a {
-            font-size: $font-size-fit;
-            color: $black-1;
+          h3 {
+            a {
+              font-size: $font-size-fit;
+              color: $black-1;
+              font-weight: $font-weight-base;
+            }
           }
 
           a:hover {
@@ -87,9 +97,22 @@
           }
         }
 
+        @include breakpoint-down(desktop) {
+          h3 {
+            a {
+              font-size: 20px;
+            }
+          }
+        }
+
         p {
           line-height: 140%;
           font-size: $font-size-medium;
+          @include breakpoint-down(desktop) {
+            font-size: 14px;
+            font-weight: $font-weight-base;
+          }
+          @include limit-text(5);
         }
       }
     }
@@ -104,6 +127,21 @@
 
     &__item:nth-child(4) {
       padding-top: 300px;
+    }
+    .ibc-btn-wrapper {
+      display: block;
+      text-align: right;
+      padding: 50px 50px 0 0;
+      .ibc-custom-btn {
+        padding: 14px 90px;
+        @include breakpoint-down(desktop) {
+          padding: 12.5px 68px;
+        }
+      }
+      @include breakpoint-down(desktop) {
+        text-align: center;
+        padding: 30px 0 0 0;
+      }
     }
   }
 }
@@ -120,35 +158,8 @@
 .text-center {
   padding-bottom: 40px;
   text-align: center;
-}
 
-.button_update {
-  margin-top: 4rem !important;
-  background: linear-gradient(225deg, #ff6a00, #ee0979);
-  padding: 1px;
-  margin-left: auto;
-  text-align: right;
-  margin-right: 32px;
-  border-radius: 8px;
-  width: 29.2rem;
   @include breakpoint-down(desktop) {
-    margin: auto;
-  }
-
-  .ibc__form__box__button {
-    @include flex-center-hoz;
-    transform: translateY(0%);
-    background: $white-5;
-    border-radius: 8px;
-    margin-top: 0;
-    padding-right: 0;
-
-    button {
-      width: 29rem;
-      height: 4.9rem;
-      @include current-bg;
-      -webkit-text-fill-color: transparent;
-      -webkit-background-clip: text;
-    }
+    padding-bottom: unset;
   }
 }

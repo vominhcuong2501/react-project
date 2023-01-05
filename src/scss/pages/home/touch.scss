@@ -12,6 +12,13 @@
 
       .ibc-difference__content {
         text-align: left;
+
+        h2 {
+          text-align: left;
+          @include breakpoint-down(desktop) {
+            text-align: center;
+          }
+        }
       }
     }
 
@@ -23,7 +30,7 @@
         font-weight: $font-weight-light;
         font-size: 32px;
         line-height: 120%;
-        color: #30c19d;
+        color: $blue-6;
       }
 
       img {
@@ -36,7 +43,7 @@
         font-weight: $font-weight-base;
         font-size: 16px;
         line-height: 140%;
-        color: #3b3a3c;
+        color: $black-1;
       }
     }
   }
@@ -79,9 +86,7 @@
         text-transform: uppercase;
         color: $white;
         font-weight: $font-weight-base;
-        border: none;
         font-style: normal;
-        padding-right: 16px;
         transform: translateY(0%);
         transition: width 0.5s;
         cursor: pointer;
@@ -116,7 +121,7 @@
           &:after {
             content: '';
             top: calc(50% - 1.6rem);
-            background-color: $gray-1;
+            background-color: $white-5;
             padding-left: 2rem;
             text-decoration: none;
             position: absolute;
@@ -164,7 +169,7 @@
             font-weight: $font-weight-light;
             font-size: 40px;
             line-height: 120%;
-            color: #3b3a3c;
+            color: $black-1;
           }
         }
       }
@@ -176,5 +181,5 @@
   font-weight: $font-weight-base;
   font-size: 14px;
   line-height: 140%;
-  color: #605f61;
+  color: $black-2;
 }

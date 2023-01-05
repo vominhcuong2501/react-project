@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-css-tags */
 import createEmotionCache from '@/theme/createEmotionCache';
 import createEmotionServer from '@emotion/server/create-instance';
-import { get } from 'lodash';
+import { get, map } from 'lodash';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import React from 'react';
 
@@ -20,7 +20,7 @@ class MyDocument extends Document {
 
     const initialProps = await Document.getInitialProps(ctx);
     const emotionStyles = extractCriticalToChunks(initialProps.html);
-    const emotionStyleTags = emotionStyles.styles.map((style) => (
+    const emotionStyleTags = map(emotionStyles.styles, (style) => (
       <style
         data-emotion={`${style.key} ${style.ids.join(' ')}`}
         key={style.key}
@@ -38,11 +38,10 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang={this.props.locale}>
+      <Html lang={this.props.locale} style={{ scrollBehavior: 'smooth' }}>
         <Head>
           <link rel="stylesheet" href="/fonts/awesome/css/all.min.css" />
           <link rel="shortcut icon" href="/favicon.ico" />
-          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         </Head>
         <body>
           <Main />

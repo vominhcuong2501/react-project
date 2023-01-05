@@ -30,11 +30,11 @@ export default function DetailServices() {
               <div className="ibc-services__list--item">
                 <img src="/images/service-strategy.png" alt="#" />
                 <h3>
-                  <a href="#">Strategy</a>
+                  <a href="/404">Strategy</a>
                 </h3>
                 <p>Ensure your business grow in the right direction.</p>
                 <div>
-                  <a href="#">View more</a>
+                  <a href="/404">View more</a>
                   <span>
                     <ArrowRight></ArrowRight>
                   </span>
@@ -43,11 +43,11 @@ export default function DetailServices() {
               <div className="ibc-services__list--item">
                 <img src="/images/service-strategy.png" alt="#" />
                 <h3>
-                  <a href="#">Strategy</a>
+                  <a href="/404">Strategy</a>
                 </h3>
                 <p>Ensure your business grow in the right direction.</p>
                 <div>
-                  <a href="#">View more</a>
+                  <a href="/404">View more</a>
                   <span>
                     <ArrowRight></ArrowRight>
                   </span>
@@ -56,11 +56,11 @@ export default function DetailServices() {
               <div className="ibc-services__list--item">
                 <img src="/images/service-strategy.png" alt="#" />
                 <h3>
-                  <a href="#">Strategy</a>
+                  <a href="/404">Strategy</a>
                 </h3>
                 <p>Ensure your business grow in the right direction.</p>
                 <div>
-                  <a href="#">View more</a>
+                  <a href="/404">View more</a>
                   <span>
                     <ArrowRight></ArrowRight>
                   </span>
@@ -69,11 +69,11 @@ export default function DetailServices() {
               <div className="ibc-services__list--item">
                 <img src="/images/service-strategy.png" alt="#" />
                 <h3>
-                  <a href="#">Strategy</a>
+                  <a href="/404">Strategy</a>
                 </h3>
                 <p>Ensure your business grow in the right direction.</p>
                 <div>
-                  <a href="#">View more</a>
+                  <a href="/404">View more</a>
                   <span>
                     <ArrowRight></ArrowRight>
                   </span>
@@ -82,11 +82,11 @@ export default function DetailServices() {
               <div className="ibc-services__list--item">
                 <img src="/images/service-strategy.png" alt="#" />
                 <h3>
-                  <a href="#">Strategy</a>
+                  <a href="/404">Strategy</a>
                 </h3>
                 <p>Ensure your business grow in the right direction.</p>
                 <div>
-                  <a href="#">View more</a>
+                  <a href="/404">View more</a>
                   <span>
                     <ArrowRight></ArrowRight>
                   </span>
@@ -95,11 +95,11 @@ export default function DetailServices() {
               <div className="ibc-services__list--item">
                 <img src="/images/service-strategy.png" alt="#" />
                 <h3>
-                  <a href="#">Strategy</a>
+                  <a href="/404">Strategy</a>
                 </h3>
                 <p>Ensure your business grow in the right direction.</p>
                 <div>
-                  <a href="#">View more</a>
+                  <a href="/404">View more</a>
                   <span>
                     <ArrowRight></ArrowRight>
                   </span>
@@ -108,11 +108,11 @@ export default function DetailServices() {
               <div className="ibc-services__list--item">
                 <img src="/images/service-strategy.png" alt="#" />
                 <h3>
-                  <a href="#">Strategy</a>
+                  <a href="/404">Strategy</a>
                 </h3>
                 <p>Ensure your business grow in the right direction.</p>
                 <div>
-                  <a href="#">View more</a>
+                  <a href="/404">View more</a>
                   <span>
                     <ArrowRight></ArrowRight>
                   </span>

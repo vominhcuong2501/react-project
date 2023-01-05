@@ -1,0 +1,75 @@
+@import '@scss/abstracts';
+@import './list-jop';
+@import '../../components/custom-button-expand';
+.ibc-banner {
+  &__content {
+    img {
+      height: 38rem;
+    }
+  }
+}
+
+.ibc-container-content {
+  @include breakpoint-down(desktop) {
+    padding: 0 16px;
+  }
+  @include breakpoint-down(phone) {
+    padding: 0 10px;
+  }
+
+  &__why-join {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-top: 6rem;
+
+    h1 {
+      font-weight: $font-weight-light;
+      @include breakpoint-down(phone) {
+        font-size: 32px;
+        font-weight: 400;
+      }
+    }
+
+    p {
+      margin-top: 2rem;
+      @include breakpoint-down(phone) {
+        font-size: 16px;
+      }
+    }
+
+    img {
+      max-width: 58rem;
+      max-height: 40rem;
+
+      @include breakpoint-down(desktop) {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+
+    @include breakpoint-down(desktop) {
+      flex-wrap: wrap;
+      text-align: center;
+      @include flex-center;
+    }
+  }
+
+  &__list-job-title {
+    @include flex-center;
+    flex-direction: column;
+    overflow: hidden;
+    margin-top: 12rem;
+
+    p {
+      margin-top: 8px;
+    }
+  }
+}
+
+.ibc-career {
+  &__paginate {
+    display: flex;
+    justify-content: center;
+  }
+}

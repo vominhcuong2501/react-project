@@ -1,0 +1,34 @@
+@import '@scss/abstracts';
+
+.ibc-container__faq-footer {
+  margin-top: -3px !important;
+  display: none;
+
+  @include breakpoint-down(desktop) {
+    display: block;
+  }
+}
+
+.ibc-container-content {
+  &__list-faq-detail {
+    padding: 3rem 0 4rem;
+    @include breakpoint-down(desktop) {
+      width: 100%;
+      padding: 0 16px;
+    }
+
+    @include breakpoint-down(phone) {
+      padding: 0 10px;
+    }
+  }
+}
+
+.ibc-content {
+  &__faq-sidebar {
+    span {
+      font-size: 2.4rem;
+      color: $black-1;
+      font-weight: $font-weight-light;
+    }
+  }
+}

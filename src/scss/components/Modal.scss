@@ -29,6 +29,9 @@
     flex-direction: column;
     padding: 40px 32px;
     @include flex-center;
+    @include breakpoint-down(phone) {
+      padding: 20px 16px;
+    }
   }
 
   .MuiPaper-rounded {

@@ -1,3 +1,4 @@
+import { map } from 'lodash';
 import { useState } from 'react';
 import SwiperCore, { Autoplay, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -40,7 +41,7 @@ export default function Hero({ banner }: IHeroProps) {
             disableOnInteraction: false,
           }}
         >
-          {banner.banners?.map((item) => (
+          {map(banner.banners, (item) => (
             <SwiperSlide key={item.bannerId}>
               <div className="ibc-hero__item">
                 <img
@@ -50,10 +51,10 @@ export default function Hero({ banner }: IHeroProps) {
                   width="1920"
                   height="780"
                 />
-                <div>
-                  {/* <h3>{item.bannerSubTitle}</h3> */}
-                  <h2>{item.bannerTitle}</h2>
-                </div>
+                <div
+                  className="ibc-hero__item__content"
+                  dangerouslySetInnerHTML={{ __html: item.bannerContent }}
+                />
               </div>
             </SwiperSlide>
           ))}

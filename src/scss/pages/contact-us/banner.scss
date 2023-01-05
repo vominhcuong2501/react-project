@@ -6,6 +6,7 @@
   height: 100%;
   position: relative;
   z-index: 100;
+  text-align: center;
 }
 
 .ibc-banner {
@@ -27,6 +28,9 @@
     h1 {
       height: 100%;
       @include flex-center;
+      @include breakpoint-down(phone) {
+        font-size: 48px;
+      }
     }
   }
 
@@ -45,7 +49,7 @@
         display: inline-block;
 
         .router {
-          color: #aaa;
+          color: $gray-5;
         }
       }
     }
@@ -64,5 +68,8 @@
 
   img {
     position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }

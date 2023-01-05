@@ -25,9 +25,12 @@ export default {
     defaultConfig.sameSite = sameSite ? `; SameSite=${sameSite}` : '; SameSite=Lax';
   },
   get(key) {
+    if (typeof window === 'undefined') {
+      return;
+    }
     let value =
       decodeURIComponent(
-        document.cookie.replace(
+        document?.cookie.replace(
           new RegExp(
             `(?:(?:^|.*;)\\s*${encodeURIComponent(key).replace(
               // eslint-disable-next-line no-useless-escape
@@ -41,8 +44,8 @@ export default {
 
     if (
       value &&
-      value.substring(0, 1) === '{' &&
-      value.substring(value.length - 1, value.length) === '}'
+      value?.substring(0, 1) === '{' &&
+      value?.substring(value.length - 1, value.length) === '}'
     ) {
       try {
         value = JSON.parse(value);

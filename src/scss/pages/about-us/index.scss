@@ -1,0 +1,49 @@
+@import '@scss/abstracts';
+
+@import './hero';
+
+@import './description';
+@import './provide';
+@import './our-version';
+@import './mission';
+@import '@scss/pages/home/difference';
+
+@import './award';
+@import './licenses';
+
+.ibc-difference {
+  &__content {
+    margin: 10rem 0;
+
+    @include breakpoint-down(desktop) {
+      margin: unset;
+    }
+  }
+
+  @include breakpoint-down(desktop) {
+    margin: 40px 0;
+  }
+}
+
+.ibc-about-us__award {
+  background: $gray-3;
+  padding: 60px 0;
+  max-width: 1920px;
+  margin: 0 auto;
+  border: 1px solid transparent;
+  @include breakpoint-down(desktop) {
+    padding: 40px 0;
+  }
+}
+
+.ibc-about-us__licenses {
+  background: $white;
+  max-width: 1920px;
+  border: 1px solid transparent;
+}
+
+.ibc-group-article {
+  margin-left: auto;
+  padding: 60px 0;
+  background-color: $white-5;
+}

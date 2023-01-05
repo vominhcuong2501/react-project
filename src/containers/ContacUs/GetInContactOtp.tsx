@@ -1,4 +1,5 @@
 import { numberRegex } from '@/validations/regex';
+import { useDebouncedCallback } from '@hooks/useDebouncedCallback';
 import { useState } from 'react';
 import OTPInput from 'react-otp-input';
 
@@ -8,11 +9,11 @@ interface GetInTouchFormProps {
 }
 export default function GetInContactOtp({ onSubmit, onValueChange }: GetInTouchFormProps) {
   const [OTP, setOTP] = useState('');
-  function handleChange(e) {
+  const handleChange = useDebouncedCallback((e) => {
     e.preventDefault();
     onValueChange();
     onSubmit(OTP);
-  }
+  }, 1000);
 
   const handleValueChange = (value) => {
     if (numberRegex.test(value)) {

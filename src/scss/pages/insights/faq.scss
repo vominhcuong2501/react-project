@@ -2,7 +2,7 @@
   max-width: 1300px;
   // border-top: 1px solid #d8d8d8;
   margin: 0 auto;
-  padding: 60px 0;
+  padding: 0 0 60px;
   @include breakpoint-down(small-laptop) {
     padding-left: 15px;
   }

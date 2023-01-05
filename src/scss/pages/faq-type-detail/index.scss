@@ -1,0 +1,69 @@
+@import '@scss/abstracts';
+
+@mixin style-list-faq {
+  ul {
+    li {
+      border-bottom: 1px solid $gray-5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+
+      a {
+        padding: 2rem 0;
+        display: block;
+        color: $black-1;
+        font-size: 18px;
+        @include breakpoint-down(phone) {
+          font-size: 14px;
+        }
+
+        &:hover {
+          color: $red-3;
+        }
+      }
+
+      &:hover {
+        color: $red-3;
+        border-bottom: 1px solid $red-3;
+      }
+    }
+  }
+}
+
+.ibc-container-content {
+  &__detail-type {
+    max-width: 77.3rem;
+    margin-top: 8rem;
+
+    @include breakpoint-down(desktop) {
+      max-width: unset;
+      width: 100%;
+      margin-top: unset;
+    }
+
+    h1 {
+      font-weight: $font-weight-light;
+      font-size: $font-size-max-xl;
+      line-height: 120%;
+
+      /* Primary colors/Gradient/Sunset */
+      background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+
+    @include style-list-faq;
+  }
+
+  &__list-faq-detail {
+    @include style-list-faq;
+    margin-top: 6rem;
+  }
+}
+
+.ibc-container__list-faq-detail {
+  background-color: $white-5;
+}

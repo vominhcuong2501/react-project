@@ -1,5 +1,7 @@
 import BreadcrumbsComponent from '@components/primitive/Breadcrumb';
-import { get, toString } from 'lodash';
+import { useUrls } from '@hooks/useUrls';
+import classNames from 'classnames';
+import { get, map, toString } from 'lodash';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -9,6 +11,8 @@ export default function TrendingSlide({ menu = [] }: any) {
   const router = useRouter();
   const handleClick = (path) => router.push(path);
 
+  const urls = useUrls();
+
   return (
     <section>
       <div className="ibc-container">
@@ -17,23 +21,26 @@ export default function TrendingSlide({ menu = [] }: any) {
             <BreadcrumbsComponent />
           </div>
           <div className="ibc-insight ibc-insight__trending">
-            {listInsights &&
-              listInsights.map((item, index) => (
-                <div
-                  key={`${index}`.toString()}
-                  className="ibc-insight__trending--item"
-                  onClick={() => handleClick(`/${item.url}`)}
-                >
-                  <h2>
-                    <Link href={`/${item.url}`}>
-                      <a target="_self" title="FAQ">
-                        {item.name}
-                      </a>
-                    </Link>
-                  </h2>
-                  <h3>{item.summary}</h3>
-                </div>
-              ))}
+            {map(listInsights, (item, index) => (
+              <div
+                key={`${index}`.toString()}
+                onClick={() => handleClick(`/${item.url}`)}
+                className={classNames([
+                  'ibc-insight__trending--item',
+                  { 'ibc-active': urls?.includes(item.url?.replace('/', '')) },
+                  { 'ibc-active': urls?.includes(item.url) },
+                ])}
+              >
+                <h2>
+                  <Link href={`/${item.url}`}>
+                    <a target="_self" title={item.name}>
+                      {item.name}
+                    </a>
+                  </Link>
+                </h2>
+                {item.summary && <h3>{item.summary}</h3>}
+              </div>
+            ))}
           </div>
         </div>
       </div>

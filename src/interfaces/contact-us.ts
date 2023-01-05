@@ -69,5 +69,6 @@ export interface IContactsBannerProps {
   listService: IListCalls;
   officesService: IOfficesContact;
   countriesService: ICountriesContact;
+  metaInfo: any;
   officesAllService: IOfficeAllContact;
 }

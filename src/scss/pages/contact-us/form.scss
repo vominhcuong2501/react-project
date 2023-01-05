@@ -18,11 +18,15 @@ footer {
   position: relative;
   z-index: 2;
   @include breakpoint-down(desktop) {
-    padding: 6.2rem 0;
-  }
-  @include breakpoint-down(smallphone) {
     padding: 40px 16px;
   }
+  @include breakpoint-down(phone) {
+    padding: 0;
+  }
+
+  // @include breakpoint-up(phone) {
+  //   padding: 40px 16px;
+  // }
 
   &:after {
     content: '';
@@ -46,6 +50,12 @@ footer {
     padding-bottom: 4rem !important;
     border-left: unset !important;
   }
+  @include breakpoint-down(smallphone) {
+    border-bottom: 8px solid #f0f2f5;
+  }
+  @include breakpoint-down(phone) {
+    padding: 40px 16px !important;
+  }
 
   .ibc-input-form {
     display: flow-root;
@@ -57,7 +67,19 @@ footer {
   }
 
   .ibc-form-number {
-    margin-top: 6rem !important;
+    margin-top: 5.59rem !important;
+  }
+}
+
+.ibc-container-content {
+  @include breakpoint-down(desktop) {
+    padding: 0;
+  }
+
+  .ibc-banner_link {
+    @include breakpoint-down(phone) {
+      display: none;
+    }
   }
 }
 
@@ -69,5 +91,160 @@ footer {
     flex: none;
     order: 1;
     margin-top: 4rem;
+  }
+  @include breakpoint-down(smallphone) {
+    border-bottom: 8px solid #f0f2f5 !important;
+    padding: 40px 16px !important;
+  }
+}
+
+.ibc__form__box__button {
+  text-transform: uppercase;
+  color: $white;
+  font-weight: $font-weight-base;
+  font-style: normal;
+  padding-right: 0;
+  transform: translateY(0%);
+  transition: width 0.5s;
+  cursor: pointer;
+  display: flex;
+  text-align: center;
+  width: 28.8rem;
+  margin: auto;
+  margin-top: 4.8rem;
+  height: 4.9rem;
+  border: 1px solid transparent;
+  @include breakpoint-down(phone) {
+    height: 46px;
+    width: 100%;
+  }
+  border-radius: 8px;
+
+  @include current-bg;
+
+  &:hover {
+    &:after {
+      content: '';
+      position: absolute;
+      width: 28.6rem;
+      margin: auto;
+      background: #fff;
+      height: 4.7rem;
+      border-radius: 8px;
+      z-index: -1;
+      @include breakpoint-down(phone) {
+        height: 44px;
+      }
+    }
+  }
+
+  button {
+    background: #fff;
+    border-radius: 8px;
+    text-transform: uppercase;
+    width: 28.8rem;
+    height: 4.9rem;
+    @include current-bg;
+    color: $white;
+    font-size: $font-size-medium;
+    border: none;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    cursor: pointer;
+    z-index: 10;
+
+    &:hover {
+      background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+
+    &:disabled {
+      background: #fff;
+      color: #aaa;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      cursor: unset;
+
+      &:hover {
+        -webkit-text-fill-color: unset;
+      }
+
+      :before {
+        content: url('../images/disabled-btn.png');
+        position: absolute;
+        right: -32px;
+        z-index: 11;
+        width: 34px;
+        height: 11px;
+        background-size: 150%;
+      }
+
+      &:hover:after {
+        width: 3.2rem;
+        @include breakpoint-down(phone) {
+          width: 32px;
+        }
+      }
+    }
+    @include breakpoint-down(phone) {
+      height: 46px;
+      font-size: 16px;
+      width: 100%;
+      margin-right: 34px;
+    }
+
+    &:after {
+      content: '';
+      top: calc(50% - 1.7rem);
+      background-color: $white-5;
+      padding-left: 2rem;
+      text-decoration: none;
+      position: absolute;
+      left: calc(100% - $font-size-medium);
+      transform: translateY(0%);
+      border-radius: 6rem;
+      height: 3.2rem;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid $white;
+      width: 3.2rem;
+      transition: width 0.5s;
+      cursor: pointer;
+      z-index: 1;
+
+      @include breakpoint-down(phone) {
+        width: 32px;
+        height: 32px;
+        top: calc(50% - 2.4rem);
+      }
+    }
+
+    &:hover:after {
+      width: 6rem;
+
+      @include breakpoint-down(largedesktop) {
+        width: 6.3rem;
+      }
+
+      @include breakpoint-down(phone) {
+        width: 50px;
+      }
+    }
+  }
+}
+
+.disabledtrue {
+  background: unset;
+  cursor: unset !important;
+
+  &:hover {
+    background: unset;
+    @include breakpoint-down(phone) {
+      height: 44px;
+    }
   }
 }

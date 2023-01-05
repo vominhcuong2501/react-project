@@ -1,4 +1,4 @@
-import { GroupButton } from '@components/compound';
+import CustomButtonExpands from '@components/primitive/CustomButtonExpand';
 
 export default function SideBar() {
   return (
@@ -8,13 +8,14 @@ export default function SideBar() {
           <h1>Subcirbe To Our Updates</h1>
           <h3>Latest news & insights from around the world brought to you by One IBC®’s experts</h3>
           <div>
-            <GroupButton
+            <CustomButtonExpands />
+            {/* <GroupButton
               label="SUBSCRIBE NOW"
               variant="danger"
               size="medium"
               className="ibc-hero__button"
-              href="#"
-            />
+              href="/404"
+            /> */}
           </div>
         </div>
         <img
@@ -27,7 +28,7 @@ export default function SideBar() {
       <div className="ibc-sidebar__article">
         <h2>Realted Articles</h2>
         <div className="ibc-sidebar__article__item">
-          <a href="#" target="_self">
+          <a href="/404" target="_self">
             <img
               src="./images/img-sidebar-article-1.jpg"
               alt="./images/img-sidebar-article-1.jpg"
@@ -38,7 +39,7 @@ export default function SideBar() {
           </a>
         </div>
         <div className="ibc-sidebar__article__item">
-          <a href="#" target="_self">
+          <a href="/404" target="_self">
             <img
               src="./images/img-sidebar-article-2.jpg"
               alt="./images/img-sidebar-article-2.jpg"

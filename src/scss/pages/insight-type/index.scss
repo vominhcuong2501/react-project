@@ -1,0 +1,78 @@
+@import '@scss/abstracts';
+
+.button_update {
+  margin-top: 20px !important;
+  background: linear-gradient(225deg, #ff6a00, #ee0979);
+  padding: 1px;
+  border-radius: 8px;
+  margin-right: 20px;
+  width: 178px;
+
+  @include breakpoint-down(smallphone) {
+    display: none;
+  }
+}
+
+.button_update .ibc__form__box__button {
+  @include flex-center-hoz;
+  transform: translateY(0%);
+  background: $white-5;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.button_update .ibc__form__box__button button {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.ibc__form__box__button button {
+  height: 4.9rem;
+  @include current-bg;
+  font-weight: $font-weight-base;
+  font-size: 18px;
+  line-height: 140%;
+  border: none;
+  cursor: pointer;
+
+  img {
+    margin-right: 5px;
+  }
+}
+
+.bg_insights {
+  margin-top: 60px;
+  background-color: $white;
+
+  &__detail {
+    background-color: $gray-8;
+  }
+}
+
+.ibc-container-content {
+  h1 {
+    color: $black-1;
+    margin-top: 5rem;
+    font-size: 3.2rem;
+    font-weight: $font-weight-bold-md;
+  }
+
+  &__nodata {
+    color: $black-4;
+    font-size: 3.2rem;
+    margin-top: 60px;
+  }
+}
+
+.ibc-insight__list {
+  margin-top: 50px;
+}
+
+.ibc-insight__list__swapper {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+body {
+  background-color: $gray-8;
+}

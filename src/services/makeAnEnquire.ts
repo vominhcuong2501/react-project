@@ -1,20 +1,9 @@
-import { CACHE_MAIN_MAKE_AN_ENQUIRE, CACHE_MAIN_MAKE_AN_ENQUIRE_BANNER } from '@/constants';
-import { writeCache } from '@/lib/writeCache';
+import { CACHE_MAIN_MAKE_AN_ENQUIRE, CACHE_META_SEO_MAKE_AN_ENQUIRE } from '@/constants';
+import { writeCacheDynamic } from '@/lib/writeCacheDynamic';
 import { serverRequest } from '@utils/api';
 import { to } from '@utils/await-to-js';
 
-const oneIbcServices = {
-  getBanner: async (payload) => {
-    const [error, response] = await to(
-      serverRequest.request({
-        method: 'POST',
-        url: '/frontend/banner',
-        data: payload,
-      }),
-    );
-    if (!error) writeCache(CACHE_MAIN_MAKE_AN_ENQUIRE_BANNER, response);
-    return response;
-  },
+const oneIbcMake = {
   getMake: async (payload) => {
     const [error, response] = await to(
       serverRequest.request({
@@ -23,9 +12,20 @@ const oneIbcServices = {
         data: payload,
       }),
     );
-    if (!error) writeCache(CACHE_MAIN_MAKE_AN_ENQUIRE, response);
+    if (!error) writeCacheDynamic(CACHE_MAIN_MAKE_AN_ENQUIRE, response, 'enquiry');
+    return response;
+  },
+  getInfoPageMetaDetail: async (payload) => {
+    const [error, response] = await to(
+      serverRequest.request({
+        method: 'POST',
+        url: '/frontend/page/make-an-enquire',
+        data: payload,
+      }),
+    );
+    if (!error) writeCacheDynamic(CACHE_META_SEO_MAKE_AN_ENQUIRE, response, 'make_an_enquire');
     return response;
   },
 };
 
-export default oneIbcServices;
+export default oneIbcMake;

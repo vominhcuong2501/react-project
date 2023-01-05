@@ -1,5 +1,6 @@
 import {
   CACHE_HOME_BANNER,
+  CACHE_HOME_CONSULTING_NAME,
   CACHE_HOME_DIFFERENCE,
   CACHE_HOME_INFO,
   CACHE_HOME_INSIGHT_UPDATE,
@@ -9,6 +10,7 @@ import {
   CACHE_INTELLIGENCE_NETWORK,
 } from '@/constants';
 import { writeCache } from '@/lib/writeCache';
+import { writeCacheDynamic } from '@/lib/writeCacheDynamic';
 import { publicRequest, serverRequest } from '@utils/api';
 import { to } from '@utils/await-to-js';
 
@@ -19,12 +21,14 @@ const homeService = {
       url: '/frontend/leadform/form',
       data: payload,
     }),
+
   getInTouchOtp: (payload) =>
     publicRequest.request({
       method: 'POST',
       url: '/frontend/leadform/verify',
       data: payload,
     }),
+
   getBanner: async (payload) => {
     const [error, response] = await to(
       serverRequest.request({
@@ -34,7 +38,7 @@ const homeService = {
       }),
     );
 
-    if (!error) writeCache(CACHE_HOME_BANNER, response);
+    if (!error) writeCacheDynamic(CACHE_HOME_BANNER, response, 'home');
     return response;
   },
 
@@ -46,9 +50,10 @@ const homeService = {
         data: payload,
       }),
     );
-    if (!error) writeCache(CACHE_HOME_LIST_INSIGHT, response);
+    if (!error) writeCacheDynamic(CACHE_HOME_LIST_INSIGHT, response, 'home');
     return response;
   },
+
   getInsightHome: (payload) =>
     serverRequest.request({
       method: 'POST',
@@ -75,18 +80,6 @@ const homeService = {
     return response;
   },
 
-  // getServiceData: async (payload) => {
-  //   const [error, response] = await to(
-  //     serverRequest.request({
-  //       method: 'POST',
-  //       url: '/frontend/service',
-  //       data: payload,
-  //     }),
-  //   );
-  //   if (!error) writeCache(CACHE_LIST_SERVICE, response);
-  //   return response;
-  // },
-
   getIntelligence: async (payload) => {
     const [error, response] = await to(
       serverRequest.request({
@@ -95,7 +88,18 @@ const homeService = {
         data: payload,
       }),
     );
-    if (!error) writeCache(CACHE_INTELLIGENCE_NETWORK, response);
+    if (!error) writeCacheDynamic(CACHE_INTELLIGENCE_NETWORK, response, 'home');
+    return response;
+  },
+
+  getConfigFindOutMore: async (payload) => {
+    const [error, response] = await to(
+      serverRequest.request({
+        method: 'POST',
+        url: '/frontend/config/txt_find_out_more',
+        data: payload,
+      }),
+    );
     return response;
   },
 
@@ -107,7 +111,7 @@ const homeService = {
         data: payload,
       }),
     );
-    if (!error) writeCache(CACHE_HOME_DIFFERENCE, response);
+    if (!error) writeCacheDynamic(CACHE_HOME_DIFFERENCE, response, 'home');
     return response;
   },
 
@@ -119,9 +123,10 @@ const homeService = {
         data: payload,
       }),
     );
-    if (!error) writeCache(CACHE_HOME_METHODOLOGY, response);
+    if (!error) writeCacheDynamic(CACHE_HOME_METHODOLOGY, response, 'home');
     return response;
   },
+
   getMethodologyOfApproachJS: async (payload) => {
     const [error, response] = await to(
       serverRequest.request({
@@ -130,7 +135,19 @@ const homeService = {
         data: payload,
       }),
     );
-    if (!error) writeCache(CACHE_HOME_METHODOLOGY_JS, response);
+    if (!error) writeCacheDynamic(CACHE_HOME_METHODOLOGY_JS, response, 'home');
+    return response;
+  },
+
+  getConfigConsultingName: async (payload) => {
+    const [error, response] = await to(
+      serverRequest.request({
+        method: 'POST',
+        url: '/frontend/config/txt_consulting_services',
+        data: payload,
+      }),
+    );
+    if (!error) writeCacheDynamic(CACHE_HOME_CONSULTING_NAME, response, 'home');
     return response;
   },
 
@@ -142,7 +159,7 @@ const homeService = {
         data: payload,
       }),
     );
-    if (!error) writeCache(CACHE_HOME_INFO, response);
+    if (!error) writeCacheDynamic(CACHE_HOME_INFO, response, 'home');
     return response;
   },
 
@@ -157,6 +174,19 @@ const homeService = {
     publicRequest.request({
       method: 'POST',
       url: '/frontend/contact/form',
+      data: payload,
+    }),
+
+  getInSubscribe: (payload) =>
+    publicRequest.request({
+      method: 'POST',
+      url: '/frontend/subscribe/form',
+      data: payload,
+    }),
+  getInDataHub: (payload) =>
+    publicRequest.request({
+      method: 'POST',
+      url: '/frontend/data-hub/form',
       data: payload,
     }),
 };

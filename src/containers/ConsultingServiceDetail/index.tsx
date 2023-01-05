@@ -2,6 +2,7 @@ import { GroupGetInTouch } from '@components/compound/GroupGetInTouch';
 import { GroupGetUpdate } from '@components/compound/GroupGetUpdate';
 import HeadSEO from '@components/primitive/HeadSEO';
 import { IServicesBannerProps } from '@interfaces/service-page';
+
 import appStyle from '@scss/pages/consulting-services-detail/index.scss';
 import { get } from 'lodash';
 import Hero from './Hero';

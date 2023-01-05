@@ -1,0 +1,189 @@
+@import '@scss/abstracts';
+
+.ibc-about-us__our-offices__group-country {
+  padding: 60px 0;
+  max-width: 1200px;
+  @include breakpoint-down(phone) {
+    padding: 40px 15px;
+  }
+
+  &__title {
+    position: relative;
+    z-index: 1;
+
+    &:before {
+      content: '';
+      width: 100%;
+      height: 2px;
+      background: $gray-4;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      z-index: 1;
+    }
+
+    h2 {
+      font-weight: 300;
+      font-size: 32px;
+      line-height: 120%;
+      color: $black-1;
+      padding-right: 20px;
+      background: $white;
+      z-index: 2;
+      display: inline-block;
+      position: relative;
+      @include breakpoint-down(phone) {
+        font-size: 24px;
+      }
+    }
+  }
+
+  &__card {
+    border-radius: 8px;
+    margin-top: 20px;
+    background: $gray-1;
+    padding: 20px 12px;
+
+    &__header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h3 {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 140%;
+        color: $black-1;
+        padding: 5px 5px 0;
+        @include breakpoint-down(phone) {
+          font-size: 16px;
+        }
+      }
+    }
+
+    &__content {
+      display: flex;
+      align-items: baseline;
+      margin-top: 20px;
+      height: 250px;
+      position: relative;
+      @include breakpoint-down(phone) {
+        padding-bottom: 20px;
+        height: auto;
+      }
+
+      &:before {
+        content: '';
+        height: 2px;
+        width: 100px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: $red-3;
+        @include breakpoint-down(phone) {
+          left: 35%;
+          width: 30%;
+        }
+      }
+
+      i {
+        padding: 0 10px;
+        font-size: 15px;
+        @include breakpoint-down(phone) {
+          font-size: 13px;
+        }
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 140%;
+        color: $black-1;
+        @include breakpoint-down(phone) {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &__footer {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      @include breakpoint-down(phone) {
+        justify-content: center;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 140%;
+        color: $black-1;
+        padding: 5px 5px 0;
+        @include breakpoint-down(phone) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.ibc-about-us__our-partners__group-partners {
+  padding: 60px 0;
+  max-width: 1200px;
+
+  @include breakpoint-down(phone) {
+    padding: 40px 15px;
+  }
+
+  .col-lg-2 {
+    margin-top: 20px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__disclaimer {
+    background: $gray-1;
+    border-radius: 16px;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    @include breakpoint-down(phone) {
+      padding: 15px;
+    }
+
+    h3 {
+      font-weight: 300;
+      font-size: 32px;
+      line-height: 120%;
+      color: $black-1;
+      width: 20%;
+      @include breakpoint-down(phone) {
+        width: 10%;
+        transform: rotate(270deg) translateX(-55px);
+      }
+    }
+
+    &__content {
+      width: 80%;
+
+      ul {
+        list-style: disc;
+        padding-left: 50px;
+        @include breakpoint-down(phone) {
+          padding-left: 30px;
+        }
+
+        li {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 140%;
+          color: $black-1;
+        }
+      }
+    }
+  }
+}

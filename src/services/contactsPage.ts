@@ -1,8 +1,9 @@
 import {
   CACHE_MAIN_CONTACTS_CUSTOMER_SERVICE,
   CACHE_MAIN_CONTACTS_OFFICES_SERVICE,
+  CACHE_META_SEO_CONTACT,
 } from '@/constants';
-import { writeCache } from '@/lib/writeCache';
+import { writeCacheDynamic } from '@/lib/writeCacheDynamic';
 import { serverRequest } from '@utils/api';
 import { to } from '@utils/await-to-js';
 
@@ -15,7 +16,7 @@ const oneIbcContacts = {
         data: payload,
       }),
     );
-    if (!error) writeCache(CACHE_MAIN_CONTACTS_CUSTOMER_SERVICE, response);
+    if (!error) writeCacheDynamic(CACHE_MAIN_CONTACTS_CUSTOMER_SERVICE, response, 'contact-us');
     return response;
   },
   getOfficesService: async (payload) => {
@@ -26,7 +27,18 @@ const oneIbcContacts = {
         data: payload,
       }),
     );
-    if (!error) writeCache(CACHE_MAIN_CONTACTS_OFFICES_SERVICE, response);
+    if (!error) writeCacheDynamic(CACHE_MAIN_CONTACTS_OFFICES_SERVICE, response, 'contact-us');
+    return response;
+  },
+  getInfoPageMetaDetail: async (payload) => {
+    const [error, response] = await to(
+      serverRequest.request({
+        method: 'POST',
+        url: '/frontend/page/contact-us',
+        data: payload,
+      }),
+    );
+    if (!error) writeCacheDynamic(CACHE_META_SEO_CONTACT, response, 'contact-us');
     return response;
   },
 };

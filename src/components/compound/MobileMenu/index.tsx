@@ -1,15 +1,16 @@
-import appStyle from '@/scss/components/mobile-menu.scss?type=scoped';
+import appStyle from '@/scss/components/mobile-menu.scss';
 import ListMenu from '@components/primitive/ListMenu';
+import useClickID from '@hooks/useClickId';
 import { selectHeaderMenu } from '@redux/app/selecters';
 import { useAppSelector } from '@redux/hooks';
-import IconLogin from '@svg/account-menu.svg';
 import Close from '@svg/close.svg';
 import LogoOneIbc from '@svg/logo-oneibc-black.svg';
 import Search from '@svg/search-menu.svg';
 import classNames from 'classnames';
-import Link from 'next/link';
+import { map } from 'lodash';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import SearchInputComponent from '../GroupHeader/SearchInput';
 import { SelectForm } from '../GroupSelect';
 
 const data = [
@@ -18,25 +19,25 @@ const data = [
     value: 51561,
     label: 'EN',
   },
-  {
-    id: 2,
-    value: 4,
-    label: 'VI',
-  },
+  // {
+  //   id: 2,
+  //   value: 4,
+  //   label: 'VI',
+  // },
 ];
 const data2 = [
   {
     id: 1,
     value: 51561,
-    label: 'English',
-    image: '../images/Language.png',
+    label: 'Global',
+    image: '../images/international.jpg',
   },
-  {
-    id: 2,
-    value: 4,
-    label: 'Vietnam',
-    image: '../images/Language.png',
-  },
+  // {
+  //   id: 2,
+  //   value: 4,
+  //   label: 'Vietnam',
+  //   image: '../images/Language.png',
+  // },
 ];
 
 const listSubMenu = {
@@ -55,6 +56,7 @@ interface MenuMobileProps {
   isShow: boolean;
   onClose: () => void;
 }
+
 export default function MenuMobile({ isShow, onClose }: MenuMobileProps) {
   const [phoneCountry, setPhoneCountry] = useState(data[0].value);
   const [isFirstMenuShow, setIsFirstMenuShow] = useState(true);
@@ -63,6 +65,11 @@ export default function MenuMobile({ isShow, onClose }: MenuMobileProps) {
   const route = useRouter();
 
   const handleClickFirstItem = (item) => {
+    if (item.sub.length === 0) {
+      route.push(`/${item.url}`);
+      onClose();
+      return;
+    }
     setIsFirstMenuShow(false);
     setIsSecondMenuShow(true);
     setCurrentItem(item);
@@ -87,6 +94,8 @@ export default function MenuMobile({ isShow, onClose }: MenuMobileProps) {
 
   const menuHeaderStore = useAppSelector(selectHeaderMenu);
 
+  useClickID('arrow-down', '/');
+
   return (
     <>
       <style jsx>{appStyle}</style>
@@ -107,21 +116,22 @@ export default function MenuMobile({ isShow, onClose }: MenuMobileProps) {
                 <button onClick={closeModal}>
                   <Close />
                 </button>
-                <div className="ibc-mobile-sidebar__logo_box">
-                  <LogoOneIbc />
+                <div className="ibc-mobile-sidebar__logo_box" onClick={() => route.push('/')}>
+                  {/* <LogoOneIbc /> */}
+                  <img src="/images/one-ibc-logo.svg" alt="arrow-down" id="arrow-down" />
                 </div>
               </div>
 
               <div className="ibc-mobile-sidebar__menu">
                 <div className="ibc-mobile-sidebar__menu__search">
-                  <input type="text" placeholder="Services, News, Promotion..." />
+                  {isShow && <SearchInputComponent />}
                   <div className="icon-search">
                     <Search />
                   </div>
                 </div>
                 <div className="ibc-mobile-sidebar__menu_list-menu">
                   <ul>
-                    {menuHeaderStore.map((item) => (
+                    {map(menuHeaderStore, (item) => (
                       <li key={item.name}>
                         <a
                           target="_self"
@@ -144,6 +154,15 @@ export default function MenuMobile({ isShow, onClose }: MenuMobileProps) {
                 <div className="ibc-mobile-sidebar__menu_login_localtion">
                   <ul>
                     <li>
+                      Location
+                      <SelectForm
+                        instanceId="select1"
+                        OptionLIst={data2}
+                        onChange={(e: any) => setPhoneCountry(e.value)}
+                        value={phoneCountry}
+                      />
+                    </li>
+                    <li>
                       Language
                       <SelectForm
                         instanceId="select1"
@@ -152,36 +171,51 @@ export default function MenuMobile({ isShow, onClose }: MenuMobileProps) {
                         value={phoneCountry}
                       />
                     </li>
-                    <li>
-                      Location
-                      <SelectForm
-                        instanceId="select1"
-                        OptionLIst={data2}
-                        onChange={(e: any) => setPhoneCountry(e.value)}
-                        value={phoneCountry}
-                      />
-                      <img src="" alt="" />
-                    </li>
                   </ul>
                 </div>
+
                 <div className="ibc-mobile-sidebar__menu_login_btn">
-                  <button className="ibc-menu-basic">
+                  <div className="ibc-btn-wrapper">
+                    <a
+                      className="ibc-custom-btn ibc-custom-btn--no-circle"
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={onClose}
+                      href="https://www.offshorecompanycorp.com/login"
+                    >
+                      <i className="fa-solid fa-circle-user"></i>
+                      <span>Log In</span>
+                    </a>
+                  </div>
+                  <div className="ibc-btn-wrapper">
+                    <a
+                      className="ibc-custom-btn ibc-custom-btn--no-circle"
+                      title="Make an Enquiry"
+                      target="_self"
+                      onClick={onClose}
+                      href="/make-an-enquiry"
+                    >
+                      <span>Make an Enquiry</span>
+                    </a>
+                  </div>
+                  {/* <button className="ibc-menu-basic">
                     <IconLogin />
                     <a
                       href="https://www.offshorecompanycorp.com/login"
                       target="_blank"
                       rel="noreferrer"
+                      onClick={onClose}
                     >
-                      Log In
+                      Make an Enquiry
                     </a>
                   </button>
                   <button className="ibc-menu-medium">
                     <Link href="/make-an-enquiry">
-                      <a title="Make an Enquiry" target="_self">
+                      <a title="Make an Enquiry" target="_self" onClick={onClose}>
                         Make an Enquiry
                       </a>
                     </Link>
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>

@@ -1,0 +1,59 @@
+.ibc-about-us__banner {
+  background: linear-gradient(109.1deg, #530508 37.14%, #c91f26 101.27%);
+  position: relative;
+
+  img {
+    width: 50%;
+    height: 100%;
+    @include breakpoint-down(phone) {
+      order: 1;
+      width: 100%;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    @include breakpoint-down(phone) {
+      order: 0;
+      position: unset;
+      bottom: 0;
+      transform: unset;
+    }
+
+    div {
+      padding: 0 80px;
+      color: $white;
+      @include breakpoint-down(desktop) {
+        padding: 0 30px;
+      }
+      @include breakpoint-down(phone) {
+        text-align: center;
+        padding: 40px 15px 40px 30px;
+      }
+
+      h1 {
+        font-weight: 500;
+        font-size: 48px;
+        line-height: 120%;
+        vertical-align: middle;
+        @include breakpoint-down(phone) {
+          font-size: 32px;
+        }
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 140%;
+        @include breakpoint-down(phone) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,13 @@
-import { IError, IGetInContact, IGetInTouch, IGetInTouchOtp } from '@interfaces/index';
+import { IGetInCareer } from '@interfaces/career';
+import {
+  IError,
+  IGetInContact,
+  IGetInSubscribe,
+  IGetInTouch,
+  IGetInTouchOtp,
+} from '@interfaces/index';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import careerServices from '@services/carrer';
 import googleRecaptchaService from '@services/googleCaptcha';
 import homeService from '@services/home';
 import { originRequest } from '@utils/api';
@@ -74,6 +82,45 @@ export const submitFormGetInContactThunk = createAsyncThunk<
 >('app/updateFile', async (payload, { rejectWithValue }) => {
   try {
     const response: any = await homeService.getInContact(payload);
+
+    return response;
+  } catch (error) {
+    return rejectWithValue(error);
+  }
+});
+export const submitFormGetInSubscribeThunk = createAsyncThunk<
+  null,
+  IGetInSubscribe,
+  { rejectValue: IError }
+>('app/updateFile', async (payload, { rejectWithValue }) => {
+  try {
+    const response: any = await homeService.getInSubscribe(payload);
+
+    return response;
+  } catch (error) {
+    return rejectWithValue(error);
+  }
+});
+export const submitFormGetInCareerThunk = createAsyncThunk<
+  null,
+  IGetInCareer,
+  { rejectValue: IError }
+>('app/updateFile', async (payload, { rejectWithValue }) => {
+  try {
+    const response: any = await careerServices.getInCareer(payload);
+
+    return response;
+  } catch (error) {
+    return rejectWithValue(error);
+  }
+});
+export const submitFormGetInDataHubThunk = createAsyncThunk<
+  null,
+  IGetInTouch,
+  { rejectValue: IError }
+>('app/updateUser', async (payload, { rejectWithValue }) => {
+  try {
+    const response: any = await homeService.getInDataHub(payload);
 
     return response;
   } catch (error) {

@@ -1,7 +1,6 @@
-import { GroupGetInTouch } from '@components/compound/GroupGetInTouch';
 import { GroupGetUpdate } from '@components/compound/GroupGetUpdate';
-import HeadSEO from '@components/primitive/HeadSEO';
 import { IServicesBannerProps } from '@interfaces/service-page';
+import style from '@scss/components/group-get-In-touch.scss';
 import appStyle from '@scss/pages/industries-detail/index.scss';
 import { get } from 'lodash';
 import IndustriesList from './ConsultingServicesList';
@@ -12,12 +11,11 @@ export default function IndustriesDetail({ banner, detailPage }: IServicesBanner
   return (
     <>
       <style jsx>{appStyle}</style>
-      <HeadSEO title="oneibc homepage" {...detailPage.industry}></HeadSEO>
+      <style jsx>{style}</style>
       <main className="ibc-service">
         <Hero banner={banner} />
         <IndustriesList configFuture={detailPage} name={name} />
         <GroupGetUpdate />
-        <GroupGetInTouch />
       </main>
     </>
   );

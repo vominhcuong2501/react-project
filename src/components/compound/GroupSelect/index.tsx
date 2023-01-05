@@ -42,7 +42,8 @@ const IconSingleValue = ({ data, ...self }: any) => (
     <img
       src={data?.image}
       style={{
-        height: '14px',
+        height: '30px',
+        // width: '20px',
         marginRight: '10px',
       }}
     />
@@ -55,7 +56,7 @@ const IconOption = ({ data, ...self }: any) => (
     <img
       src={data.image}
       style={{
-        height: '14px',
+        height: '20px',
         marginRight: '10px',
       }}
     />

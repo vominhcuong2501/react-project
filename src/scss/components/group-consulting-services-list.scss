@@ -3,12 +3,15 @@
 .ibc-component {
   &__list {
     display: flex;
-    width: 100%;
+    width: calc(100% + 60px);
     flex-wrap: wrap;
     margin-top: 40px;
+    margin-left: -3rem;
 
     @include breakpoint-down(phone) {
       margin-top: 20px;
+      width: 100%;
+      margin-left: 0;
     }
 
     &--item {
@@ -48,22 +51,20 @@
       }
 
       h3 {
-        color: $black-3;
-        font-weight: $font-weight-light;
-        font-size: $font-size-fit;
-        line-height: 140%;
-        padding: $font-size-medium 0;
-        text-transform: uppercase;
-        cursor: pointer;
+        margin-top: 16px;
 
         a {
-          color: $black-3;
           font-weight: $font-weight-light;
           font-size: $font-size-fit;
           line-height: 140%;
           padding: $font-size-medium 0;
           text-transform: uppercase;
           cursor: pointer;
+          color: $black-1;
+
+          @include breakpoint-down(phone) {
+            font-size: 20px;
+          }
         }
       }
 
@@ -72,6 +73,11 @@
         font-weight: $font-weight-base;
         font-size: $font-size-large;
         line-height: 140%;
+        margin-top: 16px;
+
+        @include breakpoint-down(phone) {
+          font-size: 16px;
+        }
       }
 
       &:hover {

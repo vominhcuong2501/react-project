@@ -1,64 +1,56 @@
+import Modal from '@components/compound/Modal';
+import FormModalSubscribe from '@containers/InsightsDetailArticle/FormModalSubscribe';
+import InsightsSubscribe from '@containers/InsightsDetailArticle/Subscribe';
 import sideBarStyle from '@scss/components/sidebar.scss';
+import { map } from 'lodash';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import NextImage from '../NextImage';
+import { useEffect, useState } from 'react';
 
 export default function SideBarComponent({ config, relate }: any) {
   const router = useRouter();
-  const currentPath = router.asPath.split('/').filter((x) => x);
-  const path = `${currentPath[0]}/${currentPath[1]}`;
+  const { id }: any = router.query;
+  const path = router.asPath.replace(id, '');
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+  useEffect(() => {
+    function displayMessage() {
+      setIsOpen(true);
+      document.getElementById('handleForm').onclick = toggle;
+    }
+    const btn = document.getElementById('handleForm');
+    btn?.addEventListener('click', displayMessage);
+  });
   return (
     <>
       <style jsx>{sideBarStyle}</style>
       <div className="ibc-sidebar">
-        {/* <div className="ibc-sidebar__header">
-          <div className="ibc-sidebar__header__content">
-            <h1>Subcirbe To Our Updates</h1>
-            <h3>
-              Latest news & insights from around the world brought to you by One IBC®’s experts
-            </h3>
-            <div>
-              <a href="#">
-                SUBSCRIBE NOW
-                <i className="fa-light fa-arrow-right-long"></i>
-              </a>
-            </div>
-          </div>
-          <img
-            src="/images/img-sidebar-header.jpg"
-            alt="/images/img-sidebar-header.jpg"
-            width="267"
-            height="168"
-          />
-        </div> */}
+        <div className="App">
+          <Modal open={isOpen} onClose={toggle} isClose handleClose={toggle}>
+            <FormModalSubscribe></FormModalSubscribe>
+          </Modal>
+        </div>
 
-        <div dangerouslySetInnerHTML={{ __html: config }} />
+        <div className="ibc-sidebar-cusstom" dangerouslySetInnerHTML={{ __html: config }} />
+
         <div className="ibc-sidebar__article">
           <h2>Realted Articles</h2>
-          {/* <div className="ibc-sidebar__article__item">
-            <a href="#" target="_self">
-              <img
-                src="/images/img-sidebar-article-1.jpg"
-                alt="/images/img-sidebar-article-1.jpg"
-                width="267"
-                height="200"
-              />
-              <p>Singapore’s Major Trading Partners And Figures</p>
-            </a>
-          </div> */}
-
-          {relate &&
-            relate.map((item, index) => (
-              <div className="ibc-sidebar__article__item" key={`${index}`.toString()}>
-                <Link href={`/${path}/${item.keyword}`}>
-                  <a target="_self" title={item.name}>
-                    <NextImage src={item.icon} alt={item.name} width="267" height="200" />
-                    <p>{item.name}</p>
-                  </a>
-                </Link>
-              </div>
-            ))}
+          {map(relate, (item, index) => (
+            <div className="ibc-sidebar__article__item" key={`${index}`.toString()}>
+              <Link href={`${path}${item.keyword}`}>
+                <a target="_self" title={item.name} href={`${path}${item.keyword}`}>
+                  <img src={item.icon} alt={item.name} width="267" height="200" />
+                  {item.name}
+                </a>
+              </Link>
+            </div>
+          ))}
+        </div>
+        <div className="ibc__mobile__fix">
+          <InsightsSubscribe />
         </div>
       </div>
     </>

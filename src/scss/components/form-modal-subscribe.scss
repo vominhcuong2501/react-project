@@ -5,7 +5,7 @@
   margin: 0 auto;
   background: $white;
   border-radius: 8px;
-  padding: 40px;
+  padding: 20px;
   @include breakpoint-down(desktop) {
     .ibc-input-form__main input {
       margin-bottom: 0;
@@ -17,29 +17,32 @@
   }
   @include breakpoint-down(phone) {
     max-width: 343px;
-    padding: 20px 16px;
+    padding: 0;
   }
 
   &__content {
     color: $black-1;
+    text-align: left;
 
     h1 {
       font-weight: $font-weight-bold-md;
       font-size: 20px;
       line-height: 130%;
+      margin-bottom: 10px;
     }
 
     p {
       font-weight: $font-weight-base;
       font-size: 16px;
       line-height: 140%;
+      text-align: left;
     }
 
     .ibc-input-form__label {
       font-weight: $font-weight-base;
       font-size: 14px;
       line-height: 140%;
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
     .ibc-input-form__main input {
@@ -68,6 +71,11 @@
     padding: 20px;
   }
 
+  img {
+    width: 120px;
+    height: 120px;
+  }
+
   h1 {
     font-weight: $font-weight-light;
     font-size: 20px;
@@ -83,4 +91,33 @@
   font-size: 14px;
   font-weight: $font-weight-light;
   cursor: pointer;
+}
+
+.ibc-modal__close {
+  cursor: pointer;
+  z-index: 10;
+  position: absolute;
+  right: 32px !important;
+  top: 30px !important;
+  @include breakpoint-down(phone) {
+    padding: 0 !important;
+    top: 25px !important;
+  }
+
+  i {
+    font-size: 16px;
+  }
+}
+
+.box-message {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: -2rem;
+
+  &__error-text {
+    position: unset;
+    color: $red-2;
+    font-size: 16px;
+    display: block;
+  }
 }

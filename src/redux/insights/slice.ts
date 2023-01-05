@@ -7,15 +7,31 @@ interface State {
   services: string;
   listTopics: [];
   listServices: [];
+  listFaq: [];
+  listDataHub: [];
+  listInSightsTypes: [];
+  ip: [];
+  userAgent: [];
+  configDataHub: null;
+  configFaq: null;
+  subscribeConfig: null;
 }
 
 const initialState: State = {
   listInsights: [],
+  listFaq: [],
+  listDataHub: [],
+  listInSightsTypes: [],
+  ip: [],
+  userAgent: [],
   listDetailPage: [],
   topics: '',
   services: '',
   listTopics: [],
   listServices: [],
+  configDataHub: null,
+  configFaq: null,
+  subscribeConfig: null,
 };
 
 const insightSlice = createSlice({
@@ -24,6 +40,12 @@ const insightSlice = createSlice({
   reducers: {
     setListInsights(state, { payload }: PayloadAction<any>) {
       state.listInsights = payload;
+    },
+    setListsFaq(state, { payload }: PayloadAction<any>) {
+      state.listFaq = payload;
+    },
+    setListsDataHub(state, { payload }: PayloadAction<any>) {
+      state.listDataHub = payload;
     },
     setListDetailPage(state, { payload }: PayloadAction<any>) {
       state.listDetailPage = payload;
@@ -40,9 +62,40 @@ const insightSlice = createSlice({
     setListServices(state, { payload }: PayloadAction<any>) {
       state.listServices = payload;
     },
+    setListInSightsTypes(state, { payload }: PayloadAction<any>) {
+      state.listInSightsTypes = payload;
+    },
+    setIp(state, { payload }: PayloadAction<any>) {
+      state.ip = payload;
+    },
+    setUserAgent(state, { payload }: PayloadAction<any>) {
+      state.userAgent = payload;
+    },
+    setConfigDataHub(state, { payload }: PayloadAction<any>) {
+      state.configDataHub = payload;
+    },
+    setConfigFaq(state, { payload }: PayloadAction<any>) {
+      state.configFaq = payload;
+    },
+    setConfigSubscribeConfig(state, { payload }: PayloadAction<any>) {
+      state.subscribeConfig = payload;
+    },
   },
 });
 
-export const { setListInsights, setTopicOption, setServicesOptions } = insightSlice.actions;
+export const {
+  setListInsights,
+  setTopicOption,
+  setServicesOptions,
+  setListsFaq,
+  setListsDataHub,
+  setListInSightsTypes,
+  setListTopics,
+  setIp,
+  setUserAgent,
+  setConfigDataHub,
+  setConfigFaq,
+  setConfigSubscribeConfig,
+} = insightSlice.actions;
 
 export default insightSlice;

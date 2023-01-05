@@ -47,8 +47,11 @@
       &_title {
         display: flex;
         align-items: center;
-        font-size: 2rem;
+        font-size: 20px;
         font-weight: $font-weight-medium;
+        @include breakpoint-down(desktop) {
+          font-size: 18px;
+        }
       }
 
       &_address {
@@ -61,12 +64,39 @@
         display: flex;
         margin-top: 1.7rem;
         margin-bottom: 1.2rem;
+
+        p {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 140%;
+          @include breakpoint-down(desktop) {
+            font-size: 14px;
+          }
+        }
       }
 
       &_time {
         display: flex;
         align-items: center;
+
+        p {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 140%;
+          @include breakpoint-down(desktop) {
+            font-size: 14px;
+          }
+        }
       }
     }
+  }
+}
+
+.ibc-address {
+  @include breakpoint-down(phone) {
+    padding: 40px 16px !important;
+  }
+  @include breakpoint-down(smallphone) {
+    border-bottom: 8px solid #f0f2f5;
   }
 }

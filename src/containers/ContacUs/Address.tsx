@@ -1,6 +1,6 @@
 import { IOfficesContact } from '@interfaces/contact-us';
 import appStyle from '@scss/pages/contact-us/address.scss';
-import { get } from 'lodash';
+import { get, map } from 'lodash';
 
 interface ServicesListProps {
   officesService: IOfficesContact;
@@ -10,28 +10,27 @@ export function Address({ officesService }: ServicesListProps) {
   return (
     <>
       <style jsx>{appStyle}</style>
-      <section className="ibc_touch ibc-main ibc-contact">
+      <section className="ibc_touch ibc-main ibc-contact ibc-address">
         <div className="ibc-contact_list">
           <ul>
-            {listServicesData.length > 0 &&
-              listServicesData.map((item) => (
-                <li key={item.id}>
-                  <div className="ibc-contact_list_item">
-                    <div className="ibc-contact_list_item_title">
-                      <img src={item.icon} alt="" />
-                      <p>{item.title}</p>
-                    </div>
-                    <div className="ibc-contact_list_item_address">
-                      <img src="../images/map.jpg" alt="" />
-                      <p>{item.address}</p>
-                    </div>
-                    <div className="ibc-contact_list_item_time">
-                      <img src="../images/time.jpg" alt="" />
-                      <p>{item.working}</p>
-                    </div>
+            {map(listServicesData, (item) => (
+              <li key={item.id}>
+                <div className="ibc-contact_list_item">
+                  <div className="ibc-contact_list_item_title">
+                    <img src={item.icon} alt="" />
+                    <p>{item.title}</p>
                   </div>
-                </li>
-              ))}
+                  <div className="ibc-contact_list_item_address">
+                    <img src="../images/map.jpg" alt="" />
+                    <p>{item.address}</p>
+                  </div>
+                  <div className="ibc-contact_list_item_time">
+                    <img src="../images/time.jpg" alt="" />
+                    <p>{item.working}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
             {/* <li>
               <div className="ibc-contact_list_item">
                 <div className="ibc-contact_list_item_title">

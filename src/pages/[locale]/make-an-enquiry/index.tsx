@@ -1,11 +1,15 @@
-import { CACHE_MAIN_MAKE_AN_ENQUIRE, CACHE_MAIN_MAKE_AN_ENQUIRE_BANNER } from '@/constants';
-import { readCache } from '@/lib/readCache';
+import {
+  CACHE_MAIN_MAKE_AN_ENQUIRE,
+  CACHE_MAIN_MAKE_AN_ENQUIRE_BANNER,
+  CACHE_META_SEO_MAKE_AN_ENQUIRE,
+} from '@/constants';
+import { readCacheDynamic } from '@/lib/readCacheDynamic';
 import { MainLayout } from '@components/compound';
 import MakeAnEnquiry from '@containers/MakeAnEnquiry';
 import withWrapper from '@hoc/withWrapperSSG';
 import { IGetBanner } from '@interfaces/home';
 import commonService from '@services/common';
-import oneIbcServices from '@services/makeAnEnquire';
+import oneIbcMake from '@services/makeAnEnquire';
 import { coverObj } from '@utils/helpers';
 
 const Index = (props: any) => <MakeAnEnquiry {...props} />;
@@ -17,18 +21,22 @@ export const getServerSideProps = withWrapper({
       controller: 'make-an-enquire',
       ...region,
     };
-
+    const metaInfoPage = {
+      language: region.lang,
+      countryCode: region.country,
+    };
     const promises = [
-      readCache(CACHE_MAIN_MAKE_AN_ENQUIRE_BANNER) ??
+      readCacheDynamic(CACHE_MAIN_MAKE_AN_ENQUIRE_BANNER, 'enquiry') ??
         commonService.getBanner(reqDataGetBanner, CACHE_MAIN_MAKE_AN_ENQUIRE_BANNER),
-      readCache(CACHE_MAIN_MAKE_AN_ENQUIRE) || oneIbcServices.getMake(region),
+      readCacheDynamic(CACHE_MAIN_MAKE_AN_ENQUIRE, 'enquiry') || oneIbcMake.getMake(region),
+      readCacheDynamic(CACHE_META_SEO_MAKE_AN_ENQUIRE, 'contact-us') ??
+        oneIbcMake.getInfoPageMetaDetail(metaInfoPage),
     ];
     const response: any = await Promise.allSettled(promises);
     const data = await response.map((item) =>
       item.status === 'fulfilled' ? item.value ?? [] : null,
     );
-
-    const ar = ['banner', 'configFuture'];
+    const ar = ['banner', 'configFuture', 'metaInfo'];
     return {
       props: {
         ...coverObj(ar, data),

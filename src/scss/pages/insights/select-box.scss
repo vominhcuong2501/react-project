@@ -1,10 +1,10 @@
 .ibc-insight__select-box {
   border-radius: 4px;
-  margin-top: 16px;
+  // margin-top: 16px;
 }
 
 .ibc-select-box__control {
-  background-color: #f0f2f5;
+  background-color: $white-5;
   font-size: $font-size-large;
   padding: 10px 0;
 }
@@ -12,4 +12,17 @@
 body .ibc-select-box__control {
   height: 41px;
   padding: 10px 29px;
+}
+
+.css-b62m3t-container,
+.ibc-insight__select-box,
+.ibc-select-box__value-container,
+.css-qc6sy-singleValue {
+  &:focus-visible {
+    outline: unset;
+    border: 1px solid transparent;
+  }
+}
+.css-tlfecz-indicatorContainer {
+  color: hsl(270deg 2% 23%) !important;
 }

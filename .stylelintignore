@@ -12,3 +12,4 @@ tsconfig.tsbuildinfo
 /server/
 /cache/
 /backup/
+/html

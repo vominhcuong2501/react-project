@@ -18,6 +18,7 @@ div {
     line-height: 68px;
     text-align: right;
     margin-right: 28px;
+    white-space: nowrap;
 
     &:before {
       content: ' ';
@@ -37,6 +38,12 @@ div {
       top: 50%;
       transform: translateY(-50%);
     }
+  }
+  span {
+    cursor: pointer;
+  }
+  i {
+    font-size: 30px;
   }
 
   &:hover {

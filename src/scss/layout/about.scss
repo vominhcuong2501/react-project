@@ -1,0 +1,67 @@
+@import '@scss/abstracts';
+
+@import '@scss/components/group-style-first-detail';
+@import '@scss/pages/about-us-offices';
+@import '@scss/components/coporate';
+
+.ibc-about-banner {
+  &__content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+
+    img {
+      height: 100%;
+      width: 100%;
+      min-height: 780px;
+      object-fit: cover;
+
+      @include breakpoint-down(phone) {
+        min-height: 580px;
+        max-height: 580px;
+      }
+    }
+
+    h2 {
+      color: $white;
+      font-size: 80px;
+
+      @include breakpoint-down(phone) {
+        width: 100%;
+        font-size: 48px;
+        padding: 0 15px;
+      }
+    }
+  }
+
+  &__content-swapper {
+    position: absolute;
+    width: 100%;
+    margin-top: 7.6rem;
+    height: calc(100% - 7.6rem - 130px);
+    left: 50%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-50%);
+
+    @include breakpoint-down(phone) {
+      height: calc(100% - 7.6rem);
+      max-height: 580px;
+    }
+  }
+}
+
+// .ibc-breadcrumbs {
+//   @include breakpoint-down(desktop) {
+//     display: none;
+//   }
+// }
+
+.ibc-coporate__approach {
+  @include breakpoint-down(phone) {
+    padding-top: unset;
+  }
+}

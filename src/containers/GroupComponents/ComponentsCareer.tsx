@@ -24,7 +24,7 @@ export default function ComponentsCareer() {
                   faucibus leo et id.
                 </p>
                 <div className="ibc-career__article__item__icon">
-                  <a href="#" target="_self">
+                  <a href="/404" target="_self">
                     <img
                       src="/images/icon-article-career.svg"
                       width="44"
@@ -52,7 +52,7 @@ export default function ComponentsCareer() {
                   faucibus leo et id.
                 </p>
                 <div className="ibc-career__article__item__icon">
-                  <a href="#" target="_self">
+                  <a href="/404" target="_self">
                     <img
                       src="/images/icon-article-career.svg"
                       width="44"
@@ -80,7 +80,7 @@ export default function ComponentsCareer() {
                   faucibus leo et id.
                 </p>
                 <div className="ibc-career__article__item__icon">
-                  <a href="#" target="_self">
+                  <a href="/404" target="_self">
                     <img
                       src="/images/icon-article-career.svg"
                       width="44"
@@ -108,7 +108,7 @@ export default function ComponentsCareer() {
                   faucibus leo et id.
                 </p>
                 <div className="ibc-career__article__item__icon">
-                  <a href="#" target="_self">
+                  <a href="/404" target="_self">
                     <img
                       src="/images/icon-article-career.svg"
                       width="44"
@@ -136,7 +136,7 @@ export default function ComponentsCareer() {
                   faucibus leo et id.
                 </p>
                 <div className="ibc-career__article__item__icon">
-                  <a href="#" target="_self">
+                  <a href="/404" target="_self">
                     <img
                       src="/images/icon-article-career.svg"
                       width="44"
@@ -164,7 +164,7 @@ export default function ComponentsCareer() {
                   faucibus leo et id.
                 </p>
                 <div className="ibc-career__article__item__icon">
-                  <a href="#" target="_self">
+                  <a href="/404" target="_self">
                     <img
                       src="/images/icon-article-career.svg"
                       width="44"
@@ -192,7 +192,7 @@ export default function ComponentsCareer() {
                   faucibus leo et id.
                 </p>
                 <div className="ibc-career__article__item__icon">
-                  <a href="#" target="_self">
+                  <a href="/404" target="_self">
                     <img
                       src="/images/icon-article-career.svg"
                       width="44"
@@ -220,7 +220,7 @@ export default function ComponentsCareer() {
                   faucibus leo et id.
                 </p>
                 <div className="ibc-career__article__item__icon">
-                  <a href="#" target="_self">
+                  <a href="/404" target="_self">
                     <img
                       src="/images/icon-article-career.svg"
                       width="44"
@@ -248,7 +248,7 @@ export default function ComponentsCareer() {
                   faucibus leo et id.
                 </p>
                 <div className="ibc-career__article__item__icon">
-                  <a href="#" target="_self">
+                  <a href="/404" target="_self">
                     <img
                       src="/images/icon-article-career.svg"
                       width="44"
@@ -263,7 +263,9 @@ export default function ComponentsCareer() {
         </div>
         <div className="ibc-career__about row">
           <div className="ibc-career__about__content col-12">
-            <h1>Learn More About One IBC®</h1>
+            <h1>
+              Learn More About One IBC<sup>®</sup>
+            </h1>
             <div className="row">
               <div className="col-lg-4 col-sm-6 col-12 ibc-career__about__content__item">
                 <h2>About Us</h2>
@@ -275,7 +277,7 @@ export default function ComponentsCareer() {
                     title="about-us"
                     height="248"
                   />
-                  <a href="#" target="_seft">
+                  <a href="/404" target="_seft">
                     <img
                       src="/images/icon-about-career.svg"
                       alt="View more"
@@ -295,7 +297,7 @@ export default function ComponentsCareer() {
                     alt="our-offices"
                     title="our-offices"
                   />
-                  <a href="#" target="_seft">
+                  <a href="/404" target="_seft">
                     <img
                       src="/images/icon-about-career.svg"
                       height="44"
@@ -315,7 +317,7 @@ export default function ComponentsCareer() {
                     height="248"
                     title="our-partners"
                   />
-                  <a href="#" target="_seft">
+                  <a href="/404" target="_seft">
                     <img
                       src="/images/icon-about-career.svg"
                       alt="View more"
@@ -346,7 +348,7 @@ export default function ComponentsCareer() {
               <div className=" button_update">
                 <div className="ibc__form__box__button ">
                   <button>
-                    <a href="#" target="_self">
+                    <a href="/404" target="_self">
                       <p className="m-0">Apply Now</p>
                     </a>
                   </button>
@@ -370,7 +372,7 @@ export default function ComponentsCareer() {
               <div className=" button_update">
                 <div className="ibc__form__box__button ">
                   <button>
-                    <a href="#" target="_self">
+                    <a href="/404" target="_self">
                       <p className="m-0">Apply Now</p>
                     </a>
                   </button>
@@ -394,7 +396,7 @@ export default function ComponentsCareer() {
               <div className=" button_update">
                 <div className="ibc__form__box__button ">
                   <button>
-                    <a href="#" target="_self">
+                    <a href="/404" target="_self">
                       <p className="m-0">Apply Now</p>
                     </a>
                   </button>

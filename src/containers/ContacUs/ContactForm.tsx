@@ -1,7 +1,10 @@
 import appStyle from '@/scss/pages/home/index.scss';
+import { useDebouncedCallback } from '@hooks/useDebouncedCallback';
 import { IListCalls } from '@interfaces/contact-us';
 import { submitFormGetInContactThunk } from '@redux/app/thunks';
-import { useAppDispatch } from '@redux/hooks';
+import { getConfigContactForm } from '@redux/common/selectors';
+import { useAppDispatch, useAppSelector } from '@redux/hooks';
+import { get } from 'lodash';
 import { useState } from 'react';
 import CallUs from './CallUs';
 
@@ -13,11 +16,16 @@ interface ServicesListProps {
 export function ContactForm({ listServices }: ServicesListProps) {
   const dispatch = useAppDispatch();
   const [isValidFormField, setIsValidFormField] = useState(false);
-  const handleSubmitForm = async (values) => {
+  const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
+  const titleMap = get(useAppSelector(getConfigContactForm), 'config.content', null);
+  console.log('', titleMap);
+  const handleSubmitForm = useDebouncedCallback(async (values) => {
+    if (isSubmitSuccessful) return;
     const response: any = await dispatch(submitFormGetInContactThunk(values));
     const result = response.payload.isSuccessful;
-    setIsValidFormField(!!result);
-  };
+    const isResult = result === 'true';
+    setIsValidFormField(isResult);
+  }, 1000);
 
   const SubmitFormIsSuccessfully = () => (
     <div className="ibc__form success">
@@ -30,9 +38,9 @@ export function ContactForm({ listServices }: ServicesListProps) {
 
   const FormGetInTouch = () => (
     <div className="ibc__form">
-      <div className="ibc-difference__content">
-        <h2>Get In Touch!</h2>
-        <p>Make a difference and achieve the extraordinary. Let us help!</p>
+      <div className="ibc-difference__content" dangerouslySetInnerHTML={{ __html: titleMap }}>
+        {/* <h2>Get In Touch!</h2>
+        <p>Make a difference and achieve the extraordinary. Let us help!</p> */}
       </div>
       <GetInContactForm onSubmit={handleSubmitForm} />
     </div>

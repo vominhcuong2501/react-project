@@ -1,0 +1,92 @@
+@import '@scss/abstracts';
+@import '@scss/pages/career-detail/sidebar';
+
+.ibc-team-group {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  max-width: 1600px;
+  justify-content: space-between;
+
+  @include breakpoint-down(desktop) {
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+  }
+
+  div:nth-child(1) {
+    padding: 20px 16px;
+  }
+
+  h2 {
+    font-size: 48px;
+    line-height: 120%;
+    font-weight: 300;
+
+    /* Primary colors/Gradient/Sunset */
+    background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    @include breakpoint-down(phone) {
+      font-size: 32px;
+    }
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+
+    /* Primary colors/6#3B3A3C */
+    color: #3b3a3c;
+    margin-top: 20px;
+    @include breakpoint-down(phone) {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+  }
+  @include breakpoint-down(phone) {
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.ibc-btn-wrapper {
+  align-items: center;
+  margin: 50px 0 0;
+  @include breakpoint-down(phone) {
+    margin: 40px auto 0;
+  }
+  .ibc-custom-btn {
+    font-size: 18px;
+    padding: 12.5px 97.5px;
+  }
+}
+
+.ibc-container {
+  // background-color: unset !important;
+
+  .ibc-team-group {
+    .ibc-container {
+      background-color: $white;
+    }
+
+    > div {
+      &:first-child {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        align-items: flex-start;
+      }
+    }
+  }
+}
+
+.ibc-container-team-group {
+  .ibc-container {
+    background-color: $white !important;
+  }
+}

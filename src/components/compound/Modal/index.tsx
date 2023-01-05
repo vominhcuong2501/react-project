@@ -1,4 +1,3 @@
-import { Button } from '@components/primitive';
 import { Dialog, DialogContent, DialogProps } from '@mui/material';
 import modalStyles from '@scss/components/modal.scss?type=scoped';
 import { clearAllBodyScrollLocks, disableBodyScroll } from 'body-scroll-lock';
@@ -64,8 +63,9 @@ function Modal({
       >
         {isClose && (
           <div className="ibc-modal__close">
-            <Button onClick={() => handleClose()} />
-            <button onClick={() => handleClose()}>Close</button>
+            <button className="ibc-subscribe-close" onClick={() => handleClose()}>
+              <i className="fal fa-times"></i>
+            </button>
           </div>
         )}
         <DialogContent>

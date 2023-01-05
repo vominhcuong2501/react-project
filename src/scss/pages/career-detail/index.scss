@@ -1,0 +1,401 @@
+@import '@scss/abstracts';
+
+@import './sidebar';
+
+.ibc-difference__content h2 {
+  background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+  font-weight: 300;
+  font-size: 4.8rem;
+  line-height: 120%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  @include breakpoint-down(phone) {
+    text-align: left !important;
+  }
+}
+
+.ibc-difference__content > p {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  max-width: 60rem;
+}
+
+.ibc-difference__content p {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 140%;
+}
+
+.ibc-container {
+  background-color: $white-5;
+  padding: 20px 8rem 8rem;
+  text-align: left !important;
+
+  @include breakpoint-down(phone) {
+    padding: unset;
+  }
+}
+
+.ibc-container-content {
+  padding-top: calc(12rem);
+
+  @include breakpoint-down(phone) {
+    padding: unset;
+
+    .ibc-breadcrumbs {
+      display: none;
+    }
+  }
+
+  &__detail {
+    background-color: $white;
+    padding: 2rem 8rem 8rem;
+
+    @include breakpoint-down(phone) {
+      padding: 0 10px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 60px;
+
+    h1 {
+      font-weight: $font-weight-light;
+      margin-top: unset;
+      font-size: 48px;
+
+      @include breakpoint-down(phone) {
+        font-size: 32px;
+      }
+    }
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+
+      @include breakpoint-down(phone) {
+        flex-direction: column;
+      }
+    }
+
+    div {
+      &:first-child {
+        flex: 1;
+      }
+    }
+  }
+
+  &__button a {
+    @include custom-btn;
+  }
+}
+
+.ibc-career {
+  &__other-position {
+    max-width: 1300px;
+    margin-top: 60px;
+
+    @include breakpoint-down(phone) {
+      padding: 40px 15px;
+      margin-top: unset;
+    }
+
+    > h2 {
+      @include current-bg;
+      font-weight: $font-weight-light;
+      font-size: 48px;
+      line-height: 120%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      @include breakpoint-down(tablet) {
+        font-size: 32px;
+      }
+    }
+
+    &__item {
+      padding: 20px 0;
+      border-bottom: 1px solid $gray-5;
+      cursor: pointer;
+
+      .justify-content-between {
+        width: 63%;
+        color: $black-1;
+
+        h3 {
+          margin-top: 20px;
+          text-transform: uppercase;
+          font-weight: $font-weight-bold;
+          font-size: 20px;
+          line-height: 140%;
+          color: $black-1;
+
+          a {
+            color: $black-1;
+          }
+        }
+
+        p {
+          margin-top: 20px;
+          font-weight: $font-weight-base;
+          font-size: 16px;
+          line-height: 140%;
+          color: $black-1;
+          text-transform: uppercase;
+
+          span {
+            font-weight: $font-weight-medium;
+            font-size: 16px;
+            margin-left: 8px;
+          }
+        }
+      }
+      @include breakpoint-down(tablet) {
+        .justify-content-between {
+          display: unset !important;
+          width: 100%;
+
+          h3 {
+            margin-top: 8px;
+          }
+        }
+      }
+
+      &:hover {
+        border-bottom: 1px solid $red-4;
+
+        h3 {
+          a {
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-weight: $font-weight-bold;
+            font-size: 16px;
+            line-height: 140%;
+            background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+          }
+        }
+      }
+
+      &__btn {
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+.button_update {
+  width: unset !important;
+  padding: unset !important;
+
+  a {
+    @include custom-btn;
+    // color: #ff6a00;
+    max-width: 109px;
+    width: unset !important;
+    white-space: nowrap;
+  }
+}
+
+.ibc__form__box__button {
+  text-transform: uppercase;
+  color: $white;
+  font-weight: $font-weight-base;
+  font-style: normal;
+  padding-right: 0;
+  transform: translateY(0%);
+  transition: width 0.5s;
+  cursor: pointer;
+  display: flex;
+  text-align: center;
+  width: 28.8rem;
+  margin: auto;
+  margin-top: 4.8rem;
+  height: 4.9rem;
+  border: 1px solid transparent;
+  @include breakpoint-down(phone) {
+    height: 46px;
+  }
+  border-radius: 8px;
+
+  @include current-bg;
+
+  &:hover {
+    &:after {
+      content: '';
+      position: absolute;
+      width: 28.6rem;
+      margin: auto;
+      background: #fff;
+      height: 4.7rem;
+      border-radius: 8px;
+      z-index: -1;
+      @include breakpoint-down(phone) {
+        height: 44px;
+      }
+    }
+  }
+
+  button {
+    @include breakpoint-down(phone) {
+      height: 46px;
+    }
+    background: #fff;
+    border-radius: 8px;
+    text-transform: uppercase;
+    width: 28.8rem;
+    height: 4.9rem;
+    @include current-bg;
+    color: $white;
+    font-size: $font-size-medium;
+    border: none;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    cursor: pointer;
+    z-index: 10;
+
+    &:hover {
+      background: linear-gradient(225deg, #ff6a00 0%, #ee0979 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+
+    &:disabled {
+      background: #fff;
+      color: #aaa;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      cursor: unset;
+
+      &:hover {
+        -webkit-text-fill-color: unset;
+      }
+
+      :before {
+        content: url('../images/disabled-btn.png');
+        position: absolute;
+        right: -32px;
+        z-index: 11;
+        width: 34px;
+        height: 11px;
+        background-size: 150%;
+      }
+
+      &:hover:after {
+        width: 3.2rem;
+        @include breakpoint-down(phone) {
+          width: 32px;
+        }
+      }
+    }
+
+    &:before {
+      content: url('../images/more-right2.png');
+      position: absolute;
+      right: -32px;
+      z-index: 11;
+      width: 34px;
+      height: 11px;
+      background-size: 150%;
+    }
+    @include breakpoint-down(phone) {
+      height: 46px;
+      font-size: 16px;
+      width: 100%;
+      margin-right: 34px;
+    }
+
+    &:after {
+      content: '';
+      top: calc(50% - 1.7rem);
+      background-color: $white-5;
+      padding-left: 2rem;
+      text-decoration: none;
+      position: absolute;
+      left: calc(100% - $font-size-medium);
+      transform: translateY(0%);
+      border-radius: 6rem;
+      height: 3.2rem;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid $white;
+      width: 3.2rem;
+      transition: width 0.5s;
+      cursor: pointer;
+      z-index: 1;
+
+      @include breakpoint-down(phone) {
+        width: 32px;
+        height: 32px;
+        top: calc(50% - 2.4rem);
+      }
+    }
+
+    &:hover:after {
+      width: 6rem;
+
+      @include breakpoint-down(largedesktop) {
+        width: 6.3rem;
+      }
+
+      @include breakpoint-down(phone) {
+        width: 50px;
+      }
+    }
+  }
+}
+
+.disabledtrue {
+  background: unset;
+  cursor: unset !important;
+
+  &:hover {
+    background: unset;
+    @include breakpoint-down(phone) {
+      height: 44px;
+    }
+  }
+}
+
+.ibc_touch .success {
+  text-align: center;
+  margin-top: 16.1rem;
+  @include breakpoint-down(tablet) {
+    height: 16px;
+  }
+}
+
+.ibc_touch .success h1 {
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 120%;
+  color: #30c19d;
+}
+
+.ibc_touch .success img {
+  margin: 20px 0;
+  width: 200px;
+  height: 200px;
+}
+
+.ibc_touch .success p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #3b3a3c;
+}

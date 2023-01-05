@@ -1,5 +1,8 @@
+import { getFormConfig } from '@redux/common/selectors';
+import { useAppSelector } from '@redux/hooks';
 import style from '@scss/components/phone-input.scss';
 import classNames from 'classnames';
+import { get } from 'lodash';
 import { Controller, UseFormReturn } from 'react-hook-form';
 import PhoneInput from 'react-phone-input-2';
 import inputStyle from 'react-phone-input-2/lib/style.css';
@@ -10,19 +13,21 @@ export interface GroupPhoneNumberProps {
   name: any;
   className?: string;
   formLabel?: string;
-  onValueChange?: (value, country, phoneCountryCode) => void;
+  onValueChange?: (value, country, dialCode, phoneCountryCode) => void;
 }
 
 export default function GroupPhoneNumber(props: GroupPhoneNumberProps) {
+  const formConfig = JSON.parse(get(useAppSelector(getFormConfig), 'config.content', null));
   const { form, name, onValueChange } = props;
   const {
     formState: { errors },
     setValue,
   } = form;
+
   const hasError: any = errors[name];
   const onChange = (value, geo) => {
     setValue('phone', value);
-    onValueChange(value, geo, geo.countryCode);
+    onValueChange(value, geo, geo.dialCode, geo.countryCode);
   };
 
   return (
@@ -42,8 +47,9 @@ export default function GroupPhoneNumber(props: GroupPhoneNumberProps) {
                   required: true,
                   autoFocus: false,
                 }}
-                specialLabel="Phone"
+                specialLabel={get(formConfig, 'phone.label', '')}
                 countryCodeEditable={false}
+                placeholder={get(formConfig, '.phone.placeholder', '')}
                 country="vn"
                 onChange={onChange}
                 isValid={() => !hasError}

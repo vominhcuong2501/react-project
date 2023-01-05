@@ -1,13 +1,18 @@
 import GroupPagination from '@components/compound/GroupPagination';
+import CustomButtonExpands from '@components/primitive/CustomButtonExpand';
 import Pagination from '@components/primitive/Pagination';
 import SelectBox from '@components/primitive/SelectBox';
 import SideBar from '@containers/GroupComponents/Sidebar';
 import styleApp from '@scss/pages/group-components/index.scss';
+import AboutUsBanner from './About-us-banner';
+import AboutUsGroup from './About-us-group';
 import ButtonComponent from './Button';
 import ComponentsCareer from './ComponentsCareer';
 import ComponentsFaq from './ComponentsFaq';
+import Coporate from './Coporate';
 import FormModalSubscribe from './FormModalSubscribe';
-import Information from './Information';
+import Search from './Search';
+import SidebarLicenses from './SidebarLicenses';
 
 export default function GroupComponents() {
   const handleChange = (value) => value;
@@ -21,6 +26,10 @@ export default function GroupComponents() {
     ...item,
     label: item.name,
   }));
+
+  const handleClick = (e) => {
+    e.preventDefault();
+  };
   return (
     <div>
       <style jsx>{styleApp}</style>
@@ -60,7 +69,28 @@ export default function GroupComponents() {
         <ButtonComponent className="ibc-btn" />
 
         <div>
-          <Information />
+          {/* <Information /> */}
+          <CustomButtonExpands />
+        </div>
+
+        <div>
+          <AboutUsBanner />
+        </div>
+
+        <div>
+          <AboutUsGroup />
+        </div>
+
+        <div>
+          <Coporate />
+        </div>
+
+        <div>
+          <SidebarLicenses />
+        </div>
+
+        <div>
+          <Search />
         </div>
       </div>
     </div>

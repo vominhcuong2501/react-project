@@ -1,5 +1,6 @@
 import Breadcrumb from '@components/primitive/Breadcrumb';
 import styles from '@scss/pages/contact-us/banner.scss?type=scoped';
+import { map } from 'lodash';
 
 interface IBannerConctacts {
   iss: string;
@@ -23,7 +24,7 @@ export default function Banner({ banner }: IConctactProps) {
     <>
       <style jsx>{styles}</style>
 
-      {banner?.banners.map((item) => (
+      {map(banner?.banners, (item) => (
         <section className="ibc-banner" key={item.bannerId}>
           <img src={item.bannerImage} alt="" />
           <div className="ibc-container-content">

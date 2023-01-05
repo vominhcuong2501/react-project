@@ -8,6 +8,7 @@ export const useGoogleCaptcha = () => {
   const [googleToken, setGReCaptchaToken] = useState(null);
   const dispatch = useAppDispatch();
   const [valid, setValid] = useState(true);
+
   const validateGoogleCaptcha = async () => {
     if (!googleToken) return;
     const response = await dispatch(googleCaptchaThunk(googleToken));
